@@ -5,8 +5,367 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Residential and Commercial Renovation Specialist in Singapore | ReHoVa Interiors</title>
   <meta name="description" content="ReHoVa Interiors Pte Ltd (UEN: 201711139N) is an experienced residential and commercial renovation contractor in Singapore. In-house carpentry, honest pricing, and reliable project delivery.">
-  <link rel="stylesheet" href="style.css">
   
+  <style>
+    :root {
+      --primary-red: #d32f2f;
+      --bg-dark: #121212;
+      --bg-card: #1e1e1e;
+      --text-main: #f5f5f5;
+      --text-muted: #b0b0b0;
+      --border-color: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--primary-red);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Navigation */
+    .site-header {
+      background: #181818;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo-link {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .main-nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .main-nav a:hover {
+      color: #ffffff;
+    }
+
+    .btn-nav {
+      background: var(--primary-red);
+      color: #fff !important;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .hero-section {
+      background: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.92)), #222;
+      padding: 90px 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary-red);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #b71c1c;
+    }
+
+    /* About & Pillars */
+    .about-lead {
+      max-width: 860px;
+      margin: 0 auto 40px auto;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .about-lead p {
+      margin-bottom: 12px;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 24px;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .pillar-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .text-red {
+      color: var(--primary-red);
+      font-weight: 700;
+    }
+
+    .text-white {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Project Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-info {
+      padding: 16px;
+      text-align: center;
+    }
+
+    .gallery-info h4 {
+      font-size: 1.05rem;
+      color: #ffffff;
+    }
+
+    /* Running Horizontal Testimonials (Marquee) */
+    .testimonials-marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      padding: 15px 0;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .testimonials-track {
+      display: flex;
+      width: max-content;
+      gap: 24px;
+      animation: scrollTestimonials 25s linear infinite;
+    }
+
+    .testimonials-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollTestimonials {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .testimonial-card {
+      width: 320px;
+      flex-shrink: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary-red);
+      padding: 22px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+
+    .client-name {
+      color: var(--primary-red);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* Contact Details */
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 20px 24px;
+      border-radius: 6px;
+      min-width: 240px;
+      text-align: center;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-item a {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-red);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background: #0f0f0f;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 1.7rem;
+      }
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .main-nav ul {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+    }
+  </style>
+
   <!-- Local Business Schema -->
   <script type="application/ld+json">
   {
@@ -15,8 +374,8 @@
     "name": "ReHoVa Interiors Pte Ltd",
     "legalName": "ReHoVa Interiors Pte Ltd",
     "identifier": "201711139N",
-    "telephone": ["+65-6299-9291", "+65-8787-7161"],
-    "email": "sales@radiationcontrol.sg",
+    "telephone": "+65-8207-5085",
+    "email": "sales@rehova.sg",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "SG"
@@ -33,7 +392,7 @@
     <div class="nav-container">
       <div class="brand-logo">
         <a href="index.html" class="logo-link">
-          <span class="logo-text"><span class="red-text">Re</span><span class="red-text">Ho</span><span class="red-text">Va</span> Interiors</span>
+          <span class="logo-text"><span class="text-red">Re</span><span class="text-red">Ho</span><span class="text-red">Va</span> Interiors</span>
           <span class="logo-sub">Reliable, Honest, Value For Money</span>
         </a>
       </div>
@@ -50,7 +409,6 @@
 
   <!-- Hero Section -->
   <section class="hero-section">
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Residential and Commercial Renovation Specialist in Singapore</h1>
       <p>Practical budget management, direct in-house carpentry, and reliable project timelines for homeowners and commercial spaces.</p>
@@ -94,8 +452,8 @@
     </div>
   </section>
 
-  <!-- Project Gallery Section -->
-  <section id="gallery" class="section section-dark">
+  <!-- Project Gallery Section (Headings Only) -->
+  <section id="gallery" class="section">
     <div class="container">
       <div class="section-title">
         <h2>Project Gallery</h2>
@@ -105,45 +463,61 @@
         <div class="gallery-card">
           <img src="project-1.jpg" alt="Residential Interior Design Project Singapore" loading="lazy">
           <div class="gallery-info">
-            <h4>Residential Living Space</h4>
+            <h4>Residential Project</h4>
           </div>
         </div>
 
         <div class="gallery-card">
           <img src="project-2.jpg" alt="Commercial Fit-Out Renovation Singapore" loading="lazy">
           <div class="gallery-info">
-            <h4>Commercial Interior</h4>
+            <h4>Commercial Space</h4>
           </div>
         </div>
 
         <div class="gallery-card">
           <img src="project-3.jpg" alt="Custom In-House Carpentry Singapore" loading="lazy">
           <div class="gallery-info">
-            <h4>Bespoke Carpentry Works</h4>
+            <h4>Custom Carpentry</h4>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Customer Testimonials Section -->
+  <!-- Customer Testimonials (Horizontal Running Marquee) -->
   <section id="testimonials" class="section">
     <div class="container">
       <div class="section-title">
         <h2>Customer Testimonials</h2>
+        <p class="section-subtitle">Real feedback from Singapore homeowners & business operators</p>
       </div>
+    </div>
 
-      <div class="testimonials-slider">
+    <div class="testimonials-marquee-wrapper">
+      <div class="testimonials-track">
+        <!-- Track Set 1 -->
         <div class="testimonial-card">
           <p>"Workmanship on the custom carpentry was neat and solid. The handover was delivered on schedule without unexpected cost additions."</p>
           <span class="client-name">— Residential Homeowner, Tampines</span>
         </div>
-
         <div class="testimonial-card">
           <p>"Practical advice on selecting suitable materials within our fit-out budget. An honest and straightforward contractor to deal with."</p>
           <span class="client-name">— Commercial Space Owner, Ubi</span>
         </div>
+        <div class="testimonial-card">
+          <p>"ReHoVa coordinated the renovation well and stayed practical with material recommendations to match our financial plan."</p>
+          <span class="client-name">— Condo Owner, Pasir Ris</span>
+        </div>
 
+        <!-- Track Set 2 (Duplicates for Seamless Marquee) -->
+        <div class="testimonial-card">
+          <p>"Workmanship on the custom carpentry was neat and solid. The handover was delivered on schedule without unexpected cost additions."</p>
+          <span class="client-name">— Residential Homeowner, Tampines</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Practical advice on selecting suitable materials within our fit-out budget. An honest and straightforward contractor to deal with."</p>
+          <span class="client-name">— Commercial Space Owner, Ubi</span>
+        </div>
         <div class="testimonial-card">
           <p>"ReHoVa coordinated the renovation well and stayed practical with material recommendations to match our financial plan."</p>
           <span class="client-name">— Condo Owner, Pasir Ris</span>
@@ -153,8 +527,8 @@
   </section>
 
   <!-- Contact & Enquiry Section -->
-  <section id="contact" class="section section-dark">
-    <div class="container contact-container">
+  <section id="contact" class="section">
+    <div class="container">
       <div class="section-title">
         <h2>Start Your Renovation Consultation</h2>
         <p class="section-subtitle">Reach out directly to discuss your residential or commercial project.</p>
@@ -162,16 +536,12 @@
 
       <div class="contact-details">
         <div class="contact-item">
-          <strong>Office Tel:</strong>
-          <a href="tel:+6562999291">6299 9291</a>
+          <strong>Phone & WhatsApp</strong>
+          <a href="https://wa.me/6582075085" target="_blank" rel="noopener">+65 8207 5085</a>
         </div>
         <div class="contact-item">
-          <strong>Mobile / WhatsApp:</strong>
-          <a href="https://wa.me/6587877161" target="_blank" rel="noopener">8787 7161</a>
-        </div>
-        <div class="contact-item">
-          <strong>Email:</strong>
-          <a href="mailto:sales@radiationcontrol.sg">sales@radiationcontrol.sg</a>
+          <strong>Direct Email</strong>
+          <a href="mailto:sales@rehova.sg">sales@rehova.sg</a>
         </div>
       </div>
     </div>
@@ -179,7 +549,7 @@
 
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="container footer-content">
+    <div class="container">
       <p>&copy; 2026 ReHoVa Interiors Pte Ltd (UEN: 201711139N). All Rights Reserved.</p>
     </div>
   </footer>
