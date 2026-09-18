@@ -4,572 +4,183 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Residential and Commercial Renovation Specialist in Singapore | ReHoVa Interiors</title>
-  <meta name="description" content="ReHoVa Interiors delivers transparent, reliable, and compliant residential and commercial renovation in Singapore. Backed by Teck Leong Industries & Ban Soon Cheong.">
+  <meta name="description" content="ReHoVa Interiors Pte Ltd (UEN: 201711139N) is an experienced residential and commercial renovation contractor in Singapore. In-house carpentry, honest pricing, and reliable project delivery.">
+  <link rel="stylesheet" href="style.css">
   
-  <style>
-    :root {
-      --primary-red: #D91A1E;
-      --charcoal: #1F2937;
-      --dark-slate: #111827;
-      --light-gray: #F9FAFB;
-      --border-gray: #E5E7EB;
-      --white: #FFFFFF;
-      --whatsapp-green: #25D366;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--light-gray); color: var(--charcoal); line-height: 1.6; }
-    .rehova-container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
-
-    /* Top Bar */
-    .top-bar { background: var(--dark-slate); color: #D1D5DB; font-size: 0.82rem; padding: 8px 0; }
-    .top-bar .rehova-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .top-bar a { color: #F3F4F6; text-decoration: none; font-weight: 500; }
-
-    /* Navigation */
-    .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
-    .navbar .rehova-container { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
-    .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-box img { height: 48px; width: auto; object-fit: contain; }
-    .brand-name { font-size: 1.25rem; font-weight: 800; color: var(--primary-red); line-height: 1.1; }
-    .brand-tagline { font-size: 0.72rem; color: var(--charcoal); font-weight: 600; display: block; }
-    .nav-links { display: none; gap: 20px; list-style: none; }
-    @media (min-width: 768px) { .nav-links { display: flex; align-items: center; } }
-    .nav-links a { text-decoration: none; color: var(--charcoal); font-weight: 500; font-size: 0.92rem; }
-    .nav-links a:hover { color: var(--primary-red); }
-    .nav-btn { background: var(--primary-red); color: var(--white) !important; padding: 8px 16px; border-radius: 6px; font-weight: 600; }
-
-    /* Hero */
-    /*.hero { background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('project-1.jpg') center/cover no-repeat; color:var(--white); padding: 90px 0; text-align: center; }    .hero-badge { display: inline-block; background: rgba(217, 26, 30, 0.2); color: #F87171; border: 1px solid var(--primary-red); padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }*/
-    .hero {
-  position: relative;
-  overflow: hidden;
-  color: var(--white);
-  padding: 100px 0;
-  text-align: center;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  animation: autoSwap 15s infinite;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(17, 24, 39, 0.75);
-  z-index: 1;
-}
-
-.hero .rehova-container {
-  position: relative;
-  z-index: 2;
-}
-
-@keyframes autoSwap {
-  0%, 100% {
-    background-image: url('project-1.jpg');
-    transform: scale(1);
+  <!-- Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "ReHoVa Interiors Pte Ltd",
+    "legalName": "ReHoVa Interiors Pte Ltd",
+    "identifier": "201711139N",
+    "telephone": ["+65-6299-9291", "+65-8787-7161"],
+    "email": "sales@radiationcontrol.sg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "SG"
+    },
+    "areaServed": "Singapore",
+    "description": "Experienced Singapore renovation contractor specializing in residential and commercial full renovation, fitting out works, and direct in-house carpentry."
   }
-  30% {
-    background-image: url('project-1.jpg');
-    transform: scale(1.08);
-  }
-  35% {
-    background-image: url('project-2.jpg');
-    transform: scale(1);
-  }
-  65% {
-    background-image: url('project-2.jpg');
-    transform: scale(1.08);
-  }
-  70% {
-    background-image: url('project-3.jpg');
-    transform: scale(1);
-  }
-  95% {
-    background-image: url('project-3.jpg');
-    transform: scale(1.08);
-  }
-}
-    .hero h1 { font-size: 2.1rem; line-height: 1.25; margin-bottom: 18px; font-weight: 800; }
-    .hero p { font-size: 1.05rem; color: #D1D5DB; max-width: 680px; margin: 0 auto 30px; }
-    .btn { display: inline-block; padding: 12px 26px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; }
-    .btn-red { background: var(--primary-red); color: var(--white); }
-    .btn-outline { background: transparent; color: var(--white); border: 2px solid #6B7280; }
-
-    /* Sections */
-    .section { padding: 60px 0; }
-    .section-title { text-align: center; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: var(--dark-slate); }
-    .section-subtitle { text-align: center; font-size: 0.98rem; color: #6B7280; max-width: 650px; margin: 0 auto 36px; }
-
-    /* Pillars */
-    .values-bar { background: var(--white); padding: 32px 0; border-bottom: 1px solid var(--border-gray); }
-    .values-grid { display: grid; grid-template-columns: 1fr; gap: 20px; text-align: center; }
-    @media (min-width: 768px) { .values-grid { grid-template-columns: repeat(3, 1fr); } }
-    .value-card h3 { font-size: 1.2rem; color: var(--primary-red); margin-bottom: 6px; }
-    .value-card p { font-size: 0.9rem; color: #4B5563; }
-
-    /* About Box */
-    .about-box { background: var(--white); border: 1px solid var(--border-gray); border-radius: 12px; padding: 36px; }
-    .about-box p { margin-bottom: 16px; font-size: 0.98rem; color: #374151; }
-
-    /* Projects Grid */
-    .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 768px) { .project-grid { grid-template-columns: repeat(3, 1fr); } }
-    .project-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; overflow: hidden; }
-    .project-img { width: 100%; height: 210px; object-fit: cover; background: #E5E7EB; display: flex; align-items: center; justify-content: center; color: #6B7280; font-size: 0.95rem; font-weight: 600; }
-    .project-body { padding: 16px; }
-    .project-body h4 { font-size: 1.05rem; margin-bottom: 6px; }
-    .project-body p { font-size: 0.85rem; color: #6B7280; }
-
-    /* Blog Grid */
-    .blog-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
-    .blog-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
-    .blog-badge { display: inline-block; background: #FEE2E2; color: var(--primary-red); font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
-    .blog-card h4 { font-size: 1.05rem; margin-bottom: 8px; line-height: 1.4; }
-    .blog-card p { font-size: 0.88rem; color: #4B5563; margin-bottom: 14px; }
-    .blog-card a { color: var(--primary-red); font-weight: 600; text-decoration: none; font-size: 0.85rem; }
-
-    /* Group Logos Section */
-    .group-section { background: var(--white); border-top: 1px solid var(--border-gray); padding: 48px 0; }
-    .group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; align-items: stretch; }
-    .group-item-light { background: #FFFFFF; border: 1px solid var(--border-gray); border-radius: 8px; padding: 18px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
-    .group-item-dark { background: #2B2B2B; border: 1px solid #374151; border-radius: 8px; padding: 18px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
-    .group-item-grey { background: #424241; border: 1px solid #374151; border-radius: 8px; padding: 18px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
-    .group-item img { max-height: 48px; max-width: 100%; object-fit: contain; margin-bottom: 8px; }
-
-    /* Contact Section */
-    .contact-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 12px; padding: 36px 24px; }
-    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
-    @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
-    .info-item { margin-bottom: 16px; }
-    .info-item label { font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: #6B7280; display: block; }
-    .info-item a, .info-item span { font-size: 0.98rem; color: var(--dark-slate); font-weight: 600; text-decoration: none; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; }
-    .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem; }
-
-    /* Floating WhatsApp */
-    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: var(--whatsapp-green); color: var(--white); padding: 12px 18px; border-radius: 50px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 999; font-size: 0.92rem; }
-
-    /* Footer */
-    .rehova-footer { background: var(--dark-slate); color: #9CA3AF; padding: 40px 0 20px; font-size: 0.85rem; }
-    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; }
-    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
-    .footer-col h5 { color: var(--white); margin-bottom: 10px; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 6px; }
-    .footer-col ul li a { color: #9CA3AF; text-decoration: none; }
-    .copyright { border-top: 1px solid #374151; padding-top: 16px; text-align: center; font-size: 0.78rem; }
-  </style>
+  </script>
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <aside class="top-bar">
-    <div class="rehova-container">
-      <div>📍 217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810</div>
-      <div>
-        <a href="mailto:sales@rehova.sg">sales@rehova.sg</a> | <a href="tel:+6582075085">+65 8207 5085</a>
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <div class="brand-logo">
+        <a href="index.html" class="logo-link">
+          <span class="logo-text"><span class="red-text">Re</span><span class="red-text">Ho</span><span class="red-text">Va</span> Interiors</span>
+          <span class="logo-sub">Reliable, Honest, Value For Money</span>
+        </a>
       </div>
-    </div>
-  </aside>
-
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="rehova-container">
-      <a href="#" class="logo-box">
-        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo">
-        <div>
-          <span class="brand-name">Rehova Interiors pte Ltd</span>
-          <span class="brand-tagline">Reliable, Honest, Value For Money</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#contact" class="nav-btn">Get A Quote</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="rehova-container">
-<h1>HDB &amp; Condo Renovation Specialist in Singapore</h1>
-      <p>Award-winning, HDB-licensed interior design and structural works tailored to your budget. Get a free, transparent quote today.</p>
-      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-        <a href="#contact" class="btn btn-red">Get a Free Quote</a>
-        <!--<a href="https://wa.me/6582075085" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp +65 8207 5085</a>-->
-      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-        </div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Project Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact" class="btn-nav">Get a Quote</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- Value Pillars -->
-  <section class="values-bar">
-    <div class="rehova-container">
-      <div class="values-grid">
-        <div class="value-card">
-          <h3>Reliable</h3>
-          <p>Strict handover dates, on-time milestones, and 100% compliant HDB/BCA statutory submissions.</p>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Residential and Commercial Renovation Specialist in Singapore</h1>
+      <p>Practical budget management, direct in-house carpentry, and reliable project timelines for homeowners and commercial spaces.</p>
+      <a href="#contact" class="btn-primary">Get a Quote</a>
+    </div>
+  </section>
+
+  <!-- About & Pillars Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>About ReHoVa Interiors</h2>
+        <p class="section-subtitle">UEN: 201711139N | Dedicated Renovation Specialists</p>
+      </div>
+
+      <div class="about-lead">
+        <p>ReHoVa Interiors Pte Ltd aspires to help you realise your vision of building a functionally and aesthetically pleasing environment. We are an experienced renovation contractor specialising in residential and commercial full renovation and fitting out works.</p>
+        <p>Backed by dedicated project managers, supervisors, designers, and our own in-house carpentry workshop in Singapore, we deliver shorter turnaround times, dependable quality, and value-for-money solutions.</p>
+      </div>
+
+      <!-- Pillars -->
+      <div class="pillars-grid">
+        <!-- Re: All Red -->
+        <div class="pillar-card">
+          <h3><span class="text-red">Reliable</span></h3>
+          <p>We work to deliver your renovation project at the agreed schedule with dedicated on-site supervision and clear communication.</p>
         </div>
-        <div class="value-card">
-          <h3>Honest</h3>
-          <p>Line-by-line itemised quotations. Zero surprise variation orders or hidden charges.</p>
+
+        <!-- Ho: Ho in Red, nest in White -->
+        <div class="pillar-card">
+          <h3><span class="text-red">Ho</span><span class="text-white">nest</span></h3>
+          <p>Honest pricing with zero hidden costs. We focus on delivering dependable workmanship that holds up over time.</p>
         </div>
-        <div class="value-card">
-          <h3>Value For Money</h3>
-          <p>Factory-direct custom carpentry and industrial-grade hardware without intermediary markups.</p>
+
+        <!-- Va: Va in Red, lue for Money in White -->
+        <div class="pillar-card">
+          <h3><span class="text-red">Va</span><span class="text-white">lue for Money</span></h3>
+          <p>We recommend the most suitable materials for your given budget, backed by our direct in-house Singapore carpentry workshop.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="section" id="about">
-    <div class="rehova-container">
-      <h2 class="section-title" style="color: var(--primary-red);">About ReHoVa Interiors Pte Ltd</h2>
-      <p class="section-subtitle">A heritage of engineering precision, industrial-scale infrastructure, and transparent craftsmanship.</p>
-      
-      <div class="about-box">
-        <p><strong>ReHoVa Interiors Pte Ltd (Rehova.sg)</strong> is built on three core pillars: <em>Reliable execution, Honest pricing, and true Value for money</em>. While many interior firms in Singapore operate solely as sales agencies, ReHoVa is grounded in real build capabilities.</p>
-        <p>We don't operate as a sales agency that subcontracts everything out and marks up the bill — our team plans, sources, and builds every project ourselves, so what you're quoted is what you pay.</p>
-        <p>From a single room refresh to a full home or commercial fit-out, every project runs on the same principles: a fixed, itemised quote before any work begins, one dedicated project lead who's accountable from first visit to handover, and a firm completion date we build the schedule around — not the other way round.  </p>
-        <p>For Singapore homeowners and commercial operators, this backing guarantees financial stability, reliable material sourcing, strict project management, and verified build quality on every handover.</p>
+  <!-- Project Gallery Section -->
+  <section id="gallery" class="section section-dark">
+    <div class="container">
+      <div class="section-title">
+        <h2>Project Gallery</h2>
       </div>
-    </div>
-  </section>
 
-  <!-- Recent Projects Section -->
-  <!-- Projects Gallery Section (16 Items) -->
-  <!-- Projects Gallery Section (SEO-Optimized Singapore Portfolio) -->
-  <section class="section" id="projects" style="background: var(--white);">
-    <div class="rehova-container">
-     <!-- <h2 class="section-title">Our Project Portfolio</h2>-->
-      <h2 class="section-title" style="color: var(--primary-red);">Our Project Portfolio</h2>
-      <p class="section-subtitle">Delivering bespoke residential transformations and licensed commercial healthcare fit-outs across Singapore.</p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
-        
-        <!-- Item 1: Japandi Living -->
-        <div class="project-card">
-          <img src="project-1.jpg" alt="Japandi Living Room Renovation Singapore HDB BTO" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Japandi Living Suite</h4>
-            <p>Warm minimalist living hall with suspended TV ledge, sheer drapery, and cove lighting.</p>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="project-1.jpg" alt="Residential Interior Design Project Singapore" loading="lazy">
+          <div class="gallery-info">
+            <h4>Residential Living Space</h4>
           </div>
         </div>
 
-        <!-- Item 2: Bedside Joinery -->
-        <div class="project-card">
-          <img src="project-2.jpg" alt="Custom Bedside Joinery and Fluted Headboard Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Bespoke Bedside Joinery</h4>
-            <p>Floating timber side table and pendant drop fixture for a streamlined master bedroom.</p>
+        <div class="gallery-card">
+          <img src="project-2.jpg" alt="Commercial Fit-Out Renovation Singapore" loading="lazy">
+          <div class="gallery-info">
+            <h4>Commercial Interior</h4>
           </div>
         </div>
 
-        <!-- Item 3: Master Bedroom Suite -->
-        <div class="project-card">
-          <img src="project-3.jpg" alt="Modern Master Bedroom Interior Design Singapore BTO" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Modern Master Suite</h4>
-            <p>Spacious bedroom layout paired with full-height vanity desk, wood-grain flooring, and ambient lighting.</p>
+        <div class="gallery-card">
+          <img src="project-3.jpg" alt="Custom In-House Carpentry Singapore" loading="lazy">
+          <div class="gallery-info">
+            <h4>Bespoke Carpentry Works</h4>
           </div>
-        </div>
-
-        <!-- Item 4: Residential Dining / Living -->
-        <div class="project-card">
-          <img src="project-4.jpeg" alt="Condo Interior Renovation Singapore Open Concept" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Open-Concept Living &amp; Dining</h4>
-            <p>Seamless transition flooring with architectural downlights for modern condominium living.</p>
-          </div>
-        </div>
-
-        <!-- Item 5: Custom Built-in Aquarium -->
-        <div class="project-card">
-          <img src="project-5.jpg" alt="Built-in Aquarium Cabinetry Carpentry Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Integrated Aquarium Feature Wall</h4>
-            <p>Custom structural cabinetry with heavy-duty load-bearing support and stone-texture laminates.</p>
-          </div>
-        </div>
-
-        <!-- Item 6: Bedroom Pendant Detail -->
-        <div class="project-card">
-          <img src="project-6.jpg" alt="Minimalist Bedroom Nightstand Lighting Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Minimalist Bedroom Styling</h4>
-            <p>Warm ambient paper-lantern pendant lighting paired with textured wall paneling.</p>
-          </div>
-        </div>
-
-        <!-- Item 7: Paediatric Clinic -->
-        <div class="project-card">
-          <img src="project-7.jpg" alt="Paediatric Dental Clinic Fit-Out Singapore MOH Compliant" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Paediatric Treatment Room</h4>
-            <p>Custom clinic cabinetry, medical-grade washable surfaces, and child-friendly wall graphics.</p>
-          </div>
-        </div>
-
-        <!-- Item 8: Clinic Reception (Smile Works) -->
-        <div class="project-card">
-          <img src="project-8.jpg" alt="Healthcare Reception Counter Design Singapore Commercial" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Healthcare Reception Lounge</h4>
-            <p>Curved solid-surface reception desk with illuminated signage and durable vinyl flooring.</p>
-          </div>
-        </div>
-
-        <!-- Item 9: Surgical Suite Reception -->
-        <div class="project-card">
-          <img src="project-9.jpg" alt="Surgical Suite Commercial Interior Fit-Out Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Surgical Suite Lobby</h4>
-            <p>Commercial entrance with acoustic ceiling baffles and direct patient consultation counters.</p>
-          </div>
-        </div>
-
-        <!-- Item 10: Royce Dental Waiting Lounge -->
-        <div class="project-card">
-          <img src="project-10.jpg" alt="Dental Clinic Waiting Area Renovation Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Dental Clinic Waiting Lounge</h4>
-            <p>Full-glass commercial frontage with frosted privacy film and integrated patient registration.</p>
-          </div>
-        </div>
-
-        <!-- Item 11: Aquarium Corner Detail -->
-        <div class="project-card">
-          <img src="project-11.jpg" alt="Aquascape Built-in Tank Carpentry Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Custom Aquascape Joinery</h4>
-            <p>Flush-finish structural concealment for filtration units with waterproof internal linings.</p>
-          </div>
-        </div>
-
-        <!-- Item 12: Royce Dental Curved Reception -->
-        <div class="project-card">
-          <img src="project-12.jpg" alt="Curved Commercial Reception Counter Renovation Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Curved Reception Counter</h4>
-            <p>Seamless micro-cement finish desk with warm LED under-counter strip illumination.</p>
-          </div>
-        </div>
-
-        <!-- Item 13: Organic Arched Clinic Corridor -->
-        <div class="project-card">
-          <img src="project-13.jpg" alt="Curved Corridor Wall Treatment Commercial Fit-Out Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Organic Arched Corridor</h4>
-            <p>Curved partition carpentry with recessed cove ceiling channels and concealed consultation doors.</p>
-          </div>
-        </div>
-
-        <!-- Item 14: Commercial Glass Frontage -->
-        <div class="project-card">
-          <img src="project-14.jpg" alt="Mall Commercial Storefront Glass Partition Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Commercial Mall Storefront</h4>
-            <p>Frameless tempered glass facade with custom timber portal framing and integrated digital signage.</p>
-          </div>
-        </div>
-
-        <!-- Item 15: Clinic Corridor & Consultation Suites -->
-        <div class="project-card">
-          <img src="project-15.jpg" alt="MOH Compliant Clinic Hallway Fit-Out Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Clinical Passage &amp; Operatories</h4>
-            <p>Commercial-grade acoustic sliding doors, fire-rated partitions, and statutory exit compliance.</p>
-          </div>
-        </div>
-
-        <!-- Item 16: Commercial Executive / Treatment Suite -->
-        <div class="project-card">
-          <img src="project-16.jpg" alt="Commercial Medical Consultation Room Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Consultation &amp; Operatory Suite</h4>
-            <p>Integrated services trunking, medical-grade hygiene joinery, and anti-bacterial surfaces.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SEO Blog / Guides -->
-  <section class="section" id="blogs">
-    <div class="rehova-container">
-     <!-- <h2 class="section-title">Singapore Renovation Guides</h2>-->
-      <h2 class="section-title" style="color: var(--primary-red);">Singapore Renovation Guidelines</h2>
-      <p class="section-subtitle">Practical guides on costs, statutory permits, and storage planning.</p>
-
-      <div class="blog-grid">
-        <div class="blog-card">
-          <div>
-            <span class="blog-badge">HDB Renovation Guide</span>
-            <h4>HDB Renovation Guidelines &amp; Permit Rules for Singapore Owners</h4>
-            <p>Everything you need to know about structural hacking approvals, town council noise curfews, and window replacement regulations.</p>
-          </div>
-          <a href="#contact">Read Complete Guide →</a>
-        </div>
-
-        <div class="blog-card">
-          <div>
-            <span class="blog-badge">Cost Breakdown</span>
-            <h4>HDB 4-Room &amp; 5-Room Renovation Budget Estimates</h4>
-            <p>A transparent breakdown of masonry, carpentry, electrical rewiring, and plumbing costs for BTO vs. resale flats.</p>
-          </div>
-          <a href="#contact">Read Complete Guide →</a>
-        </div>
-
-        <div class="blog-card">
-          <div>
-            <span class="blog-badge">Storage Planning</span>
-            <h4>Maximising Compact Living: Smart Carpentry &amp; Storage Layouts</h4>
-            <p>Learn how industrial-grade space planning systems can double usable storage in modern Singapore apartments.</p>
-          </div>
-          <a href="#contact">Read Complete Guide →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Group Companies Section 
-  <section class="group-section" id="group">
-    <div class="rehova-container">
-      <h2 class="section-title" style="font-size: 1.4rem;">Our Group of Companies &amp; Affiliates</h2>
-      <p class="section-subtitle" style="margin-bottom: 28px;">Powered by decades of industrial engineering, fabrication, and manufacturing expertise across Singapore.</p>-->
-      
-      <!--<div class="group-grid">-->
-        <!-- Teck Leong -->
-        <!--<a href="https://teckleong.com.sg" target="_blank" rel="noopener noreferrer" class="group-item-light group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="teckleong.png" alt="Teck Leong Industries Pte Ltd" style="max-height: 52px; max-width: 85%; object-fit: contain;">
-        </a> -->
-
-        <!-- Ban Soon Cheong -->
-        <!-- <a href="https://copper.sg/" target="_blank" rel="noopener noreferrer" class="group-item-light group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="logo.png" alt="Ban Soon Cheong Pte Ltd" style="max-height: 56px; max-width: 85%; object-fit: contain;">
-        </a>-->
-
-        <!-- Radiation Control -->
-        <!-- <a href="https://radiationcontrol.sg/" target="_blank" rel="noopener noreferrer" class="group-item-dark group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="radiation.png" alt="Radiation Control (Asia Pacific) Pte Ltd" style="max-height: 42px; max-width: 85%; object-fit: contain;">
-        </a>-->
-
-        <!-- Advance Storage -->
-        <!--<a href="https://advancestorage.sg/" target="_blank" rel="noopener noreferrer" class="group-item-light group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="advancestorage.png" alt="Advance Storage Pte Ltd" style="max-height: 52px; max-width: 85%; object-fit: contain;">
-        </a>-->
-        
-        <!-- Eurometalli -->
-        <!--<a href="https://lead.asia/" target="_blank" rel="noopener noreferrer" class="group-item-grey group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="eurometalli.png" alt="Eurometalli (Far East) Pte Ltd" style="max-height: 42px; max-width: 85%; object-fit: contain;">
-        </a>
+  <!-- Customer Testimonials Section -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Customer Testimonials</h2>
       </div>
-    </div>
-  </section>-->
 
-  <!-- Contact Section -->
-  <section class="section" id="contact" style="background: var(--light-gray);">
-    <div class="rehova-container">
-      <div class="contact-card">
-        <div class="contact-grid">
-          <div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Contact ReHoVa Interiors</h3>
-            <p style="margin-bottom: 20px; font-size: 0.95rem;">Send us your digital floorplan or visit our Ubi showroom for a transparent, itemised quote.</p>
-            
-            <div class="info-item">
-              <label>Office &amp; Showroom</label>
-              <span>217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810</span>
-            </div>
+      <div class="testimonials-slider">
+        <div class="testimonial-card">
+          <p>"Workmanship on the custom carpentry was neat and solid. The handover was delivered on schedule without unexpected cost additions."</p>
+          <span class="client-name">— Residential Homeowner, Tampines</span>
+        </div>
 
-            <div class="info-item">
-              <label>Phone / WhatsApp</label>
-              <a href="tel:+6582075085">+65 8207 5085</a>
-            </div>
+        <div class="testimonial-card">
+          <p>"Practical advice on selecting suitable materials within our fit-out budget. An honest and straightforward contractor to deal with."</p>
+          <span class="client-name">— Commercial Space Owner, Ubi</span>
+        </div>
 
-            <div class="info-item">
-              <label>Official Email</label>
-              <a href="mailto:sales@rehova.sg">sales@rehova.sg</a>
-            </div>
-          </div>
-
-          <!-- Contact Form -->
-          <form onsubmit="event.preventDefault(); alert('Floorplan enquiry received! The ReHoVa team will contact you shortly.');">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" required placeholder="e.g. Kenneth Tan">
-            </div>
-            <div class="form-group">
-              <label for="phone">Contact Number</label>
-              <input type="tel" id="phone" required placeholder="+65 8207 5085">
-            </div>
-            <div class="form-group">
-              <label for="type">Property Type</label>
-              <select id="type">
-                <option>HDB BTO Flat</option>
-                <option>HDB Resale Flat</option>
-                <option>Private Condominium</option>
-                <option>Landed Property</option>
-                <option>Commercial / Office Fit-Out</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-red" style="width: 100%;">Get Free Itemised Quote</button>
-          </form>
+        <div class="testimonial-card">
+          <p>"ReHoVa coordinated the renovation well and stayed practical with material recommendations to match our financial plan."</p>
+          <span class="client-name">— Condo Owner, Pasir Ris</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation%20quote." class="whatsapp-float" target="_blank" rel="noopener">
-    💬 WhatsApp 
-  </a>
+  <!-- Contact & Enquiry Section -->
+  <section id="contact" class="section section-dark">
+    <div class="container contact-container">
+      <div class="section-title">
+        <h2>Start Your Renovation Consultation</h2>
+        <p class="section-subtitle">Reach out directly to discuss your residential or commercial project.</p>
+      </div>
+
+      <div class="contact-details">
+        <div class="contact-item">
+          <strong>Office Tel:</strong>
+          <a href="tel:+6562999291">6299 9291</a>
+        </div>
+        <div class="contact-item">
+          <strong>Mobile / WhatsApp:</strong>
+          <a href="https://wa.me/6587877161" target="_blank" rel="noopener">8787 7161</a>
+        </div>
+        <div class="contact-item">
+          <strong>Email:</strong>
+          <a href="mailto:sales@radiationcontrol.sg">sales@radiationcontrol.sg</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="rehova-footer">
-    <div class="rehova-container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h5>ReHoVa Interiors Pte Ltd</h5>
-          <p>Reliable, Honest, Value For Money Interior Architecture &amp; Construction.</p>
-          <p style="margin-top: 6px;">217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810</p>
-        </div>
-        <div class="footer-col">
-          <h5>Affiliated Group</h5>
-          <ul>
-            <li>Teck Leong Industries Pte Ltd</li>
-            <li>Ban Soon Cheong Pte Ltd</li>
-            <li>Radiation Control (Asia Pacific)</li>
-            <li>Advance Storage Solutions</li>
-            <li>Eurometalli (Far East) Pte Ltd</li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Direct Contact</h5>
-          <ul>
-            <li>Email: <a href="mailto:sales@rehova.sg">sales@rehova.sg</a></li>
-            <li>Phone: <a href="tel:+6582075085">+65 8207 5085</a></li>
-            <li>Web: Rehova.sg</li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        &copy; 2026 ReHoVa Interiors Pte Ltd (Rehova.sg). All rights reserved.
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 ReHoVa Interiors Pte Ltd (UEN: 201711139N). All Rights Reserved.</p>
     </div>
   </footer>
 
