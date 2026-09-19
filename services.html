@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | ReHoVa Interiors Pte Ltd</title>
+  <meta name="description" content="ReHoVa Interiors Pte Ltd (UEN: 201711139N) offers interior design, kitchen and bathroom renovation, carpentry, and full home fit-out services in Singapore.">
+
+  <style>
+    :root {
+      --primary-red: #D91A1E;
+      --charcoal: #1F2937;
+      --dark-slate: #111827;
+      --light-gray: #F9FAFB;
+      --border-gray: #E5E7EB;
+      --white: #FFFFFF;
+      --footer-bg: #111827;
+      --footer-border: #374151;
+      --page-bg: #F3EEE6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--white); color: var(--charcoal); line-height: 1.6; }
+    .rehova-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navigation */
+    .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+    .navbar .rehova-container { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; }
+    .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-box img { height: 48px; width: auto; object-fit: contain; }
+    .brand-name { font-size: 1.25rem; font-weight: 800; color: var(--primary-red); line-height: 1.1; }
+    .brand-tagline { font-size: 0.72rem; color: var(--charcoal); font-weight: 600; display: block; }
+    .nav-links { display: none; gap: 24px; list-style: none; }
+    @media (min-width: 768px) { .nav-links { display: flex; align-items: center; } }
+    .nav-links a { text-decoration: none; color: var(--charcoal); font-weight: 600; font-size: 0.95rem; }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary-red); }
+
+    /* Page Header */
+    .page-header { background: #fafafa; border-bottom: 1px solid var(--border-gray); padding: 50px 0 40px; text-align: center; }
+    .page-header h1 { font-size: 2.2rem; font-weight: 800; color: #111827; }
+    .page-header p { margin-top: 10px; color: #4B5563; font-size: 1rem; }
+
+    /* Content Area */
+    .services-content-section { background: var(--white); padding: 60px 0 80px; }
+
+    /* Service cards grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    @media (min-width: 680px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1000px) {
+      .services-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .service-card {
+      background: #ffffff;
+      border: 1px solid var(--border-gray);
+      border-radius: 12px;
+      padding: 28px 26px 24px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      background: #FBDCDC;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .icon-box svg { width: 26px; height: 26px; color: var(--primary-red); }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+    .service-card > p.tagline {
+      font-size: 0.92rem;
+      color: #6B7280;
+      margin-bottom: 18px;
+    }
+
+    /* Accordion (native details/summary) */
+    .scope-accordion { border: none; margin-top: auto; }
+    .scope-accordion summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--primary-red);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 6px 0;
+    }
+    .scope-accordion summary::-webkit-details-marker { display: none; }
+    .scope-accordion summary .chevron { width: 18px; height: 18px; transition: transform 0.2s ease; }
+    .scope-accordion[open] summary .chevron { transform: rotate(180deg); }
+
+    .scope-list { list-style: none; padding-top: 10px; }
+    .scope-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: #374151;
+      margin-bottom: 10px;
+    }
+    .scope-list li svg { width: 18px; height: 18px; color: var(--primary-red); flex-shrink: 0; margin-top: 2px; }
+
+    /* Enquiry button — plain text, fills red on hover */
+    .enquiry-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: 18px;
+      padding: 13px 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: transparent;
+      color: #111827;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .enquiry-btn:hover,
+    .enquiry-btn:focus-visible {
+      background-color: var(--primary-red);
+      color: #ffffff;
+    }
+
+    /* Standardized Footer */
+    .rehova-footer {
+      background-color: var(--footer-bg);
+      color: #2b2b2b;
+      padding: 60px 0 24px;
+      font-size: 0.92rem;
+      border-top: 1px solid var(--footer-border);
+    }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; } }
+    .footer-col-logo img { max-height: 55px; width: auto; object-fit: contain; margin-bottom: 14px; display: block; }
+    .footer-col h5 { font-size: 1.1rem; font-weight: 700; color: #ffffff; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: #9CA3AF; text-decoration: none; font-weight: 500; }
+    .footer-col ul li a:hover { color: #ffffff; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; color: #9CA3AF; }
+    .footer-contact-icon { color: #ffffff; font-size: 1.1rem; line-height: 1.2; }
+    .footer-contact-item a { color: #9CA3AF; text-decoration: none; }
+    .footer-copyright { border-top: 1px solid var(--footer-border); padding-top: 20px; text-align: center; font-size: 0.82rem; color: #9CA3AF; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="rehova-container">
+      <a href="index.html" class="logo-box">
+        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo">
+        <div>
+          <span class="brand-name">Rehova Interiors pte Ltd</span>
+          <span class="brand-tagline"><span style="color: #D91A1E; font-weight: 700;">Re</span>liable, <span style="color: #D91A1E; font-weight: 700;">Ho</span>nest, <span style="color: #D91A1E; font-weight: 700;">Va</span>lue For Money</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="rehova-container">
+      <h1>Our Services</h1>
+      <p>Explore the scope of each service, then add what you need straight to your enquiry.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="services-content-section">
+    <div class="rehova-container">
+      <div class="services-grid">
+
+        <!-- 1. Interior Design & Space Planning -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.72.72 1.23 1.44 1.41 2.5"/></svg>
+          </div>
+          <h3>Interior Design &amp; Space Planning</h3>
+          <p class="tagline">Thoughtful layouts that balance function and style.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Layout planning, functional zoning</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Mood boards &amp; 3D concept visuals</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Materials &amp; finishes recommendations</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Interior Design &amp; Space Planning')">Add to enquiry</button>
+        </div>
+
+        <!-- 2. Kitchen Renovation -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Kitchen Renovation</h3>
+          <p class="tagline">Transform your kitchen into a functional, beautiful space.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Cabinetry &amp; countertop fabrication</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Plumbing point planning, appliance fit-outs</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Backsplash, lighting, ventilation</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Kitchen Renovation')">Add to enquiry</button>
+        </div>
+
+        <!-- 3. Bathroom Renovation -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <h3>Bathroom Renovation</h3>
+          <p class="tagline">Complete bathroom upgrades with quality finishes.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Waterproofing &amp; tiling works</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Vanity, shower screen, sanitary ware</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Ventilation &amp; lighting upgrades</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Bathroom Renovation')">Add to enquiry</button>
+        </div>
+
+        <!-- 4. Living & Dining -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>
+          </div>
+          <h3>Living &amp; Dining</h3>
+          <p class="tagline">Create inviting spaces for gathering and relaxation.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Feature walls &amp; media consoles</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Lighting schemes &amp; false ceiling</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Flooring, painting, window treatments</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Living &amp; Dining')">Add to enquiry</button>
+        </div>
+
+        <!-- 5. Bedrooms & Wardrobes -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+          </div>
+          <h3>Bedrooms &amp; Wardrobes</h3>
+          <p class="tagline">Custom storage and comfortable sleeping spaces.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Custom wardrobes &amp; study nooks</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Integrated lighting &amp; storage</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Acoustic and privacy considerations</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Bedrooms &amp; Wardrobes')">Add to enquiry</button>
+        </div>
+
+        <!-- 6. Custom Carpentry -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Custom Carpentry</h3>
+          <p class="tagline">Bespoke woodwork tailored to your needs.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Built-ins, shelving, bay windows</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Soft-close hardware options</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Finish selection &amp; protection</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Custom Carpentry')">Add to enquiry</button>
+        </div>
+
+        <!-- 7. Flooring & Tiling -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <h3>Flooring &amp; Tiling</h3>
+          <p class="tagline">Quality flooring solutions for every room.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Vinyl/laminate/engineered wood</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Stone &amp; porcelain tiling patterns</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Skirting and transitions</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Flooring &amp; Tiling')">Add to enquiry</button>
+        </div>
+
+        <!-- 8. Painting & Finishes -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z"/><path d="M5 2l5 5"/><path d="M2 13h15"/><path d="M22 20a2 2 0 1 1-4 0c0-1.6 2-3 2-3s2 1.4 2 3Z"/></svg>
+          </div>
+          <h3>Painting &amp; Finishes</h3>
+          <p class="tagline">Fresh coats and premium finishes throughout.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Interior repainting systems</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Feature paints &amp; textures</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Surface prep &amp; protection</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Painting &amp; Finishes')">Add to enquiry</button>
+        </div>
+
+        <!-- 9. Electrical & Lighting -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Electrical &amp; Lighting</h3>
+          <p class="tagline">Modern electrical systems and lighting design.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Point planning &amp; relocation</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Ambient/task/accent layering</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Smart controls (where applicable)</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Electrical &amp; Lighting')">Add to enquiry</button>
+        </div>
+
+        <!-- 10. Doors & Windows -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561Z"/></svg>
+          </div>
+          <h3>Doors &amp; Windows</h3>
+          <p class="tagline">Quality doors and window treatments.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Internal doors &amp; hardware</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Window treatments &amp; safety</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Sealant &amp; alignment checks</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Doors &amp; Windows')">Add to enquiry</button>
+        </div>
+
+        <!-- 11. Project Management -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>
+          </div>
+          <h3>Project Management</h3>
+          <p class="tagline">End-to-end coordination for smooth execution.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Schedule &amp; site coordination</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Quality checks and updates</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Handover documentation</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Project Management')">Add to enquiry</button>
+        </div>
+
+        <!-- 12. Maintenance & Touch-ups -->
+        <div class="service-card">
+          <div class="icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Maintenance &amp; Touch-ups</h3>
+          <p class="tagline">Post-renovation care and minor repairs.</p>
+          <details class="scope-accordion">
+            <summary>Explore scope <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="scope-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Minor repairs &amp; adjustments</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Sealant, grout, hinge alignments</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Post-renovation care advice</li>
+            </ul>
+          </details>
+          <button class="enquiry-btn" type="button" onclick="addToEnquiry('Maintenance &amp; Touch-ups')">Add to enquiry</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Standardized Footer -->
+  <footer class="rehova-footer">
+    <div class="rehova-container">
+      <div class="footer-grid">
+
+        <div class="footer-col-logo">
+          <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd">
+          <p style="font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; color: #ffffff;">ReHoVa Interiors Pte Ltd</p>
+          <p style="font-size: 0.9rem; margin-bottom: 12px; color: #9CA3AF;">UEN: 201711139N</p>
+          <p style="font-size: 0.9rem; color: #9CA3AF;">Reliable. Honest. Value for Money.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📞</span>
+            <div>
+              <div><a href="tel:+6587877161">+65 8787 7161</a></div>
+              <div><a href="tel:+6582075085">+65 8207 5085</a></div>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">✉️</span>
+            <div>
+              <a href="mailto:sales@rehova.sg">sales@rehova.sg</a>
+            </div>
+          </div>
+
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📍</span>
+            <div>Singapore</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="footer-copyright">
+        &copy; 2026 ReHoVa Interiors Pte Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Very simple "enquiry list" placeholder — stores picks in the browser
+    // and gives the user a visible confirmation. Swap this out later for
+    // whatever the real enquiry/contact form should do with the selection.
+    function addToEnquiry(serviceName) {
+      try {
+        var key = 'rehova_enquiry_list';
+        var current = JSON.parse(localStorage.getItem(key) || '[]');
+        if (current.indexOf(serviceName) === -1) {
+          current.push(serviceName);
+          localStorage.setItem(key, JSON.stringify(current));
+        }
+      } catch (e) { /* localStorage unavailable — ignore silently */ }
+      alert(serviceName + ' added to your enquiry.');
+    }
+  </script>
+
+</body>
+</html>
