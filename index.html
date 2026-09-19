@@ -456,11 +456,62 @@
   </section>
 
 
-  <!-- Customer Testimonials (Horizontal Landscape Marquee) -->
-  <section class="section" id="testimonials" style="background: var(--white);">
-    <div class="rehova-container">
-      <h2 class="section-title" style="color: var(--primary-red);">Customer Testimonials</h2>
-      <p class="section-subtitle">Real feedback from Singapore homeowners and commercial business operators.</p>
+  <!-- Customer Testimonials Section -->
+  <style>
+    .testimonials-marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+      padding: 24px 0;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+    .testimonials-track {
+      display: flex;
+      width: max-content;
+      gap: 24px;
+      animation: scrollTestimonials 30s linear infinite;
+    }
+    .testimonials-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scrollTestimonials {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .testimonial-card-landscape {
+      width: 360px;
+      flex-shrink: 0;
+      background: #ffffff;
+      border: 1px solid #E5E7EB;
+      border-left: 5px solid #D91A1E;
+      border-radius: 10px;
+      padding: 24px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+    }
+    .testimonial-card-landscape p {
+      color: #374151;
+      font-size: 0.93rem;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    .testimonial-client {
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #D91A1E;
+      letter-spacing: 0.3px;
+    }
+  </style>
+
+  <section class="section" id="testimonials" style="background: #ffffff; padding: 60px 0;">
+    <div class="rehova-container" style="text-align: center;">
+      <h2 class="section-title" style="color: #D91A1E; font-size: 1.8rem; font-weight: 800; margin-bottom: 10px;">Customer Testimonials</h2>
+      <p class="section-subtitle" style="color: #6B7280; font-size: 0.98rem; max-width: 650px; margin: 0 auto 30px;">Real feedback from Singapore homeowners and commercial business operators.</p>
     </div>
 
     <div class="testimonials-marquee-wrapper">
@@ -490,7 +541,7 @@
           <span class="testimonial-client">— 4-Room BTO Owner, Punggol</span>
         </div>
 
-        <!-- Duplicate Track for Infinite Scrolling -->
+        <!-- Duplicate Set for Seamless Continuous Loop -->
         <div class="testimonial-card-landscape">
           <p>"Workmanship on our custom carpentry was neat and solid. The handover was delivered exactly on schedule without any unexpected cost additions."</p>
           <span class="testimonial-client">— Residential Homeowner, Tampines</span>
