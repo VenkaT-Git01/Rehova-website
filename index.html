@@ -48,7 +48,35 @@
   padding: 100px 0;
   text-align: center;
 }
+/* Hero Carousel Fade Animation */
+    .hero-slider-container {
+      position: relative;
+      width: 100%;
+      height: 480px;
+    }
 
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hero-slider-container {
+        height: 280px;
+      }
+    }
 .hero::before {
   content: "";
   position: absolute;
@@ -761,6 +789,19 @@
       </div>
     </div>
   </footer>
+<script>
+    // Hero Slider Auto-Run
+    (function initHeroSlider() {
+      const slides = document.querySelectorAll('.hero-slide');
+      if (!slides.length) return;
+      let currentIndex = 0;
 
+      setInterval(() => {
+        slides[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.add('active');
+      }, 3500);
+    })();
+  </script>
 </body>
 </html>
