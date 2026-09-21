@@ -4,67 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frequently Asked Questions | ReHoVa Interiors Singapore</title>
-  <meta name="description" content="Find answers to common questions about HDB BTO renovation, condo interior design, custom carpentry timelines, and visiting our Ubi showroom in Singapore.">
+  <meta name="description" content="Singapore renovation FAQs: HDB BTO renovation costs, carpentry price per foot run (pfr), direct workshop vs ID, permit timelines, and visiting our Ubi showroom.">
   
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background: #FAFAFA; color: #111827; }
-    .header-nav { background: #111827; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
-    .header-nav a { color: #ffffff; text-decoration: none; font-weight: 700; font-size: 1rem; }
-    .container { max-width: 860px; margin: 48px auto 80px; padding: 0 20px; }
-    details { background: #ffffff; border: 1px solid #E5E7EB; border-radius: 8px; padding: 18px 22px; margin-bottom: 14px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: #F9FAFB; color: #111827; line-height: 1.5; }
+    
+    /* Navigation */
+    .header-nav { background: #111827; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #D91A1E; }
+    .header-nav .brand { font-size: 1.25rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: 0.5px; }
+    .header-nav .brand span { color: #D91A1E; }
+    .nav-links { display: flex; gap: 14px; align-items: center; }
+    .nav-link { color: #E5E7EB; text-decoration: none; font-size: 0.95rem; font-weight: 600; padding: 6px 12px; }
+    .nav-btn { background: #D91A1E; color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; padding: 8px 18px; border-radius: 6px; }
+
+    /* Layout */
+    .container { max-width: 840px; margin: 48px auto 80px; padding: 0 20px; }
+    .intro { text-align: center; margin-bottom: 40px; }
+    .badge { display: inline-block; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #D91A1E; background: rgba(217, 26, 30, 0.08); padding: 5px 14px; border-radius: 20px; margin-bottom: 12px; }
+    h1 { font-size: 2.2rem; font-weight: 800; color: #111827; margin-bottom: 12px; line-height: 1.2; }
+    .intro p { font-size: 1.05rem; color: #4B5563; }
+
+    /* FAQ List */
+    .faq-list { display: flex; flex-direction: column; gap: 14px; }
+    details { background: #ffffff; border: 1px solid #E5E7EB; border-radius: 8px; padding: 18px 22px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.03); transition: border-color 0.2s ease; }
     details[open] { border-color: #D91A1E; }
-    summary { font-size: 1.05rem; font-weight: 700; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    summary { font-size: 1.05rem; font-weight: 700; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
     summary::-webkit-details-marker { display: none; }
-    .faq-ans { margin-top: 14px; color: #4B5563; font-size: 0.95rem; line-height: 1.6; }
-    .cta-banner { background: #111827; color: #ffffff; padding: 36px 24px; border-radius: 10px; text-align: center; margin-top: 48px; }
+    .plus-icon { color: #D91A1E; font-size: 1.3rem; font-weight: 700; line-height: 1; flex-shrink: 0; }
+    details[open] .plus-icon { transform: rotate(45deg); }
+    .faq-ans { margin-top: 14px; color: #4B5563; font-size: 0.95rem; line-height: 1.65; border-top: 1px solid #F3F4F6; padding-top: 12px; }
+
+    /* CTA Box */
+    .cta-banner { background: #111827; color: #ffffff; padding: 40px 24px; border-radius: 12px; text-align: center; margin-top: 50px; }
+    .cta-banner h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+    .cta-banner p { color: #9CA3AF; margin-bottom: 24px; font-size: 0.95rem; }
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-red { background: #D91A1E; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; }
+    .btn-white { background: #ffffff; color: #111827; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; }
   </style>
 
-  <!-- Google FAQPage JSON-LD Schema for Singapore SERP Rich Results -->
+  <!-- Google FAQPage JSON-LD Schema for Rich Results -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "Do I need to book an appointment before visiting the Ubi showroom?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Walk-ins are welcome at our Ubi showroom (217 Ubi Ave 4), but booking an appointment beforehand is recommended. Scheduling ahead ensures an interior designer is available to review your floor plan, provide material samples, and discuss quotations without waiting."
-        }
+        "@type": "HomeAndConstructionBusiness",
+        "@id": "https://venkat-git01.github.io/Rehova-website/#business",
+        "name": "ReHoVa Interiors",
+        "telephone": "+6582075085",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "217 Ubi Ave 4, Intrepid Warehouse Complex",
+          "addressLocality": "Singapore",
+          "postalCode": "408810",
+          "addressCountry": "SG"
+        },
+        "url": "https://venkat-git01.github.io/Rehova-website/"
       },
       {
-        "@type": "Question",
-        "name": "How much does an HDB BTO or condo renovation cost in Singapore?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Renovation costs depend on your unit size, masonry requirements, and custom carpentry volume. A standard 4-room BTO flat typically ranges from $35,000 to $65,000, while resale flats and private condos vary based on hacking and plumbing needs. With our direct workshop, we provide transparent pricing without middleman markups."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you have your own direct carpentry workshop in Singapore?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. ReHoVa Interiors operates direct carpentry production. This allows us to maintain strict quality control over joinery, Blum soft-close mechanics, and laminate finishes while keeping fabrication lead times predictable."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long does a home renovation usually take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A new HDB BTO renovation generally takes 6 to 8 weeks upon permit approval. Resale flats requiring hacking, rewiring, and wet works typically take 8 to 12 weeks. We provide a milestone-tracked renovation schedule before works begin."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you handle HDB and BCA renovation permits?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We manage all statutory submissions, including HDB renovation permits, BCA compliance, and condo MCST working permits on your behalf."
-        }
+        "@type": "FAQPage",
+        "@id": "https://venkat-git01.github.io/Rehova-website/faq.html#faq",
+        "isPartOf": {
+          "@id": "https://venkat-git01.github.io/Rehova-website/"
+        },
+        "about": {
+          "@id": "https://venkat-git01.github.io/Rehova-website/#business"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does an HDB BTO renovation cost in Singapore?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 4-room HDB BTO renovation in Singapore generally costs between $38,000 and $65,000. Basic essential work with standard vinyl flooring, painting, and modular kitchen carpentry starts around $30,000 to $40,000. Full makeovers with custom feature walls, full-height wardrobes, and wet work range from $50,000 to $70,000+."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between a direct carpentry contractor and an interior designer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Interior design (ID) firms focus primarily on 3D drawings, concept styling, and sub-contract the fabrication with markups. Direct carpentry contractors own their workshop and build cabinets in-house. ReHoVa combines design consultation with direct workshop fabrication, giving you complete design support without middleman markups."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is custom carpentry priced in Singapore (pfr)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Carpentry is priced per foot run (pfr). In Singapore, standard full-height wardrobes average $240 to $320 pfr, kitchen base cabinets average $120 to $160 pfr, and top cabinets average $110 to $150 pfr. Pricing varies depending on laminate brands, internal carcasses, and Blum hardware fittings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a renovation take from key collection to handover?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A standard HDB BTO renovation takes 6 to 8 weeks after permit approval. Resale flats or private condos requiring hacking, wet works, and rewiring take 8 to 12 weeks. We map out an exact week-by-week timeline before work starts on site."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you handle HDB and condo MCST renovation permits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. All structural hacking, electrical, and plumbing works require formal submissions. We handle the HDB renovation permits, BCA compliance, and condo MCST security deposit guidelines on your behalf before commencing work."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I walk in to see material samples at your Ubi showroom?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Our showroom is located at 217 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810. You can review laminate samples, stone countertops, and test working Blum hardware in person. Booking an appointment ensures a designer is available to review your floor plan without waiting."
+            }
+          }
+        ]
       }
     ]
   }
@@ -74,86 +131,99 @@
 
   <!-- Navigation Bar -->
   <header class="header-nav">
-    <a href="index.html" style="font-size: 1.2rem; color: #D91A1E;">ReHoVa Interiors</a>
-    <div style="display: flex; gap: 16px; align-items: center;">
-      <a href="index.html" style="font-size: 0.9rem;">Home</a>
-      <a href="contact.html" style="font-size: 0.9rem; background: #D91A1E; padding: 6px 14px; border-radius: 4px;">Contact Us</a>
+    <a href="index.html" class="brand">ReHoVa <span>Interiors</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="contact.html" class="nav-btn">Contact Us</a>
     </div>
   </header>
 
-  <!-- FAQ Content Area -->
+  <!-- Main FAQ Content -->
   <main class="container">
     
-    <div style="text-align: center; margin-bottom: 40px;">
-      <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #D91A1E; background: rgba(217, 26, 30, 0.08); padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(217, 26, 30, 0.2); display: inline-block; margin-bottom: 12px;">
-        Got Questions?
-      </span>
-      <h1 style="font-size: 2.4rem; font-weight: 800; color: #111827; margin-bottom: 12px; line-height: 1.2;">
-        Frequently Asked Questions
-      </h1>
-      <p style="font-size: 1.05rem; color: #4B5563;">
-        Clear answers on renovation costs, carpentry workmanship, permits, and showroom appointments in Singapore.
-      </p>
+    <div class="intro">
+      <span class="badge">Singapore Renovation Guide</span>
+      <h1>Frequently Asked Questions</h1>
+      <p>Direct answers on renovation pricing, carpentry workmanship, permits, and showroom visits.</p>
     </div>
 
-    <!-- FAQ Accordions -->
-    <details>
-      <summary>
-        <span>Do I need to book an appointment before visiting the Ubi showroom?</span>
-        <span style="color: #D91A1E; font-size: 1.3rem;">+</span>
-      </summary>
-      <p class="faq-ans">
-        Walk-ins are welcome at our Ubi showroom (217 Ubi Ave 4), but booking an appointment beforehand is recommended. Scheduling ahead ensures an interior designer is available to review your floor plan, provide material samples, and discuss quotations without waiting.
-      </p>
-    </details>
+    <div class="faq-list">
 
-    <details>
-      <summary>
-        <span>How much does an HDB BTO or condo renovation cost in Singapore?</span>
-        <span style="color: #D91A1E; font-size: 1.3rem;">+</span>
-      </summary>
-      <p class="faq-ans">
-        Renovation costs depend on your unit size, masonry requirements, and custom carpentry volume. A standard 4-room BTO flat typically ranges from $35,000 to $65,000, while resale flats and private condos vary based on hacking and plumbing needs. With our direct workshop, we provide transparent pricing without middleman markups.
-      </p>
-    </details>
+      <!-- FAQ 1 -->
+      <details>
+        <summary>
+          <span>How much does an HDB BTO renovation cost in Singapore?</span>
+          <span class="plus-icon">+</span>
+        </summary>
+        <p class="faq-ans">
+          A standard 4-room HDB BTO renovation in Singapore generally costs between $38,000 and $65,000. Basic essential work with standard vinyl flooring, painting, and modular kitchen carpentry starts around $30,000 to $40,000. Full makeovers with custom feature walls, full-height wardrobes, and wet work range from $50,000 to $70,000+.
+        </p>
+      </details>
 
-    <details>
-      <summary>
-        <span>Do you have your own direct carpentry workshop in Singapore?</span>
-        <span style="color: #D91A1E; font-size: 1.3rem;">+</span>
-      </summary>
-      <p class="faq-ans">
-        Yes. ReHoVa Interiors operates direct carpentry production. This allows us to maintain strict quality control over joinery, Blum soft-close mechanics, and laminate finishes while keeping fabrication lead times predictable.
-      </p>
-    </details>
+      <!-- FAQ 2 -->
+      <details>
+        <summary>
+          <span>What is the difference between a direct carpentry contractor and an interior designer?</span>
+          <span class="plus-icon">+</span>
+        </summary>
+        <p class="faq-ans">
+          Interior design (ID) firms focus primarily on 3D drawings, concept styling, and sub-contract the fabrication with markups. Direct carpentry contractors own their workshop and build cabinets in-house. ReHoVa combines design consultation with direct workshop fabrication, giving you complete design support without middleman markups.
+        </p>
+      </details>
 
-    <details>
-      <summary>
-        <span>How long does a home renovation usually take?</span>
-        <span style="color: #D91A1E; font-size: 1.3rem;">+</span>
-      </summary>
-      <p class="faq-ans">
-        A new HDB BTO renovation generally takes 6 to 8 weeks upon permit approval. Resale flats requiring hacking, rewiring, and wet works typically take 8 to 12 weeks. We provide a milestone-tracked renovation schedule before works begin.
-      </p>
-    </details>
+      <!-- FAQ 3 -->
+      <details>
+        <summary>
+          <span>How is custom carpentry priced in Singapore (pfr)?</span>
+          <span class="plus-icon">+</span>
+        </summary>
+        <p class="faq-ans">
+          Carpentry is priced per foot run (pfr). In Singapore, standard full-height wardrobes average $240 to $320 pfr, kitchen base cabinets average $120 to $160 pfr, and top cabinets average $110 to $150 pfr. Pricing varies depending on laminate brands, internal carcasses, and Blum hardware fittings.
+        </p>
+      </details>
 
-    <details>
-      <summary>
-        <span>Do you handle HDB and BCA renovation permits?</span>
-        <span style="color: #D91A1E; font-size: 1.3rem;">+</span>
-      </summary>
-      <p class="faq-ans">
-        Yes. We manage all statutory submissions, including HDB renovation permits, BCA compliance, and condo MCST working permits on your behalf.
-      </p>
-    </details>
+      <!-- FAQ 4 -->
+      <details>
+        <summary>
+          <span>How long does a renovation take from key collection to handover?</span>
+          <span class="plus-icon">+</span>
+        </summary>
+        <p class="faq-ans">
+          A standard HDB BTO renovation takes 6 to 8 weeks after permit approval. Resale flats or private condos requiring hacking, wet works, and rewiring take 8 to 12 weeks. We map out an exact week-by-week timeline before work starts on site.
+        </p>
+      </details>
 
-    <!-- Bottom Action Card -->
+      <!-- FAQ 5 -->
+      <details>
+        <summary>
+          <span>Do you handle HDB and condo MCST renovation permits?</span>
+          <span class="plus-icon">+</span>
+        </summary>
+        <p class="faq-ans">
+          Yes. All structural hacking, electrical, and plumbing works require formal submissions. We handle the HDB renovation permits, BCA compliance, and condo MCST security deposit guidelines on your behalf before commencing work.
+        </p>
+      </details>
+
+      <!-- FAQ 6 -->
+      <details>
+        <summary>
+          <span>Can I walk in to see material samples at your Ubi showroom?</span>
+          <span class="plus-icon">+</span>
+        </summary>
+        <p class="faq-ans">
+          Yes. Our showroom is located at 217 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810. You can review laminate samples, stone countertops, and test working Blum hardware in person. Booking an appointment ensures a designer is available to review your floor plan without waiting.
+        </p>
+      </details>
+
+    </div>
+
+    <!-- CTA Section -->
     <div class="cta-banner">
-      <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 10px;">Still have questions about your floor plan?</h2>
-      <p style="color: #9CA3AF; margin-bottom: 24px; font-size: 0.95rem;">Speak directly with our team or schedule a visit to our Ubi showroom.</p>
-      <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-        <a href="contact.html" style="background: #D91A1E; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none;">Book Showroom Visit</a>
-        <a href="https://wa.me/6582075085" target="_blank" rel="noopener noreferrer" style="background: #ffffff; color: #111827; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none;">WhatsApp Us</a>
+      <h2>Have a specific floor plan to discuss?</h2>
+      <p>Visit our Ubi showroom to inspect real material samples and get a transparent quotation.</p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="btn-red">Book Showroom Visit</a>
+        <a href="https://wa.me/6582075085" target="_blank" rel="noopener noreferrer" class="btn-white">WhatsApp (+65 8207 5085)</a>
       </div>
     </div>
 
