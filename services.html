@@ -41,7 +41,7 @@
     .page-header h1 { font-size: 2.3rem; font-weight: 800; color: var(--dark-slate); }
     .page-header p { margin-top: 10px; color: #4B5563; font-size: 1.05rem; max-width: 700px; margin-left: auto; margin-right: auto; }
 
-    /* Services Section */
+    /* Services Grid */
     .services-section { padding: 60px 0 80px; }
     .services-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
     @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -50,7 +50,7 @@
       background: var(--white);
       border: 1px solid var(--border-gray);
       border-radius: 12px;
-      overflow: hidden;
+      padding: 32px 26px;
       display: flex;
       flex-direction: column;
       box-shadow: 0 4px 14px rgba(0,0,0,0.04);
@@ -61,7 +61,6 @@
       border-color: var(--primary-red);
     }
 
-    .service-header { padding: 28px 24px 20px; flex-grow: 1; display: flex; flex-direction: column; }
     .service-icon {
       width: 54px;
       height: 54px;
@@ -77,67 +76,111 @@
     .service-box h3 { font-size: 1.35rem; font-weight: 800; color: var(--dark-slate); margin-bottom: 10px; line-height: 1.3; }
     .service-box p.desc { font-size: 0.94rem; color: #4B5563; margin-bottom: 20px; line-height: 1.6; }
     
-    .feature-tags { list-style: none; margin-bottom: 24px; }
+    .feature-tags { list-style: none; margin-bottom: 26px; flex-grow: 1; }
     .feature-tags li { display: flex; align-items: center; gap: 8px; font-size: 0.88rem; color: #374151; font-weight: 600; margin-bottom: 8px; }
     .feature-tags li svg { width: 16px; height: 16px; color: var(--primary-red); flex-shrink: 0; }
 
-    /* Button to reveal images */
+    /* Open Gallery Button */
     .view-projects-btn {
       width: 100%;
-      padding: 13px 18px;
-      background: #F3F4F6;
-      border: 1px solid var(--border-gray);
-      color: var(--dark-slate);
+      padding: 14px 18px;
+      background: var(--primary-red);
+      border: none;
+      color: var(--white);
       font-weight: 700;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       border-radius: 8px;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      transition: background 0.2s ease, color 0.2s ease;
-      margin-top: auto;
-    }
-    .view-projects-btn:hover, .view-projects-btn.active {
-      background: var(--primary-red);
-      border-color: var(--primary-red);
-      color: var(--white);
-    }
-    .view-projects-btn svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
-    .view-projects-btn.active svg { transform: rotate(180deg); }
-
-    /* Hidden / Expandable Image Gallery Block */
-    .project-reveal-area {
-      display: none;
-      background: #111827;
-      padding: 20px;
-      border-top: 1px solid var(--border-gray);
-    }
-    .project-reveal-area.show { display: block; animation: fadeIn 0.3s ease; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    .gallery-preview-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .gallery-preview-grid img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 6px;
-      border: 1px solid #374151;
-      display: block;
+      gap: 10px;
       transition: opacity 0.2s ease;
     }
-    .gallery-preview-grid img:hover { opacity: 0.9; }
-    .gallery-caption {
-      color: #9CA3AF;
-      font-size: 0.78rem;
-      margin-top: 6px;
-      text-align: center;
-      grid-column: span 2;
+    .view-projects-btn:hover { opacity: 0.9; }
+
+    /* =======================================
+       FULL SCREEN POPUP MODAL (ALL PHOTOS)
+       ======================================= */
+    .gallery-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 24, 39, 0.85);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .gallery-modal-overlay.active { display: flex; }
+
+    .gallery-modal-window {
+      background: #ffffff;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 1050px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-gray);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+    .modal-header h2 { font-size: 1.6rem; font-weight: 800; color: var(--dark-slate); }
+    .modal-close-btn {
+      background: #F3F4F6;
+      border: none;
+      font-size: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #374151;
+      transition: background 0.2s;
+    }
+    .modal-close-btn:hover { background: #E5E7EB; color: var(--primary-red); }
+
+    /* Modal Image Grid */
+    .modal-gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media (min-width: 600px) { .modal-gallery-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .modal-gallery-grid { grid-template-columns: 1fr 1fr 1fr; } }
+
+    .modal-photo-item {
+      background: #F9FAFB;
+      border: 1px solid var(--border-gray);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .modal-photo-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .modal-photo-item .photo-desc {
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal);
     }
 
     /* Standardized Footer */
@@ -207,112 +250,91 @@
   <!-- Page Header -->
   <header class="page-header">
     <div class="rehova-container">
-      <span class="badge">Scope of Expertise</span>
-      <h1>Our Core Renovation Services</h1>
-      <p>Specialized healthcare compliance, commercial fit-outs, and direct factory-backed home transformations in Singapore.</p>
+      <span class="badge">Our Capabilities</span>
+      <h1>Renovation Services &amp; Projects</h1>
+      <p>Click any service below to view our portfolio of completed projects across Singapore.</p>
     </div>
   </header>
 
-  <!-- Services & Interactive Project Reveal Grid -->
+  <!-- 3 Core Services -->
   <main class="services-section">
     <div class="rehova-container">
       <div class="services-grid">
 
         <!-- 1. Medical & Dental Renovation -->
         <div class="service-box">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
-            </div>
-            <h3>Medical &amp; Dental Renovation</h3>
-            <p class="desc">MOH compliant clinic fit-outs, lead-lined X-ray partitions, anti-bacterial surfaces, and integrated dental chair services trunking.</p>
-            <ul class="feature-tags">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>MOH &amp; statutory compliance</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Radiation shielding &amp; operatory suites</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Curved hygiene reception joinery</li>
-            </ul>
-            <button class="view-projects-btn" onclick="toggleProjects('medical-gallery', this)">
-              <span>View Completed Projects</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><rect x="5" y="5" width="14" height="14" rx="2"/></svg>
           </div>
-          <!-- Revealed Projects -->
-          <div id="medical-gallery" class="project-reveal-area">
-            <div class="gallery-preview-grid">
-              <img src="project-7.jpg" alt="Paediatric Dental Clinic Fit-Out Singapore">
-              <img src="project-8.jpg" alt="Smile Works Healthcare Clinic Reception">
-              <img src="project-9.jpg" alt="Surgical Suite Commercial Interior Fit-Out">
-              <img src="project-10.jpg" alt="Dental Clinic Waiting Area Renovation">
-              <div class="gallery-caption">Royce Dental &amp; Specialist Clinic Fit-Outs Singapore</div>
-            </div>
-          </div>
+          <h3>Medical &amp; Dental Renovation</h3>
+          <p class="desc">MOH compliant clinic fit-outs, lead-lined radiation shielding, operatory cabinetry, and anti-bacterial sanitary joinery.</p>
+          <ul class="feature-tags">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>MOH inspection &amp; licensing compliance</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lead-lined X-ray partitions &amp; doors</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Hygiene curved reception counters</li>
+          </ul>
+          <button class="view-projects-btn" onclick="openGallery('medical')">
+            <span>View All Medical Projects (6 Photos)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </button>
         </div>
 
         <!-- 2. Commercial Renovation -->
         <div class="service-box">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M8 18h.01M16 18h.01"/></svg>
-            </div>
-            <h3>Commercial Renovation</h3>
-            <p class="desc">End-to-end office spaces, retail storefronts, and commercial facilities with fire safety (SCDF), BCA submission, and acoustic planning.</p>
-            <ul class="feature-tags">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Mall storefronts &amp; tempered glass</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fire-rated partitions &amp; SCDF permits</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Acoustic ceilings &amp; electrical trunking</li>
-            </ul>
-            <button class="view-projects-btn" onclick="toggleProjects('commercial-gallery', this)">
-              <span>View Completed Projects</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01M8 18h.01M16 18h.01"/></svg>
           </div>
-          <!-- Revealed Projects -->
-          <div id="commercial-gallery" class="project-reveal-area">
-            <div class="gallery-preview-grid">
-              <img src="project-12.jpg" alt="Commercial Curved Reception Counter Singapore">
-              <img src="project-13.jpg" alt="Organic Arched Clinic Commercial Corridor">
-              <img src="project-14.jpg" alt="Mall Commercial Storefront Glass Partition">
-              <img src="project-16.jpg" alt="Commercial Treatment & Operatory Suite">
-              <div class="gallery-caption">Retail Storefronts &amp; Commercial Office Handhelds</div>
-            </div>
-          </div>
+          <h3>Commercial Renovation</h3>
+          <p class="desc">Offices, retail storefronts, and commercial institutions with fire safety compliance (SCDF), BCA permits, and acoustic ceilings.</p>
+          <ul class="feature-tags">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Retail mall storefronts &amp; tempered glass</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>SCDF fire-rated partition submissions</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Commercial curved reception &amp; lounges</li>
+          </ul>
+          <button class="view-projects-btn" onclick="openGallery('commercial')">
+            <span>View All Commercial Projects (5 Photos)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </button>
         </div>
 
         <!-- 3. Residential Renovation -->
         <div class="service-box">
-          <div class="service-header">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <h3>Residential Renovation</h3>
-            <p class="desc">Complete transformations for HDB BTO, resale flats, and condominiums backed by our direct Ubi carpentry workshop for maximum value.</p>
-            <ul class="feature-tags">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>In-house carpentry (wardrobes &amp; kitchens)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Full masonry hacking &amp; waterproofing</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>HDB &amp; Condo MCST permit management</li>
-            </ul>
-            <button class="view-projects-btn" onclick="toggleProjects('residential-gallery', this)">
-              <span>View Completed Projects</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
-          <!-- Revealed Projects -->
-          <div id="residential-gallery" class="project-reveal-area">
-            <div class="gallery-preview-grid">
-              <img src="project-1.jpg" alt="Japandi Living Suite HDB Renovation Singapore">
-              <img src="project-2.jpg" alt="Custom Bedside Joinery Residential">
-              <img src="project-3.jpg" alt="Modern Master Bedroom Suite">
-              <img src="project-4.jpeg" alt="Open Concept Living and Dining Condo">
-              <div class="gallery-caption">Singapore HDB BTO, Resale &amp; Condominium Projects</div>
-            </div>
-          </div>
+          <h3>Residential Renovation</h3>
+          <p class="desc">HDB BTO, resale flats, and private condominiums powered by our direct Ubi factory for custom wardrobes, kitchens, and feature walls.</p>
+          <ul class="feature-tags">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Direct factory carpentry (no middleman)</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Masonry hacking, flooring &amp; wet works</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>HDB &amp; condo MCST statutory submissions</li>
+          </ul>
+          <button class="view-projects-btn" onclick="openGallery('residential')">
+            <span>View All Residential Projects (6 Photos)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </button>
         </div>
 
       </div>
     </div>
   </main>
 
-  <!-- Standardized Footer (Kept Exactly Intact) -->
+  <!-- =======================================
+       FULL SCREEN POPUP GALLERY MODAL
+       ======================================= -->
+  <div id="galleryModal" class="gallery-modal-overlay" onclick="closeGalleryOnOverlay(event)">
+    <div class="gallery-modal-window">
+      <div class="modal-header">
+        <h2 id="modalTitle">Completed Projects</h2>
+        <button class="modal-close-btn" onclick="closeGallery()">&times;</button>
+      </div>
+      <div id="modalGrid" class="modal-gallery-grid">
+        <!-- Injected dynamically via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Standardized Footer -->
   <footer class="rehova-footer">
     <div class="rehova-container">
       <div class="footer-grid">
@@ -368,7 +390,7 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Action Icon -->
+  <!-- Floating WhatsApp Icon -->
   <a href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20your%20renovation%20services." 
      aria-label="Chat on WhatsApp"
      target="_blank" 
@@ -379,26 +401,82 @@
     </svg>
   </a>
 
-  <!-- Project Toggle Logic -->
+  <!-- Project Modal JavaScript Logic -->
   <script>
-    function toggleProjects(galleryId, button) {
-      const gallery = document.getElementById(galleryId);
-      const isVisible = gallery.classList.contains('show');
+    const projectGalleries = {
+      medical: {
+        title: "Medical & Dental Renovation Projects",
+        photos: [
+          { src: "project-7.jpg", title: "Paediatric Treatment Room & Child-Friendly Graphics" },
+          { src: "project-8.jpg", title: "Smile Works Clinic Reception & Curved Joinery" },
+          { src: "project-9.jpg", title: "Surgical Suite Lobby & Patient Consultation Area" },
+          { src: "project-10.jpg", title: "Royce Dental Waiting Lounge & Glass Partition" },
+          { src: "project-15.jpg", title: "MOH-Compliant Clinical Passage & Sliding Doors" },
+          { src: "project-16.jpg", title: "Treatment Room with Integrated Services Trunking" }
+        ]
+      },
+      commercial: {
+        title: "Commercial & Office Fit-Out Projects",
+        photos: [
+          { src: "project-12.jpg", title: "Seamless Micro-Cement Curved Reception Desk" },
+          { src: "project-13.jpg", title: "Organic Arched Commercial Corridor with Cove Lighting" },
+          { src: "project-14.jpg", title: "Commercial Mall Storefront with Tempered Glass" },
+          { src: "Showroom.3.png", title: "Custom Bar Counter & Billiards Lounge Joinery" },
+          { src: "Showroom.4.png", title: "Curved Retail Display Unit with Accent Illumination" }
+        ]
+      },
+      residential: {
+        title: "Residential Renovation & Custom Carpentry Projects",
+        photos: [
+          { src: "project-1.jpg", title: "Japandi Living Room with Suspended TV Ledge" },
+          { src: "project-2.jpg", title: "Bespoke Bedside Floating Joinery & Fluted Headboard" },
+          { src: "project-3.jpg", title: "Master Suite with Full-Height Vanity Desk" },
+          { src: "project-4.jpeg", title: "Open-Concept Condominium Living & Dining" },
+          { src: "project-5.jpg", title: "Integrated Heavy-Duty Aquarium Feature Wall" },
+          { src: "project-6.jpg", title: "Minimalist Master Bedroom Styling & Lighting" }
+        ]
+      }
+    };
 
-      // Close all open galleries first for a clean accordion effect
-      document.querySelectorAll('.project-reveal-area').forEach(area => area.classList.remove('show'));
-      document.querySelectorAll('.view-projects-btn').forEach(btn => {
-        btn.classList.remove('active');
-        btn.querySelector('span').innerText = 'View Completed Projects';
+    function openGallery(category) {
+      const data = projectGalleries[category];
+      if (!data) return;
+
+      document.getElementById('modalTitle').innerText = data.title;
+      const grid = document.getElementById('modalGrid');
+      grid.innerHTML = '';
+
+      data.photos.forEach(item => {
+        const photoCard = document.createElement('div');
+        photoCard.className = 'modal-photo-item';
+        photoCard.innerHTML = `
+          <img src="${item.src}" alt="${item.title}" loading="lazy">
+          <div class="photo-desc">${item.title}</div>
+        `;
+        grid.appendChild(photoCard);
       });
 
-      // Toggle targeted gallery
-      if (!isVisible) {
-        gallery.classList.add('show');
-        button.classList.add('active');
-        button.querySelector('span').innerText = 'Hide Projects';
+      document.getElementById('galleryModal').classList.add('active');
+      document.body.style.overflow = 'hidden'; // Stop background scrolling
+    }
+
+    function closeGallery() {
+      document.getElementById('galleryModal').classList.remove('active');
+      document.body.style.overflow = 'auto'; // Restore background scrolling
+    }
+
+    function closeGalleryOnOverlay(event) {
+      if (event.target.id === 'galleryModal') {
+        closeGallery();
       }
     }
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeGallery();
+      }
+    });
   </script>
 
 </body>
