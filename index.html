@@ -312,15 +312,6 @@
     }
   </style>
 </head>
-<script>
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  </script>
 <body>
 
   <!-- Top Bar -->
@@ -1137,6 +1128,15 @@
     </div>
   </footer>
 <script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinksList');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+
     // Hero Slider Auto-Run
     (function initHeroSlider() {
       const slides = document.querySelectorAll('.hero-slide');

@@ -38,17 +38,17 @@
     /* Header */
     .page-header { background: var(--white); border-bottom: 1px solid var(--border-gray); padding: 50px 0 36px; text-align: center; }
     .badge {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #991B1B;
-  background-color: #FEE2E2;
-  padding: 6px 14px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-}
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #991B1B;
+      background-color: #FEE2E2;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
     .page-header h1 { font-size: 2.3rem; font-weight: 800; color: var(--dark-slate); }
     .page-header p { margin-top: 10px; color: #4B5563; font-size: 1rem; }
 
@@ -133,7 +133,7 @@
     .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 40px; }
     @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; } }
     .footer-col-logo img { max-height: 55px; width: auto; object-fit: contain; margin-bottom: 14px; display: block; }
-    .footer-col h5 { font-size: 1.1rem; font-weight: 700; color: #ffffff; margin-bottom: 18px; }
+    .footer-col h3 { font-size: 1.1rem; font-weight: 700; color: #ffffff; margin-bottom: 18px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 10px; }
     .footer-col ul li a { color: #9CA3AF; text-decoration: none; }
@@ -142,7 +142,8 @@
     .footer-contact-icon { color: #ffffff; font-size: 1.1rem; }
     .footer-contact-item a { color: #9CA3AF; text-decoration: none; }
     .footer-copyright { border-top: 1px solid var(--footer-border); padding-top: 20px; text-align: center; font-size: 0.82rem; color: #9CA3AF; }
-  /* Mobile Hamburger Button */
+
+    /* Mobile Hamburger Button */
     .menu-toggle {
       display: flex;
       flex-direction: column;
@@ -189,15 +190,6 @@
     }
   </style>
 </head>
-<script>
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  </script>
 <body>
 
   <!-- Navigation -->
@@ -265,7 +257,7 @@
         </div>
 
         <div class="footer-col">
-          <h5>Quick Links</h5>
+          <h3>Quick Links</h3>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -276,7 +268,7 @@
         </div>
 
         <div class="footer-col">
-          <h5>Contact Us</h5>
+          <h3>Contact Us</h3>
           <div class="footer-contact-item">
             <span class="footer-contact-icon">📞</span>
             <div>
@@ -313,6 +305,15 @@
 
   <!-- Dynamic Gallery Generator with .jpg / .jpeg Auto-Fallback -->
   <script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinksList');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+
     const galleryContainer = document.getElementById('galleryContainer');
 
     const categories = [
@@ -358,7 +359,7 @@
       });
     }
 
-    // Tries .jpg -> .jpeg -> .png seamlessly so none of the 5 .jpeg files break
+    // Tries .jpg -> .jpeg -> .png seamlessly
     function handleImageFallback(imgElement, basePath) {
       if (!imgElement.dataset.triedJpeg) {
         imgElement.dataset.triedJpeg = "true";
@@ -378,11 +379,9 @@
       renderGallery(category);
     }
 
-    // Check URL Hash on load (e.g. gallery.html#commercial or gallery.html#residential from services.html)
+    // Check URL Hash on load
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
-      
-      // Map 'medical' from services.html to the 'commercial' gallery filter
       const targetCategory = (hash === 'medical') ? 'commercial' : hash;
 
       if (['commercial', 'residential', 'aquarium'].includes(targetCategory)) {
@@ -395,6 +394,5 @@
       }
     });
   </script>
-
 </body>
 </html>

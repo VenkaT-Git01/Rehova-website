@@ -172,17 +172,8 @@
       }
     ]
   }
-  </script>
+  
 </head>
-<script>
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  </script>
 <body>
 
   <!-- Navigation Bar -->
@@ -215,7 +206,15 @@
 
 
   </nav>
-      <!-- FAQ 1 -->
+  <main class="container">
+    <div class="intro">
+      <span class="badge">Singapore Renovation FAQ</span>
+      <h1>Frequently Asked Questions</h1>
+      <p>Everything you need to know about renovation costs, permits, and timelines in Singapore.</p>
+    </div>
+
+    <div class="faq-list">
+        <!-- FAQ 1 -->
       <details>
         <summary>
           <span>How much does an HDB BTO renovation cost in Singapore?</span>
@@ -294,6 +293,14 @@
     </div>
 
   </main>
-
+<script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinksList');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+  </script>
 </body>
 </html>

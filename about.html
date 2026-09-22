@@ -148,16 +148,7 @@
       }
     }
   </style>
-</head>
-<script>
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  </script>
+  </head>
 <body>
 
   <!-- Navigation -->
@@ -302,6 +293,14 @@
       </div>
     </div>
   </footer>
-
+<script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinksList');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+  </script>
 </body>
 </html>
