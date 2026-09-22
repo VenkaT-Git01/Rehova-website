@@ -273,10 +273,10 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lead-lined X-ray partitions &amp; doors</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Hygiene curved reception counters</li>
           </ul>
-          <button class="view-projects-btn" onclick="openGallery('medical')">
-            <span>View All Medical Projects</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </button>
+          <a href="gallery.html#medical" class="view-projects-btn" style="text-decoration: none;">
+            <span>View Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
 
         <!-- 2. Commercial Renovation -->
@@ -291,10 +291,10 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>SCDF fire-rated partition submissions</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Commercial curved reception &amp; lounges</li>
           </ul>
-          <button class="view-projects-btn" onclick="openGallery('commercial')">
-            <span>View All Commercial Projects</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </button>
+          <a href="gallery.html#commercial" class="view-projects-btn" style="text-decoration: none;">
+            <span>View Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
 
         <!-- 3. Residential Renovation -->
@@ -309,10 +309,10 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Masonry hacking, flooring &amp; wet works</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>HDB &amp; condo MCST statutory submissions</li>
           </ul>
-          <button class="view-projects-btn" onclick="openGallery('residential')">
-            <span>View All Residential Projects</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          </button>
+          <a href="gallery.html#residential" class="view-projects-btn" style="text-decoration: none;">
+            <span>View Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
 
       </div>
@@ -322,17 +322,15 @@
   <!-- =======================================
        FULL SCREEN POPUP GALLERY MODAL
        ======================================= -->
-  <div id="galleryModal" class="gallery-modal-overlay" onclick="closeGalleryOnOverlay(event)">
+  <!--<div id="galleryModal" class="gallery-modal-overlay" onclick="closeGalleryOnOverlay(event)">
     <div class="gallery-modal-window">
       <div class="modal-header">
         <h2 id="modalTitle">Completed Projects</h2>
         <button class="modal-close-btn" onclick="closeGallery()">&times;</button>
       </div>
       <div id="modalGrid" class="modal-gallery-grid">
-        <!-- Injected dynamically via JavaScript -->
+         Injected dynamically via JavaScript -->
       </div>
-    </div>
-  </div>
 
   <!-- Standardized Footer -->
   <footer class="rehova-footer">
