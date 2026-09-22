@@ -101,12 +101,67 @@
       font-size: 0.82rem;
       color: #555555;
     }
+
+    /* Mobile Hamburger Button */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 19px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 102;
+    }
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--charcoal, #1F2937);
+      border-radius: 2px;
+    }
+    @media (min-width: 768px) {
+      .menu-toggle { display: none; }
+    }
+
+    /* Mobile Dropdown Menu */
+    @media (max-width: 767px) {
+      .navbar .rehova-container { position: relative; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 18px 24px;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        border-bottom: 2px solid var(--primary-red, #D91A1E);
+        gap: 14px;
+        z-index: 999;
+      }
+      .nav-links.mobile-open {
+        display: flex !important;
+      }
+    }
   </style>
 </head>
+<script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinksList');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+  </script>
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar">
+ <nav class="navbar">
     <div class="rehova-container">
       <a href="index.html" class="logo-box">
         <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo">
@@ -115,9 +170,17 @@
           <span class="brand-tagline"><span style="color: #D91A1E; font-weight: 700;">Re</span>liable, <span style="color: #D91A1E; font-weight: 700;">Ho</span>nest, <span style="color: #D91A1E; font-weight: 700;">Va</span>lue For Money</span>
         </div>
       </a>
-      <ul class="nav-links">
+
+      <!-- Hamburger Button -->
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinksList">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="faq.html">FAQ</a></li>
