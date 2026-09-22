@@ -7,21 +7,90 @@
   <meta name="description" content="Singapore renovation FAQs: HDB BTO renovation costs, carpentry price per foot run (pfr), direct workshop vs ID, permit timelines, and visiting our Ubi showroom.">
   
   <style>
+    :root {
+      --primary-red: #D91A1E;
+      --charcoal: #1F2937;
+      --dark-slate: #111827;
+      --light-gray: #F9FAFB;
+      --border-gray: #E5E7EB;
+      --white: #FFFFFF;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
     body { background: #F9FAFB; color: #111827; line-height: 1.5; }
     
-    /* Navigation */
-    .header-nav { background: #111827; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #D91A1E; }
-    .header-nav .brand { font-size: 1.25rem; font-weight: 800; color: #ffffff; text-decoration: none; letter-spacing: 0.5px; }
-    .header-nav .brand span { color: #D91A1E; }
-    .nav-links { display: flex; gap: 14px; align-items: center; }
-    .nav-link { color: #E5E7EB; text-decoration: none; font-size: 0.95rem; font-weight: 600; padding: 6px 12px; }
-    .nav-btn { background: #D91A1E; color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; padding: 8px 18px; border-radius: 6px; }
+    /* Navigation Bar */
+    .navbar { background: #FFFFFF; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+    .rehova-container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; position: relative; }
+    .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-box img { height: 48px; width: auto; object-fit: contain; }
+    .brand-name { font-size: 1.25rem; font-weight: 800; color: #D91A1E; line-height: 1.1; }
+    .brand-tagline { font-size: 0.72rem; color: #1F2937; font-weight: 600; display: block; }
+    .nav-links { display: none; gap: 24px; list-style: none; }
+    @media (min-width: 768px) { .nav-links { display: flex; align-items: center; } }
+    .nav-links a { text-decoration: none; color: #1F2937; font-weight: 600; font-size: 0.95rem; }
+    .nav-links a:hover, .nav-links a.active { color: #D91A1E; }
+
+    /* Mobile Hamburger Button */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 19px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 102;
+    }
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #1F2937;
+      border-radius: 2px;
+    }
+    @media (min-width: 768px) {
+      .menu-toggle { display: none; }
+    }
+
+    /* Mobile Dropdown Menu */
+    @media (max-width: 767px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 18px 24px;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        border-bottom: 2px solid #D91A1E;
+        gap: 14px;
+        z-index: 999;
+      }
+      .nav-links.mobile-open {
+        display: flex !important;
+      }
+    }
 
     /* Layout */
     .container { max-width: 840px; margin: 48px auto 80px; padding: 0 20px; }
     .intro { text-align: center; margin-bottom: 40px; }
-    .badge { display: inline-block; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #D91A1E; background: rgba(217, 26, 30, 0.08); padding: 5px 14px; border-radius: 20px; margin-bottom: 12px; }
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #991B1B;
+      background-color: #FEE2E2;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
     h1 { font-size: 2.2rem; font-weight: 800; color: #111827; margin-bottom: 12px; line-height: 1.2; }
     .intro p { font-size: 1.05rem; color: #4B5563; }
 
@@ -42,53 +111,6 @@
     .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     .btn-red { background: #D91A1E; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; }
     .btn-white { background: #ffffff; color: #111827; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; }
-  
-    /* Mobile Hamburger Button */
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 26px;
-      height: 19px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 102;
-    }
-    .menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background-color: var(--charcoal, #1F2937);
-      border-radius: 2px;
-    }
-    @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-    }
-
-    /* Mobile Dropdown Menu */
-    @media (max-width: 767px) {
-      .navbar .rehova-container { position: relative; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        padding: 18px 24px;
-        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-        border-bottom: 2px solid var(--primary-red, #D91A1E);
-        gap: 14px;
-        z-index: 999;
-      }
-      .nav-links.mobile-open {
-        display: flex !important;
-      }
-    }
-  
   </style>
 
   <!-- Google FAQPage JSON-LD Schema for Rich Results -->
@@ -172,7 +194,7 @@
       }
     ]
   }
-  
+  </script>
 </head>
 <body>
 
@@ -180,7 +202,7 @@
   <nav class="navbar">
     <div class="rehova-container">
       <a href="index.html" class="logo-box">
-        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo">
+        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="48" height="48">
         <div>
           <span class="brand-name">Rehova Interiors pte Ltd</span>
           <span class="brand-tagline"><span style="color: #D91A1E; font-weight: 700;">Re</span>liable, <span style="color: #D91A1E; font-weight: 700;">Ho</span>nest, <span style="color: #D91A1E; font-weight: 700;">Va</span>lue For Money</span>
@@ -199,13 +221,12 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
-
-
   </nav>
+
   <main class="container">
     <div class="intro">
       <span class="badge">Singapore Renovation FAQ</span>
@@ -214,7 +235,7 @@
     </div>
 
     <div class="faq-list">
-        <!-- FAQ 1 -->
+      <!-- FAQ 1 -->
       <details>
         <summary>
           <span>How much does an HDB BTO renovation cost in Singapore?</span>
@@ -279,7 +300,6 @@
           Yes. Our showroom is located at 217 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810. You can review laminate samples, stone countertops, and test working Blum hardware in person. Booking an appointment ensures a designer is available to review your floor plan without waiting.
         </p>
       </details>
-
     </div>
 
     <!-- CTA Section -->
@@ -288,12 +308,12 @@
       <p>Visit our Ubi showroom to inspect real material samples and get a transparent quotation.</p>
       <div class="cta-buttons">
         <a href="contact.html" class="btn-red">Book Showroom Visit</a>
-        <a href="https://wa.me/6582075085" target="_blank" rel="noopener noreferrer" class="btn-white">WhatsApp (+65 8207 5085)</a>
+        <!--<a href="https://wa.me/6582075085" target="_blank" rel="noopener noreferrer" class="btn-white">WhatsApp (+65 8207 5085)</a>-->
       </div>
     </div>
-
   </main>
-<script>
+
+  <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinksList');
     if (menuBtn && navLinks) {
