@@ -271,15 +271,7 @@
 
   </style>
 </head>
-<script>
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  </script>
+
 <body>
 
   <!-- Navigation -->
@@ -539,6 +531,14 @@
         closeGallery();
       }
     });
+    // Mobile Menu Toggle
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinksList');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-open');
+    });
+  }
   </script>
 
 </body>
