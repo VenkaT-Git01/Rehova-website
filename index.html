@@ -265,6 +265,51 @@
         font-size: 1rem !important;
       }
     }
+    /* Mobile Hamburger Button */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 26px;
+      height: 19px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 102;
+    }
+    .menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--charcoal, #1F2937);
+      border-radius: 2px;
+    }
+    @media (min-width: 768px) {
+      .menu-toggle { display: none; }
+    }
+
+    /* Mobile Dropdown Menu */
+    @media (max-width: 767px) {
+      .navbar .rehova-container { position: relative; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 18px 24px;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        border-bottom: 2px solid var(--primary-red, #D91A1E);
+        gap: 14px;
+        z-index: 999;
+      }
+      .nav-links.mobile-open {
+        display: flex !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -282,37 +327,29 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="rehova-container">
-      <a href="#" class="logo-box">
+      <a href="index.html" class="logo-box">
         <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo">
         <div>
           <span class="brand-name">Rehova Interiors pte Ltd</span>
-          <!--<span class="brand-tagline">Reliable, Honest, Value For Money</span>-->
           <span class="brand-tagline"><span style="color: #D91A1E; font-weight: 700;">Re</span>liable, <span style="color: #D91A1E; font-weight: 700;">Ho</span>nest, <span style="color: #D91A1E; font-weight: 700;">Va</span>lue For Money</span>
         </div>
       </a>
-      <!--<ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blogs">Blogs</a></li>
-        <li><a href="#contact" class="nav-btn">Get A Quote</a></li>
-      </ul>-->
-      <!--<ul class="nav-links">
-        <li><a href="#" style="color: var(--primary-red); font-weight: 700;">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Gallery</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>-->
-      <ul class="nav-links">
-        <li><a href="index.html" style="color: var(--primary-red); font-weight: 700;">Home</a></li>
+
+      <!-- Hamburger Button -->
+      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinksList">
+        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      
     </div>
   </nav>
 
