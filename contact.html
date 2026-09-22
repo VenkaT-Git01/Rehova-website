@@ -3,22 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - ReHoVa Interiors Singapore</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background: #FAFAFA; color: #111827; }
-    .header-nav { background: #111827; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
-    .header-nav a { color: #ffffff; text-decoration: none; font-weight: 700; font-size: 1rem; }
-    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-    .contact-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; align-items: start; }
-    .card { background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #E5E7EB; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
-    .red-bar { background: #D91A1E; padding: 20px 24px; color: #ffffff; }
-    .red-bar a { color: #ffffff; text-decoration: none; font-weight: 700; font-size: 1.05rem; }
-    .row { display: flex; align-items: center; margin-bottom: 12px; }
-    .row:last-child { margin-bottom: 0; }
-    .row-label { width: 70px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; }
+  <title>Contact Us | ReHoVa Interiors Pte Ltd Singapore</title>
+  <meta name="description" content="Get in touch with ReHoVa Interiors Pte Ltd for clinic, commercial fit-outs, and residential renovations in Singapore. Visit our Ubi showroom or request a direct quotation.">
 
-    /* Mobile Hamburger Button */
+  <style>
+    :root {
+      --primary-red: #D91A1E;
+      --charcoal: #1F2937;
+      --dark-slate: #111827;
+      --light-gray: #F9FAFB;
+      --border-gray: #E5E7EB;
+      --white: #FFFFFF;
+      --footer-bg: #111827;
+      --footer-border: #374151;
+      --whatsapp-green: #25D366;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--light-gray); color: var(--charcoal); line-height: 1.6; }
+    .rehova-container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navigation Bar */
+    .navbar {
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar .rehova-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      position: relative;
+    }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-box img {
+      height: 48px;
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-red);
+      line-height: 1.1;
+      display: block;
+    }
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--charcoal);
+      font-weight: 600;
+      display: block;
+    }
+    .nav-links {
+      display: none;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    @media (min-width: 768px) {
+      .nav-links {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary-red);
+    }
+
+    /* Mobile Hamburger Menu */
     .menu-toggle {
       display: flex;
       flex-direction: column;
@@ -35,55 +104,269 @@
       display: block;
       height: 3px;
       width: 100%;
-      background-color: var(--charcoal, #1F2937);
+      background-color: var(--charcoal);
       border-radius: 2px;
     }
     @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-    }
-
-    /* Mobile Dropdown Menu */
-    @media (max-width: 767px) {
-      .navbar .rehova-container { position: relative; }
-      .nav-links {
+      .menu-toggle {
         display: none;
+      }
+    }
+    @media (max-width: 767px) {
+      .nav-links.mobile-open {
+        display: flex !important;
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background: #ffffff;
+        background: var(--white);
         padding: 18px 24px;
         box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-        border-bottom: 2px solid var(--primary-red, #D91A1E);
+        border-bottom: 2px solid var(--primary-red);
         gap: 14px;
         z-index: 999;
       }
-      .nav-links.mobile-open {
-        display: flex !important;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-gray);
+      padding: 48px 0 36px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary-red);
+      background: rgba(217, 26, 30, 0.08);
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      color: var(--dark-slate);
+    }
+    .page-header p {
+      margin-top: 10px;
+      color: #4B5563;
+      font-size: 1rem;
+    }
+
+    /* Main Contact Layout */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin: 40px 0 80px;
+    }
+    @media (min-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1.1fr 1fr;
       }
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border-gray);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    /* Showroom Details */
+    .info-card-content {
+      padding: 24px 28px;
+    }
+    .info-card-content h2 {
+      font-size: 1.35rem;
+      color: var(--dark-slate);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .contact-row .icon {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+    .contact-row a {
+      color: var(--primary-red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-row a:hover {
+      text-decoration: underline;
+    }
+
+    /* Form Styling */
+    .form-card {
+      padding: 32px 28px;
+    }
+    .form-card h2 {
+      font-size: 1.35rem;
+      color: var(--dark-slate);
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .form-card p {
+      color: #6B7280;
+      font-size: 0.9rem;
+      margin-bottom: 22px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border-gray);
+      border-radius: 6px;
+      font-size: 0.95rem;
+      background: #F9FAFB;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary-red);
+      background: var(--white);
+    }
+    .submit-btn {
+      width: 100%;
+      background: var(--primary-red);
+      color: var(--white);
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .submit-btn:hover {
+      background: #B91418;
+    }
+
+    /* Floating WhatsApp Icon */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      background-color: var(--whatsapp-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    /* Footer */
+    .rehova-footer {
+      background-color: var(--footer-bg);
+      color: #9CA3AF;
+      padding: 60px 0 24px;
+      font-size: 0.92rem;
+      border-top: 1px solid var(--footer-border);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 50px;
+      }
+    }
+    .footer-col-logo img {
+      max-height: 55px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .footer-col h5 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+    .footer-col ul li a {
+      color: #9CA3AF;
+      text-decoration: none;
+    }
+    .footer-col ul li a:hover {
+      color: #ffffff;
+    }
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: #9CA3AF;
+    }
+    .footer-contact-icon {
+      color: #ffffff;
+      font-size: 1.1rem;
+    }
+    .footer-contact-item a {
+      color: #9CA3AF;
+      text-decoration: none;
+    }
+    .footer-copyright {
+      border-top: 1px solid var(--footer-border);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #9CA3AF;
     }
   </style>
 </head>
-
-<script>
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  </script>
-
 <body>
 
-  <!-- Top Bar back to Home -->
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="rehova-container">
       <a href="index.html" class="logo-box">
-        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo">
+        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" height="48" style="max-height: 48px; width: auto; object-fit: contain;">
         <div>
           <span class="brand-name">Rehova Interiors pte Ltd</span>
           <span class="brand-tagline"><span style="color: #D91A1E; font-weight: 700;">Re</span>liable, <span style="color: #D91A1E; font-weight: 700;">Ho</span>nest, <span style="color: #D91A1E; font-weight: 700;">Va</span>lue For Money</span>
@@ -108,79 +391,180 @@
     </div>
   </nav>
 
-  <main class="container">
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="rehova-container">
+      <span class="badge">Singapore Renovation Specialist</span>
+      <h1>Contact ReHoVa Interiors</h1>
+      <p>Have an inquiry or upcoming renovation project? Visit our showroom or request an obligation-free consultation.</p>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="rehova-container">
     <div class="contact-layout">
 
-      <!-- 1. Showroom Map & Red Info Card -->
+      <!-- Left Column: Google Maps & Showroom Details -->
       <div class="card">
-        <!-- Interactive Google Map -->
-        <div style="width: 100%; height: 280px; border-bottom: 1px solid #E5E7EB;">
+        <div style="width: 100%; height: 300px; border-bottom: 1px solid var(--border-gray);">
           <iframe 
             title="ReHoVa Interiors Ubi Showroom"
-            src="https://maps.google.com/maps?q=217%20Ubi%20Avenue%204,%20Intrepid%20Warehouse%20Complex,%20Singapore%20408810&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            src="https://maps.google.com/maps?q=217%20Ubi%20Avenue%204,%20Singapore%20408810&t=&z=15&ie=UTF8&iwloc=&output=embed" 
             width="100%" 
             height="100%" 
             style="border:0;" 
             allowfullscreen="" 
-            loading="lazy">
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
-
-        <!-- Address Info -->
-        <div style="padding: 22px 24px;">
-          <h2 style="color: #D91A1E; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 8px;">
-            UBI OFFICE &amp; SHOWROOM
-          </h2>
-          <p style="font-size: 1rem; font-weight: 700; margin-bottom: 4px;">217 Ubi Ave 4</p>
-          <p style="color: #6B7280; font-size: 0.95rem;">Intrepid Warehouse Complex, Singapore 408810</p>
-        </div>
-
-        <!-- Red Contact Bar -->
-        <div class="red-bar">
-          <div class="row">
-            <span style="font-size: 1.2rem; margin-right: 14px;">📞</span>
-            <span class="row-label">TEL</span>
-            <a href="tel:+6582075085">(+65) 8207 5085</a>
+        <div class="info-card-content">
+          <h2>Showroom &amp; Office</h2>
+          
+          <div class="contact-row">
+            <span class="icon">📍</span>
+            <div>
+              <strong>Address:</strong><br>
+              217 Ubi Ave 4, Singapore 408810
+            </div>
           </div>
-          <div class="row">
-            <span style="font-size: 1.2rem; margin-right: 14px;">💬</span>
-            <span class="row-label">WHATSAPP</span>
-            <a href="https://wa.me/6582075085" target="_blank" rel="noopener noreferrer">(+65) 8207 5085</a>
+
+          <div class="contact-row">
+            <span class="icon">📞</span>
+            <div>
+              <strong>Phone / WhatsApp:</strong><br>
+              <a href="tel:+6582075085">+65 8207 5085</a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <span class="icon">✉️</span>
+            <div>
+              <strong>Email:</strong><br>
+              <a href="mailto:sales@rehova.sg">sales@rehova.sg</a>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <span class="icon">🕒</span>
+            <div>
+              <strong>Operating Hours:</strong><br>
+              Mon – Sat: 9:00 AM – 6:00 PM<br>
+              Sunday &amp; Public Holidays: By Appointment
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 2. Showroom Enquiry Form -->
-      <div class="card" style="padding: 28px 24px;">
-        <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 8px;">Book a Showroom Visit</h2>
-        <p style="color: #6B7280; font-size: 0.95rem; margin-bottom: 24px;">Send us your details and floor plan. We will get back to you shortly.</p>
-        
-        <form onsubmit="event.preventDefault(); alert('Enquiry submitted! We will contact you soon.');">
-          <div style="margin-bottom: 16px;">
-            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Your Name</label>
-            <input type="text" required placeholder="e.g. Tan Ah Kow" style="width: 100%; padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem;">
+      <!-- Right Column: Quotation & Consultation Form -->
+      <div class="card form-card">
+        <h2>Request a Quotation</h2>
+        <p>Send us your project details and requirements. We will review and respond promptly.</p>
+
+        <form action="mailto:sales@rehova.sg" method="POST" enctype="text/plain">
+          <div class="form-group">
+            <label for="fullName">Your Name *</label>
+            <input type="text" id="fullName" name="Name" placeholder="e.g. John Tan" required>
           </div>
-          <div style="margin-bottom: 16px;">
-            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Contact Number (WhatsApp)</label>
-            <input type="tel" required placeholder="+65 8207 5085" style="width: 100%; padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem;">
+
+          <div class="form-group">
+            <label for="phone">Contact Number *</label>
+            <input type="tel" id="phone" name="Phone" placeholder="e.g. +65 9123 4567" required>
           </div>
-          <div style="margin-bottom: 20px;">
-            <label style="display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Property Type</label>
-            <select style="width: 100%; padding: 10px 12px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem;">
-              <option>HDB BTO</option>
-              <option>HDB Resale</option>
-              <option>Condo / Private</option>
-              <option>Commercial / Office</option>
+
+          <div class="form-group">
+            <label for="projectType">Project Scope *</label>
+            <select id="projectType" name="Project Scope" required>
+              <option value="" disabled selected>Select service category</option>
+              <option value="Commercial Fit-Out">Commercial / Office Fit-Out</option>
+              <option value="Medical or Dental Clinic">Medical / Dental Clinic Renovation</option>
+              <option value="Residential HDB or Condo">Residential (HDB / Condo / Landed)</option>
+              <option value="Custom Carpentry or Aquarium">Custom Carpentry / Aquarium Cabinetry</option>
+              <option value="Others">Other Joinery / Reinstatement</option>
             </select>
           </div>
-          <button type="submit" style="width: 100%; background: #D91A1E; color: #ffffff; border: none; padding: 14px; border-radius: 6px; font-weight: 700; font-size: 1rem; cursor: pointer;">
-            Submit Enquiry
-          </button>
+
+          <div class="form-group">
+            <label for="message">Project Scope &amp; Target Timeline</label>
+            <textarea id="message" name="Message" rows="4" placeholder="Share property type, area size (sqft), key carpentry needs, or expected handover date..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Quotation Request</button>
         </form>
       </div>
 
     </div>
   </main>
+
+  <!-- Standard Footer -->
+  <footer class="rehova-footer">
+    <div class="rehova-container">
+      <div class="footer-grid">
+        <div class="footer-col-logo">
+          <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd">
+          <p style="font-size: 0.95rem; font-weight: 500; margin-bottom: 4px; color: #ffffff;">ReHoVa Interiors Pte Ltd</p>
+          <p style="font-size: 0.9rem; margin-bottom: 12px; color: #9CA3AF;">UEN: 201711139N</p>
+          <p style="font-size: 0.9rem; color: #9CA3AF;">Reliable. Honest. Value for Money.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📞</span>
+            <div>
+              <div><a href="tel:+6582075085">+65 8207 5085</a></div>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">✉️</span>
+            <div><a href="mailto:sales@rehova.sg">sales@rehova.sg</a></div>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📍</span>
+            <div>217 Ubi Ave 4, Singapore 408810</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-copyright">
+        &copy; 2026 ReHoVa Interiors Pte Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation%20quotation." 
+     aria-label="Chat on WhatsApp"
+     target="_blank" 
+     rel="noopener" 
+     class="whatsapp-float">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16c0 2.68.75 5.2 2.06 7.35L2.5 29.5l6.35-1.53A13.91 13.91 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm8.17 19.92c-.34.96-1.7 1.76-2.77 1.99-.73.16-1.68.29-4.88-1.04-4.1-1.7-6.73-5.88-6.94-6.15-.2-.28-1.68-2.24-1.68-4.27s1.06-3.03 1.44-3.44c.38-.41.83-.51 1.1-.51.28 0 .55.01.79.02.26.01.6-.1 1 .84.34.82 1.16 2.83 1.26 3.04.1.2.17.44.03.71-.13.27-.2.44-.4.67-.2.24-.43.53-.61.71-.2.2-.42.42-.18.83.24.41 1.07 1.76 2.3 2.85 1.58 1.41 2.92 1.85 3.33 2.05.41.2.66.17.9-.1.25-.28 1.06-1.24 1.34-1.67.28-.43.56-.36.94-.22.38.14 2.42 1.14 2.83 1.35.41.2.68.3.78.47.1.17.1.99-.24 1.95z" fill="#ffffff"/>
+    </svg>
+  </a>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinksList');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-open');
+      });
+    }
+  </script>
 
 </body>
 </html>
