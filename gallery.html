@@ -456,6 +456,17 @@
       } else {
         renderGallery('all', true);
       }
+
+      card.innerHTML = `
+  <img src="${defaultSrc}" 
+       alt="${item.alt}" 
+       width="400"
+       height="230"
+       loading="lazy"
+       decoding="async"
+       onerror="handleImageFallback(this, '${item.folder}/${item.prefix}${item.index}')">
+  <div class="gallery-label">${item.label}</div>
+`; 
     });
   </script>
 </body>
