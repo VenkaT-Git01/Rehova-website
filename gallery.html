@@ -171,6 +171,7 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      content-visibility: auto; /* Optimizes rendering performance */
     }
 
     .gallery-item:hover {
@@ -239,7 +240,7 @@
       <h1>Our Completed Projects</h1>
       <p>Explore our workmanship across commercial spaces, medical suites, residential apartments, and custom structural builds.</p>
       
-      <!-- Filter Tabs -->
+      <!-- Filter Tabs matching exact folder keys -->
       <div class="filter-bar">
         <button class="filter-btn active" onclick="filterGallery('all', this)">All Projects</button>
         <button class="filter-btn" onclick="filterGallery('commercial', this)">Commercial Fit-Out</button>
@@ -315,7 +316,7 @@
     </svg>
   </a>
 
-  <!-- Dynamic Gallery Generator with Clean Labels -->
+  <!-- High-Performance Asynchronous Gallery Script -->
   <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinksList');
@@ -327,10 +328,11 @@
 
     const galleryContainer = document.getElementById('galleryContainer');
 
+    // Exact folder configurations matching your folder counts
     const categories = [
-      { key: 'commercial', folder: 'Commercial', prefix: 'Commercial.', count: 34, label: 'Commercial Fit-Out' },
+      { key: 'commercial', folder: 'Commercial', prefix: 'Commercial.', count: 12, label: 'Commercial Fit-Out' },
       { key: 'medical', folder: 'Medical & Dental', prefix: 'Medical.', count: 7, label: 'Medical & Dental Clinic' },
-      { key: 'residential', folder: 'Residential', prefix: 'Residential.', count: 29, label: 'Residential Carpentry' },
+      { key: 'residential', folder: 'Residential', prefix: 'Residential.', count: 11, label: 'Residential Carpentry' },
       { key: 'aquarium', folder: 'Aquarium', prefix: 'Aquarium.', count: 9, label: 'Aquarium Cabinetry' }
     ];
 
@@ -342,22 +344,24 @@
           folder: cat.folder,
           prefix: cat.prefix,
           index: i,
-          alt: `${cat.label} Singapore Project #${i}`,
+          alt: `${cat.label} Singapore Project`,
           label: cat.label // Clean label without numbers
         });
       }
     });
 
     let currentFilter = 'all';
-    let visibleLimit = 6;
+    let visibleLimit = 8; // Faster initial batch load
 
     function renderGallery(filter = 'all', resetLimit = true) {
       currentFilter = filter;
-      if (resetLimit) visibleLimit = 6;
+      if (resetLimit) visibleLimit = 8;
 
-      galleryContainer.innerHTML = '';
       const list = filter === 'all' ? allItems : allItems.filter(item => item.category === filter);
       const itemsToDisplay = list.slice(0, visibleLimit);
+
+      // Use DocumentFragment for blazing-fast batch DOM insertion
+      const fragment = document.createDocumentFragment();
 
       itemsToDisplay.forEach(item => {
         const card = document.createElement('div');
@@ -374,8 +378,11 @@
                onerror="handleImageFallback(this, '${item.folder}/${item.prefix}${item.index}')">
           <div class="gallery-label">${item.label}</div>
         `;
-        galleryContainer.appendChild(card);
+        fragment.appendChild(card);
       });
+
+      galleryContainer.innerHTML = '';
+      galleryContainer.appendChild(fragment);
 
       const existingBtn = document.getElementById('loadMoreBtn');
       if (existingBtn) existingBtn.remove();
@@ -389,7 +396,7 @@
         btn.textContent = 'Load More Projects';
         btn.className = 'filter-btn active';
         btn.onclick = () => {
-          visibleLimit += 6;
+          visibleLimit += 8;
           renderGallery(currentFilter, false);
         };
         
