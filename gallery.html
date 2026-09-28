@@ -304,8 +304,7 @@
   </a>
 
   <!-- Dynamic Gallery Generator with .jpg / .jpeg Auto-Fallback -->
-  <script>
-    // Mobile Menu Toggle
+ <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinksList');
     if (menuBtn && navLinks) {
@@ -323,8 +322,6 @@
     ];
 
     let allItems = [];
-
-    // Build the list of all 80 items
     categories.forEach(cat => {
       for (let i = 1; i <= cat.count; i++) {
         allItems.push({
@@ -338,14 +335,20 @@
       }
     });
 
-    function renderGallery(filter = 'all') {
+    let currentFilter = 'all';
+    let visibleLimit = 12; // Number of items to show initially
+
+    function renderGallery(filter = 'all', resetLimit = true) {
+      currentFilter = filter;
+      if (resetLimit) visibleLimit = 12;
+
       galleryContainer.innerHTML = '';
       const list = filter === 'all' ? allItems : allItems.filter(item => item.category === filter);
+      const itemsToDisplay = list.slice(0, visibleLimit);
 
-      list.forEach(item => {
+      itemsToDisplay.forEach(item => {
         const card = document.createElement('div');
         card.className = 'gallery-item';
-
         const defaultSrc = `${item.folder}/${item.prefix}${item.index}.webp`;
 
         card.innerHTML = `
@@ -357,13 +360,34 @@
         `;
         galleryContainer.appendChild(card);
       });
+
+      // Remove old load more button if exists
+      const existingBtn = document.getElementById('loadMoreBtn');
+      if (existingBtn) existingBtn.remove();
+
+      // Add "Load More" button if there are more items to show
+      if (visibleLimit < list.length) {
+        const loadMoreContainer = document.createElement('div');
+        loadMoreContainer.style.cssText = 'grid-column: 1 / -1; text-align: center; margin: 30px 0;';
+        loadMoreContainer.id = 'loadMoreBtn';
+        
+        const btn = document.createElement('button');
+        btn.textContent = 'Load More Projects';
+        btn.className = 'filter-btn active';
+        btn.onclick = () => {
+          visibleLimit += 12;
+          renderGallery(currentFilter, false);
+        };
+        
+        loadMoreContainer.appendChild(btn);
+        galleryContainer.appendChild(loadMoreContainer);
+      }
     }
 
-    // Tries .jpg -> .jpeg -> .png seamlessly
     function handleImageFallback(imgElement, basePath) {
-      if (!imgElement.dataset.triedJpeg) {
-        imgElement.dataset.triedJpeg = "true";
-        imgElement.src = `${basePath}.jpeg`;
+      if (!imgElement.dataset.triedJpg) {
+        imgElement.dataset.triedJpg = "true";
+        imgElement.src = `${basePath}.jpg`;
       } else if (!imgElement.dataset.triedPng) {
         imgElement.dataset.triedPng = "true";
         imgElement.src = `${basePath}.png`;
@@ -376,10 +400,9 @@
     function filterGallery(category, btnElement) {
       document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
       if (btnElement) btnElement.classList.add('active');
-      renderGallery(category);
+      renderGallery(category, true);
     }
 
-    // Check URL Hash on load
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
       const targetCategory = (hash === 'medical') ? 'commercial' : hash;
@@ -390,7 +413,7 @@
         );
         filterGallery(targetCategory, targetBtn);
       } else {
-        renderGallery('all');
+        renderGallery('all', true);
       }
     });
   </script>
