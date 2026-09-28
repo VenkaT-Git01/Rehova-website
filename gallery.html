@@ -336,11 +336,11 @@
     });
 
     let currentFilter = 'all';
-    let visibleLimit = 12; // Number of items to show initially
+    let visibleLimit = 6; // Reduced to 6 for instant zero-lag rendering
 
     function renderGallery(filter = 'all', resetLimit = true) {
       currentFilter = filter;
-      if (resetLimit) visibleLimit = 12;
+      if (resetLimit) visibleLimit = 6;
 
       galleryContainer.innerHTML = '';
       const list = filter === 'all' ? allItems : allItems.filter(item => item.category === filter);
@@ -355,17 +355,16 @@
           <img src="${defaultSrc}" 
                alt="${item.alt}" 
                loading="lazy"
+               decoding="async"
                onerror="handleImageFallback(this, '${item.folder}/${item.prefix}${item.index}')">
           <div class="gallery-label">${item.label}</div>
         `;
         galleryContainer.appendChild(card);
       });
 
-      // Remove old load more button if exists
       const existingBtn = document.getElementById('loadMoreBtn');
       if (existingBtn) existingBtn.remove();
 
-      // Add "Load More" button if there are more items to show
       if (visibleLimit < list.length) {
         const loadMoreContainer = document.createElement('div');
         loadMoreContainer.style.cssText = 'grid-column: 1 / -1; text-align: center; margin: 30px 0;';
@@ -375,7 +374,7 @@
         btn.textContent = 'Load More Projects';
         btn.className = 'filter-btn active';
         btn.onclick = () => {
-          visibleLimit += 12;
+          visibleLimit += 6;
           renderGallery(currentFilter, false);
         };
         
