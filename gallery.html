@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Completed Renovation Projects Gallery | ReHoVa Interiors Singapore</title>
-  <meta name="description" content="Browse completed Singapore renovation projects by ReHoVa Interiors: commercial fit-outs, clinic suites, residential HDB BTO carpentry, and bespoke aquarium cabinetry.">
+  <meta name="description" content="Browse completed Singapore renovation projects by ReHoVa Interiors: commercial fit-outs, medical & dental clinic suites, residential carpentry, and bespoke aquarium cabinetry.">
   <link rel="canonical" href="https://rehova.sg/gallery.html">
   <style>
     :root {
@@ -70,37 +70,6 @@
       color: var(--white);
       border-color: var(--primary-red);
       box-shadow: 0 4px 12px rgba(217, 26, 30, 0.25);
-    }
-
-    /* Responsive Photo Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 80px;
-    }
-    .gallery-item {
-      background: var(--white);
-      border: 1px solid var(--border-gray);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      transition: transform 0.2s ease;
-    }
-    .gallery-item:hover { transform: translateY(-4px); }
-    .gallery-item img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      display: block;
-      background: #E5E7EB;
-    }
-    .gallery-label {
-      padding: 12px 14px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--dark-slate);
-      border-top: 1px solid var(--border-gray);
     }
 
     /* Floating WhatsApp Icon */
@@ -190,50 +159,50 @@
     }
 
     #galleryContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 20px 0;
-}
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 20px 0;
+    }
 
-.gallery-item {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .gallery-item {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
 
-.gallery-item img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
+    .gallery-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
 
-.gallery-item:hover img {
-  transform: scale(1.03);
-}
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
 
-.gallery-label {
-  padding: 16px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #2c3e50;
-  text-align: center;
-  background: #ffffff;
-  border-top: 1px solid #f0f0f0;
-}
+    .gallery-label {
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #2c3e50;
+      text-align: center;
+      background: #ffffff;
+      border-top: 1px solid #f0f0f0;
+    }
   </style>
 </head>
 <body>
- 
+  
   <!-- Navigation -->
   <nav class="navbar">
     <div class="rehova-container">
@@ -256,7 +225,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -268,12 +237,13 @@
     <div class="rehova-container">
       <span class="badge">Singapore Renovation Portfolio</span>
       <h1>Our Completed Projects</h1>
-      <p>Explore our workmanship across commercial spaces, residential apartments, and custom structural builds.</p>
+      <p>Explore our workmanship across commercial spaces, medical suites, residential apartments, and custom structural builds.</p>
       
       <!-- Filter Tabs -->
       <div class="filter-bar">
         <button class="filter-btn active" onclick="filterGallery('all', this)">All Projects</button>
-        <button class="filter-btn" onclick="filterGallery('commercial', this)">Commercial &amp; Clinic </button>
+        <button class="filter-btn" onclick="filterGallery('commercial', this)">Commercial Fit-Out</button>
+        <button class="filter-btn" onclick="filterGallery('medical', this)">Medical &amp; Dental</button>
         <button class="filter-btn" onclick="filterGallery('residential', this)">Residential</button>
         <button class="filter-btn" onclick="filterGallery('aquarium', this)">Aquarium Cabinetry</button>
       </div>
@@ -345,8 +315,8 @@
     </svg>
   </a>
 
-  <!-- Dynamic Gallery Generator with .jpg / .jpeg Auto-Fallback -->
- <script>
+  <!-- Dynamic Gallery Generator with Clean Labels -->
+  <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinksList');
     if (menuBtn && navLinks) {
@@ -359,7 +329,8 @@
 
     const categories = [
       { key: 'commercial', folder: 'Commercial', prefix: 'Commercial.', count: 34, label: 'Commercial Fit-Out' },
-      { key: 'residential', folder: 'Residential', prefix: 'Residential.', count: 35, label: 'Residential Carpentry' },
+      { key: 'medical', folder: 'Medical & Dental', prefix: 'Medical.', count: 7, label: 'Medical & Dental Clinic' },
+      { key: 'residential', folder: 'Residential', prefix: 'Residential.', count: 29, label: 'Residential Carpentry' },
       { key: 'aquarium', folder: 'Aquarium', prefix: 'Aquarium.', count: 9, label: 'Aquarium Cabinetry' }
     ];
 
@@ -372,13 +343,13 @@
           prefix: cat.prefix,
           index: i,
           alt: `${cat.label} Singapore Project #${i}`,
-          label: `${cat.label} #${i}`
+          label: cat.label // Clean label without numbers
         });
       }
     });
 
     let currentFilter = 'all';
-    let visibleLimit = 6; // Initial batch set to 6 for instant loading
+    let visibleLimit = 6;
 
     function renderGallery(filter = 'all', resetLimit = true) {
       currentFilter = filter;
@@ -396,6 +367,8 @@
         card.innerHTML = `
           <img src="${defaultSrc}" 
                alt="${item.alt}" 
+               width="400"
+               height="230"
                loading="lazy"
                decoding="async"
                onerror="handleImageFallback(this, '${item.folder}/${item.prefix}${item.index}')">
@@ -446,27 +419,15 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
-      const targetCategory = (hash === 'medical') ? 'commercial' : hash;
 
-      if (['commercial', 'residential', 'aquarium'].includes(targetCategory)) {
+      if (['commercial', 'medical', 'residential', 'aquarium'].includes(hash)) {
         const targetBtn = Array.from(document.querySelectorAll('.filter-btn')).find(btn => 
-          btn.getAttribute('onclick').includes(targetCategory)
+          btn.getAttribute('onclick').includes(hash)
         );
-        filterGallery(targetCategory, targetBtn);
+        filterGallery(hash, targetBtn);
       } else {
         renderGallery('all', true);
       }
-
-      card.innerHTML = `
-  <img src="${defaultSrc}" 
-       alt="${item.alt}" 
-       width="400"
-       height="230"
-       loading="lazy"
-       decoding="async"
-       onerror="handleImageFallback(this, '${item.folder}/${item.prefix}${item.index}')">
-  <div class="gallery-label">${item.label}</div>
-`; 
     });
   </script>
 </body>
