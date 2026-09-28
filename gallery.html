@@ -336,7 +336,7 @@
     });
 
     let currentFilter = 'all';
-    let visibleLimit = 6; // Reduced to 6 for instant zero-lag rendering
+    let visibleLimit = 6; // Initial batch set to 6 for instant loading
 
     function renderGallery(filter = 'all', resetLimit = true) {
       currentFilter = filter;
