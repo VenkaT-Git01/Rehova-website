@@ -6,7 +6,7 @@
 <title>Residential and Commercial Renovation Specialist in Singapore | ReHoVa Interiors</title>
 <meta name="description" content="ReHoVa Interiors delivers transparent, reliable, and compliant residential and commercial renovation in Singapore. Backed by Teck Leong Industries & Ban Soon Cheong.">
 <link rel="canonical" href="https://rehova.sg/">
-<link rel="preload" as="image" href="project-1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="Showroom.2.png" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 .split{display:grid;gap:34px;align-items:center}
 @media(min-width:900px){.split{grid-template-columns:1.1fr 1fr;gap:64px}}
 .split-img{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/3.4}
-.split-img img{width:100%;height:100%;object-fit:cover}
+.split-img img{width:100%;height:100%;object-fit:cover;object-position:80% center}
 .split-img::after{content:"";position:absolute;left:-14px;bottom:-14px;width:45%;height:45%;border:4px solid var(--red);border-radius:6px;z-index:-1}
 .split-wrap{position:relative;isolation:isolate;padding:0 0 14px 14px}
 .split p{color:var(--mute);margin-bottom:16px}
@@ -129,8 +129,8 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 
 /* Final */
 .final{position:relative;color:#fff;text-align:center;background:var(--ink) url('project-5.jpg') center/cover;padding:clamp(80px,12vw,140px) 0}
-.final::before{content:"";position:absolute;inset:0;background:rgba(27,30,36,.78)}
-.final .wrap{position:relative}
+.final::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,30,36,.65) 0%,rgba(27,30,36,.35) 45%,rgba(27,30,36,.1) 100%)}.final .wrap{position:relative}
+.final h2{text-shadow:0 2px 14px rgba(0,0,0,.65)}
 .final h2{font-size:clamp(2rem,5.4vw,3.8rem);font-weight:800;margin:0 auto 26px;max-width:16ch}
 .final .btns{justify-content:center}
 
@@ -176,7 +176,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
 </nav>
 
 <header class="hero" id="hero">
-  <!--<div class="slide on" style="background-image:url('Showroom.2.png')"></div>-->
+  <div class="slide on" style="background-image:url('Showroom.2.png')"></div>
   <div class="slide" style="background-image:url('project-1.jpg')"></div>
   <div class="slide" style="background-image:url('project-2.jpg')"></div>
   <div class="slide" style="background-image:url('project-3.jpg')"></div>
