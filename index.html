@@ -1,1173 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Residential and Commercial Renovation Specialist in Singapore | ReHoVa Interiors</title>
-  <meta name="description" content="ReHoVa Interiors delivers transparent, reliable, and compliant residential and commercial renovation in Singapore. Backed by Teck Leong Industries & Ban Soon Cheong.">
-  <link rel="preload" as="image" href="Showroom.2.png" fetchpriority="high">
-  <link rel="canonical" href="https://rehova.sg/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Residential and Commercial Renovation Specialist in Singapore | ReHoVa Interiors</title>
+<meta name="description" content="ReHoVa Interiors delivers transparent, reliable, and compliant residential and commercial renovation in Singapore. Backed by Teck Leong Industries & Ban Soon Cheong.">
+<link rel="canonical" href="https://rehova.sg/">
+<link rel="preload" as="image" href="Showroom.2.png" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#D91A1E;--ink:#1B1E24;--stone:#F6F4F1;--line:#E3DFD9;--mute:#5F6570;--w:#fff;
+--head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"DM Sans",-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--stone);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 
-  <style>
-    :root {
-      --primary-red: #D91A1E;
-      --charcoal: #1F2937;
-      --dark-slate: #111827;
-      --light-gray: #F9FAFB;
-      --border-gray: #E5E7EB;
-      --white: #FFFFFF;
-      --whatsapp-green: #25D366;
-    }
-    /* Responsive hero heading fix for mobile */
-.hero h1, .hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.2;
-}
+/* Nav */
+.nav{position:absolute;top:0;left:0;right:0;z-index:20;padding:14px 0;transition:background .3s}
+.nav.solid{position:fixed;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;position:relative}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{height:46px;width:auto;background:#fff;border-radius:8px;padding:4px}
+.brand b{font:800 1.08rem var(--head);color:#fff;display:block;line-height:1.1}
+.brand small{font-size:.7rem;color:#e9e9e9;font-weight:500}
+.solid .brand b{color:var(--red)}.solid .brand small{color:var(--ink)}
+.links{display:none;list-style:none;gap:24px;align-items:center}
+.links a{text-decoration:none;font-weight:500;font-size:.93rem;color:#fff}
+.solid .links a{color:var(--ink)}
+.links a:hover{color:var(--red)}
+.links .cta{background:var(--red);color:#fff!important;padding:9px 18px;border-radius:6px;font-weight:700}
+.burger{background:none;border:0;width:28px;height:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
+.burger i{height:3px;background:#fff;border-radius:2px}
+.solid .burger i{background:var(--ink)}
+@media(min-width:800px){.links{display:flex}.burger{display:none}}
+@media(max-width:799px){.links.open{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:calc(100% + 14px);left:0;right:0;background:#fff;padding:20px 22px;gap:14px;border-bottom:3px solid var(--red);box-shadow:0 14px 24px rgba(0,0,0,.15)}.links.open a{color:var(--ink)}}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-    body { background-color: var(--light-gray); color: var(--charcoal); line-height: 1.6; }
-    .rehova-container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+/* Hero */
+.hero{position:relative;height:100svh;min-height:600px;max-height:940px;overflow:hidden;background:var(--ink);color:#fff}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.02);transition:opacity 1.4s ease}
+.slide.on{opacity:1;animation:kb 9s ease-out forwards}
+@keyframes kb{to{transform:scale(1.12)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,30,36,.55) 0%,rgba(27,30,36,.15) 35%,rgba(27,30,36,.88) 100%)}
+.hero-in{position:absolute;z-index:5;left:0;right:0;bottom:0;padding-bottom:64px}
+.hero h1{font-size:clamp(2.3rem,7.2vw,5.4rem);font-weight:800;max-width:15ch;margin-bottom:28px}
+.hero h1 span{display:block;overflow:hidden}
+.hero h1 em{display:block;font-style:normal;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 span:nth-child(2) em{animation-delay:.12s}.hero h1 span:nth-child(3) em{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:1rem;transition:background .2s,color .2s,transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 6px 20px rgba(217,26,30,.45)}
+.btn-line{border:2px solid rgba(255,255,255,.9);color:#fff}
+.btn-line:hover{background:#fff;color:var(--ink)}
+.btn-dark{border:2px solid var(--ink);color:var(--ink)}.btn-dark:hover{background:var(--ink);color:#fff}
+.dots{position:absolute;z-index:5;right:22px;bottom:70px;display:flex;gap:6px}
+.dots button{width:26px;height:4px;border:0;background:rgba(255,255,255,.4);cursor:pointer;border-radius:2px;padding:0}
+.dots button.on{background:var(--red)}
+@media(max-width:700px){.dots{right:auto;left:22px;bottom:26px}.hero-in{padding-bottom:64px}.btn{flex:1 1 100%;text-align:center}}
 
-    /* Top Bar */
-    .top-bar { background: var(--dark-slate); color: #D1D5DB; font-size: 0.82rem; padding: 8px 0; }
-    .top-bar .rehova-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .top-bar a { color: #F3F4F6; text-decoration: none; font-weight: 500; }
+/* Trust */
+.trust{background:var(--ink);color:#fff;padding:20px 0}
+.trust ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px 24px;font-size:.92rem;font-weight:500}
+.trust li::before{content:"";display:inline-block;width:8px;height:8px;background:var(--red);border-radius:50%;margin-right:10px}
 
-    /* Navigation */
-    .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
-    .navbar .rehova-container { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
-    .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-box img { height: 48px; width: auto; object-fit: contain; }
-    .brand-name { font-size: 1.25rem; font-weight: 800; color: var(--primary-red); line-height: 1.1; }
-    .brand-tagline { font-size: 0.72rem; color: var(--charcoal); font-weight: 600; display: block; }
-    .nav-links { display: none; gap: 20px; list-style: none; }
-    @media (min-width: 768px) { .nav-links { display: flex; align-items: center; } }
-    .nav-links a { text-decoration: none; color: var(--charcoal); font-weight: 500; font-size: 0.92rem; }
-    .nav-links a:hover { color: var(--primary-red); }
-    .nav-btn { background: var(--primary-red); color: var(--white) !important; padding: 8px 16px; border-radius: 6px; font-weight: 600; }
+.sec{padding:clamp(60px,9vw,110px) 0}
+.h2{font-size:clamp(1.9rem,4.6vw,3.2rem);font-weight:800;margin-bottom:14px;max-width:18ch}
+.lead{color:var(--mute);max-width:56ch;font-size:1.05rem}
 
-    /* Hero */
-    /*.hero { background: linear-gradient(rgba(17, 24, 39, 0.75), rgba(17, 24, 39, 0.75)), url('project-1.jpg') center/cover no-repeat; color:var(--white); padding: 90px 0; text-align: center; }    .hero-badge { display: inline-block; background: rgba(217, 26, 30, 0.2); color: #F87171; border: 1px solid var(--primary-red); padding: 4px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; }*/
-    .hero {
-  position: relative;
-  overflow: hidden;
-  color: var(--white);
-  padding: 100px 0;
-  text-align: center;
-}
-/* Hero Carousel Fade Animation */
-    .hero-slider-container {
-      position: relative;
-      width: 100%;
-      height: 480px;
-    }
+/* Mosaic */
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:12px;margin-top:38px}
+.mosaic button{position:relative;border:0;padding:0;overflow:hidden;border-radius:4px;cursor:zoom-in;background:var(--ink)}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.mosaic button:hover img{transform:scale(1.07);opacity:.85}
+.m1{grid-column:span 2;grid-row:span 2}.m4{grid-row:span 2}.m7{grid-row:span 2}.m5,.m9{grid-column:span 2}
+.m9{grid-column:2/4}
+@media(max-width:800px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.mosaic button{grid-column:auto!important;grid-row:auto!important}.mosaic .m1{grid-column:span 2!important;grid-row:span 2!important}}
+.more{margin-top:28px}
 
-    .hero-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
+/* Showroom split */
+.split{display:grid;gap:34px;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1.1fr 1fr;gap:64px}}
+.split-img{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:4/3.4}
+.split-img img{width:100%;height:100%;object-fit:cover}
+.split-img::after{content:"";position:absolute;left:-14px;bottom:-14px;width:45%;height:45%;border:4px solid var(--red);border-radius:6px;z-index:-1}
+.split-wrap{position:relative;isolation:isolate;padding:0 0 14px 14px}
+.split p{color:var(--mute);margin-bottom:16px}
+.tests{list-style:none;margin:22px 0 28px;border-top:1px solid var(--line)}
+.tests li{padding:13px 0;border-bottom:1px solid var(--line);font-weight:500}
+.tests b{color:var(--red)}
 
-    .hero-slide.active {
-      opacity: 1;
-    }
+/* Services */
+.svc{background:var(--w)}
+.rows{margin-top:36px;border-top:1px solid var(--line)}
+.row{display:grid;gap:6px 30px;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;position:relative}
+.row::before{content:"";position:absolute;left:0;bottom:-1px;height:3px;width:0;background:var(--red);transition:width .45s ease}
+.row:hover::before{width:100%}
+.row h3{font-size:clamp(1.5rem,3.4vw,2.4rem);font-weight:800;transition:color .2s}
+.row:hover h3{color:var(--red)}
+.row p{color:var(--mute);max-width:52ch}
+@media(min-width:800px){.row{grid-template-columns:1fr 1fr;align-items:center}}
 
-    @media (max-width: 768px) {
-      .hero-slider-container {
-        height: 280px;
-      }
-    }
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-  animation: autoSwap 15s infinite;
-}
+/* Steps */
+.steps{display:grid;gap:28px;margin-top:38px}
+@media(min-width:800px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{border-left:4px solid var(--red);padding:4px 0 4px 20px}
+.step b{font:800 2.6rem var(--head);color:var(--red);line-height:1}
+.step h3{font-size:1.35rem;margin:8px 0 6px}
+.step p{color:var(--mute);font-size:.98rem}
 
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(17, 24, 39, 0.75);
-  z-index: 1;
-}
+/* Testimonials */
+.tm{background:var(--ink);color:#fff;overflow:hidden}
+.tm .h2{color:#fff}
+.marq{margin-top:32px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:20px;width:max-content;animation:sc 40s linear infinite}
+.track:hover{animation-play-state:paused}
+@keyframes sc{to{transform:translateX(-50%)}}
+.q{width:340px;flex-shrink:0;padding:26px 24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:6px;font-size:.98rem;color:#E6E7EA}
+.q::before{content:"\201C";display:block;font:800 3rem/0.6 var(--head);color:var(--red);margin-bottom:8px}
 
-.hero .rehova-container {
-  position: relative;
-  z-index: 2;
-}
+/* Final */
+.final{position:relative;color:#fff;text-align:center;background:var(--ink) url('project-5.jpg') center/cover;padding:clamp(80px,12vw,140px) 0}
+.final::before{content:"";position:absolute;inset:0;background:rgba(27,30,36,.78)}
+.final .wrap{position:relative}
+.final h2{font-size:clamp(2rem,5.4vw,3.8rem);font-weight:800;margin:0 auto 26px;max-width:16ch}
+.final .btns{justify-content:center}
 
-@keyframes autoSwap {
-  0%, 100% {
-    background-image: url('project-1.jpg');
-    transform: scale(1);
-  }
-  30% {
-    background-image: url('project-1.jpg');
-    transform: scale(1.08);
-  }
-  35% {
-    background-image: url('project-2.jpg');
-    transform: scale(1);
-  }
-  65% {
-    background-image: url('project-2.jpg');
-    transform: scale(1.08);
-  }
-  70% {
-    background-image: url('project-3.jpg');
-    transform: scale(1);
-  }
-  95% {
-    background-image: url('project-3.jpg');
-    transform: scale(1.08);
-  }
-}
-    .hero h1 { font-size: 2.1rem; line-height: 1.25; margin-bottom: 18px; font-weight: 800; }
-    .hero p { font-size: 1.05rem; color: #D1D5DB; max-width: 680px; margin: 0 auto 30px; }
-    .btn { display: inline-block; padding: 12px 26px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; }
-    .btn-red { background: var(--primary-red); color: var(--white); }
-    .btn-outline { background: transparent; color: var(--white); border: 2px solid #6B7280; }
+/* Footer */
+.foot{background:#14161A;color:#A3A8B1;padding:44px 0 20px;font-size:.88rem}
+.fg{display:grid;gap:26px;margin-bottom:26px}
+@media(min-width:800px){.fg{grid-template-columns:2fr 1fr 1fr}}
+.foot h3{color:#fff;font-size:1rem;margin-bottom:10px}
+.foot ul{list-style:none}.foot li{margin-bottom:6px}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.copy{border-top:1px solid #2A2D34;padding-top:16px;text-align:center;font-size:.78rem}
 
-    /* Sections */
-    .section { padding: 60px 0; }
-    .section-title { text-align: center; font-size: 1.8rem; font-weight: 700; margin-bottom: 10px; color: var(--dark-slate); }
-    .section-subtitle { text-align: center; font-size: 0.98rem; color: #6B7280; max-width: 650px; margin: 0 auto 36px; }
+.wa{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.35);z-index:50;transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
 
-    /* Pillars */
-    .values-bar { background: var(--white); padding: 32px 0; border-bottom: 1px solid var(--border-gray); }
-    .values-grid { display: grid; grid-template-columns: 1fr; gap: 20px; text-align: center; }
-    @media (min-width: 768px) { .values-grid { grid-template-columns: repeat(3, 1fr); } }
-    .value-card h3 { font-size: 1.2rem; color: var(--primary-red); margin-bottom: 6px; }
-    .value-card p { font-size: 0.9rem; color: #4B5563; }
+/* Lightbox */
+dialog{border:0;background:transparent;max-width:94vw;max-height:92vh;margin:auto}
+dialog::backdrop{background:rgba(10,11,14,.88)}
+dialog img{max-height:88vh;border-radius:4px}
+dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:1.3rem;cursor:pointer}
 
-    /* About Box */
-    .about-box { background: var(--white); border: 1px solid var(--border-gray); border-radius: 12px; padding: 36px; }
-    .about-box p { margin-bottom: 16px; font-size: 0.98rem; color: #374151; }
-
-    /* Projects Grid */
-    .project-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 768px) { .project-grid { grid-template-columns: repeat(3, 1fr); } }
-    .project-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; overflow: hidden; }
-    .project-img { width: 100%; height: 210px; object-fit: cover; background: #E5E7EB; display: flex; align-items: center; justify-content: center; color: #6B7280; font-size: 0.95rem; font-weight: 600; }
-    .project-body { padding: 16px; }
-    .project-body h4 { font-size: 1.05rem; margin-bottom: 6px; }
-    .project-body p { font-size: 0.85rem; color: #6B7280; }
-
-    /* Blog Grid */
-    .blog-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-    @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(3, 1fr); } }
-    .blog-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 8px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
-    .blog-badge { display: inline-block; background: #FEE2E2; color: #991B1B; font-size: 0.75rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
-    .blog-card h4 { font-size: 1.05rem; margin-bottom: 8px; line-height: 1.4; }
-    .blog-card p { font-size: 0.88rem; color: #4B5563; margin-bottom: 14px; }
-    .blog-card a { color: var(--primary-red); font-weight: 600; text-decoration: none; font-size: 0.85rem; }
-
-    /* Group Logos Section */
-    .group-section { background: var(--white); border-top: 1px solid var(--border-gray); padding: 48px 0; }
-    .group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; align-items: stretch; }
-    .group-item-light { background: #FFFFFF; border: 1px solid var(--border-gray); border-radius: 8px; padding: 18px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
-    .group-item-dark { background: #2B2B2B; border: 1px solid #374151; border-radius: 8px; padding: 18px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
-    .group-item-grey { background: #424241; border: 1px solid #374151; border-radius: 8px; padding: 18px 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
-    .group-item img { max-height: 48px; max-width: 100%; object-fit: contain; margin-bottom: 8px; }
-
-    /* Contact Section */
-    .contact-card { background: var(--white); border: 1px solid var(--border-gray); border-radius: 12px; padding: 36px 24px; }
-    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
-    @media (min-width: 768px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
-    .info-item { margin-bottom: 16px; }
-    .info-item label { font-size: 0.78rem; text-transform: uppercase; font-weight: 700; color: #6B7280; display: block; }
-    .info-item a, .info-item span { font-size: 0.98rem; color: var(--dark-slate); font-weight: 600; text-decoration: none; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; }
-    .form-group input, .form-group select { width: 100%; padding: 10px; border: 1px solid #D1D5DB; border-radius: 6px; font-size: 0.95rem; }
-
-    /* Floating WhatsApp */
-    .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: var(--whatsapp-green); color: var(--white); padding: 12px 18px; border-radius: 50px; font-weight: bold; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(0,0,0,0.25); z-index: 999; font-size: 0.92rem; }
-
-    /* Footer */
-    .rehova-footer { background: var(--dark-slate); color: #9CA3AF; padding: 40px 0 20px; font-size: 0.85rem; }
-    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; }
-    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
-    .footer-col h5 { color: var(--white); margin-bottom: 10px; }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 6px; }
-    .footer-col ul li a { color: #9CA3AF; text-decoration: none; }
-    .copyright { border-top: 1px solid #374151; padding-top: 16px; text-align: center; font-size: 0.78rem; }
-  /* 3D Showroom Gallery Cards */
-    .showroom-perspective-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      perspective: 1000px;
-    }
-
-    .showroom-card-3d {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      background: #111827;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
-      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-      transform-style: preserve-3d;
-    }
-
-    .showroom-card-3d:hover {
-      transform: translateY(-8px) rotateX(4deg) rotateY(-2deg) scale(1.02);
-      box-shadow: 0 20px 35px -5px rgba(217, 26, 30, 0.2), 0 12px 16px -8px rgba(0, 0, 0, 0.2);
-    }
-
-    .showroom-card-3d img {
-      width: 100%;
-      height: 260px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .showroom-card-3d:hover img {
-      transform: scale(1.06);
-    }
-
-    .showroom-card-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 16px 20px;
-      background: linear-gradient(to top, rgba(17, 24, 39, 0.92) 0%, rgba(17, 24, 39, 0.4) 70%, transparent 100%);
-      color: #ffffff;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    .showroom-cta-box {
-      background: linear-gradient(135deg, #111827 0%, #1F2937 100%);
-      border-radius: 16px;
-      padding: 45px 30px;
-      text-align: center;
-      margin-top: 50px;
-      border: 1px solid #374151;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    }
-  @media (max-width: 768px) {
-      header {
-        height: 520px !important;
-      }
-      header h1 {
-        font-size: 2.4rem !important;
-      }
-      header p {
-        font-size: 1rem !important;
-      }
-    }
-    /* Mobile Hamburger Button */
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 26px;
-      height: 19px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 102;
-    }
-    .menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background-color: var(--charcoal, #1F2937);
-      border-radius: 2px;
-    }
-    @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-    }
-
-    /* Mobile Dropdown Menu */
-    @media (max-width: 767px) {
-      .navbar .rehova-container { position: relative; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        padding: 18px 24px;
-        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-        border-bottom: 2px solid var(--primary-red, #D91A1E);
-        gap: 14px;
-        z-index: 999;
-      }
-      .nav-links.mobile-open {
-        display: flex !important;
-      }
-    }
-    /* Responsive mobile font size fix for the hero heading */
-@media (max-width: 767px) {
-  .hero-section h1 {
-    font-size: 1rem !important;
-    line-height: 1.2 !important;
-  }
-}
-  </style>
+@media(prefers-reduced-motion:reduce){.slide.on,.track,.hero h1 em{animation:none;transform:none}html{scroll-behavior:auto}.slide{transition:none}}
+</style>
 </head>
 <body>
 
-  <!-- Top Bar -->
-<!-- <aside class="top-bar">
-    <div class="rehova-container">
-      <div>📍 215, 217, 219 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810</div>
-      <div>
-        <a href="mailto:sales@rehova.sg">sales@rehova.sg</a> | <a href="tel:+6582075085">+65 8207 5085</a>
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="46" height="46">
+      <span><b>ReHoVa Interiors Pte Ltd</b><small>Reliable, Honest, Value For Money</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open Navigation Menu"><i></i><i></i><i></i></button>
+    <ul class="links" id="links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html" class="cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="slide on" style="background-image:url('Showroom.2.png')"></div>
+  <div class="slide" style="background-image:url('project-1.jpg')"></div>
+  <div class="slide" style="background-image:url('project-2.jpg')"></div>
+  <div class="slide" style="background-image:url('project-3.jpg')"></div>
+  <div class="slide" style="background-image:url('project-4.jpg')"></div>
+  <div class="slide" style="background-image:url('project-5.jpg')"></div>
+  <div class="dots" id="dots" role="tablist" aria-label="Hero slides"></div>
+  <div class="hero-in">
+    <div class="wrap">
+      <h1><span><em>Residential and</em></span><span><em>Commercial Renovation</em></span><span><em>Specialist in Singapore</em></span></h1>
+      <div class="btns">
+        <a href="contact.html" class="btn btn-red">Get Free Consultation</a>
       </div>
     </div>
-  </aside>-->
+  </div>
+</header>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="rehova-container">
-      <a href="index.html" class="logo-box">
+<main>
+<section class="trust" aria-label="Why ReHoVa">
+  <div class="wrap"><ul>
+    <li>Direct in-house carpentry</li>
+    <li>Transparent quotations</li>
+    <li>Showroom in Singapore</li>
+  </ul></div>
+</section>
 
+<section class="sec" id="projects">
+  <div class="wrap">
+    <h2 class="h2">Inside our showroom</h2>
+    <p class="lead">Tap any photo to see it larger.</p>
+    <div class="mosaic" id="mosaic">
+      <button class="m1"><img loading="lazy" src="Showroom.1.png" alt="ReHoVa showroom photo 1"></button>
+      <button class="m2"><img loading="lazy" src="Showroom.2.png" alt="ReHoVa showroom photo 2"></button>
+      <button class="m4"><img loading="lazy" src="Showroom.4.png" alt="ReHoVa showroom photo 4"></button>
+      <button class="m3"><img loading="lazy" src="Showroom.3.png" alt="ReHoVa showroom photo 3"></button>
+      <button class="m5"><img loading="lazy" src="Showroom.5.jpeg" alt="ReHoVa showroom photo 5"></button>
+      <button class="m6"><img loading="lazy" src="Showroom.6.jpeg" alt="ReHoVa showroom photo 6"></button>
+      <button class="m7"><img loading="lazy" src="Showroom.7.jpeg" alt="ReHoVa showroom photo 7"></button>
+      <button class="m8"><img loading="lazy" src="Showroom.8.jpeg" alt="ReHoVa showroom photo 8"></button>
+      <button class="m9"><img loading="lazy" src="Showroom.9.jpeg" alt="ReHoVa showroom photo 9"></button>
+    </div>
+    <div class="more"><a href="gallery.html" class="btn btn-dark">View Full Gallery</a></div>
+  </div>
+</section>
 
-        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="48" height="48">
-        <div>
-          <span class="brand-name">ReHoVa Interiors Pte Ltd</span>
-          <span class="brand-tagline"><span style="color: #D91A1E; font-weight: 700;">Re</span>liable, <span style="color: #D91A1E; font-weight: 700;">Ho</span>nest, <span style="color: #D91A1E; font-weight: 700;">Va</span>lue For Money</span>
-        </div>
-      </a>
-
-      <!-- Hamburger Button -->
-      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <ul class="nav-links" id="navLinksList">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
+<section class="sec" style="background:var(--w)" id="showroom">
+  <div class="wrap split">
+    <div class="split-wrap"><div class="split-img"><img loading="lazy" src="Showroom.2.png" alt="ReHoVa custom carpentry interior showroom with curved joinery"></div></div>
+    <div>
+      <h2 class="h2">Touch, feel and sense the workmanship</h2>
+      <p>3D drawings only show looks. Visit our showroom and see our workmanship for yourself before you decide.</p>
+      <ul class="tests">
+        <li>Feel our carpentry up close</li>
+        <li>Test smooth <b>BOXX</b> hardware</li>
+        <li>Compare real <b>AROVA</b> laminates and stone tops</li>
       </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <!--<header class="hero">
-    <div class="rehova-container">
-    <div class="rehova-container">
-    <h1>Residential and Commercial Renovation Specialist in Singapore</h1>
-    <p>Practical budget management, direct in-house carpentry, and reliable project timelines for homeowners and commercial spaces.</p>
-    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 20px;">
-      <a href="#contact" class="btn btn-red">Get a Quote</a>
-      <a href="https://wa.me/6582075085" class="btn btn-outline" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a href="contact.html" class="btn btn-red">Book a Showroom Visit</a>
     </div>
   </div>
-  </header>-->
+</section>
 
-<!-- Hero Carousel Slider (Starts with Showroom.2, then Projects 1 to 5) -->
- <!--<header class="hero-carousel-section" style="background: #FFFFFF; padding-bottom: 24px;">-->
-    
-    <!-- Slider Frame -->
-    <!--<div class="hero-slider-container" style="position: relative; width: 100%; height: 500px; overflow: hidden; background: #111827;">
-     git <div class="hero-slide active" style="background-image: url('Showroom.2.png'); opacity: 1;"></div>      <div class="hero-slide" style="background-image: url('project-1.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-2.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-3.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-4.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-6.jpg');"></div>
-    </div>-->
-
-
-    <!-- Title Below the Running Slider -->
-    <!--<div class="rehova-container" style="text-align: center; padding-top: 32px;">
-      <h1 style="font-size: 2.1rem; font-weight: 800; color: #111827; max-width: 920px; margin: 0 auto; line-height: 1.3;">
-        Residential and Commercial Renovation Specialist in Singapore
-      </h1>
-    </div>-->
-    <!-- ========================================== -->
-  <!-- 1. HERO CAROUSEL SECTION (20% Fade, Left Title) -->
-  <!-- ========================================== -->
-  <header style="position: relative; width: 100%; height: 560px; overflow: hidden; background: #111827;">
-    
-    <!-- Background Running Slides -->
-    <div class="hero-slider-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
-      <div class="hero-slide active" style="background-image: url('Showroom.2.png'); opacity: 1;"></div>
-      <div class="hero-slide" style="background-image: url('project-1.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-2.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-3.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-4.jpg');"></div>
-      <div class="hero-slide" style="background-image: url('project-6.jpg');"></div>
+<section class="sec">
+  <div class="wrap">
+    <h2 class="h2">What we do</h2>
+    <div class="rows">
+      <a class="row" href="services.html"><h3>Residential Renovation</h3><p>Feature walls, wardrobes, kitchens and full-home renovation, built to your timeline and budget.</p></a>
+      <a class="row" href="services.html"><h3>Commercial Fit-Out</h3><p>Practical, durable fit-outs for offices, clinics, retail and F&amp;B, with dependable supervision.</p></a>
+      <a class="row" href="services.html"><h3>Custom Carpentry</h3><p>Made in-house for better cost and alignment, from curved cabinets to media consoles.</p></a>
     </div>
-
-    <!-- 20% Subtle Left Gradient Mask -->
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; background: linear-gradient(90deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.12) 40%, rgba(255,255,255,0) 50%); pointer-events: none;"></div>
-
-    <!-- Left Aligned Content Overlay -->
-    <div style="position: relative; z-index: 3; height: 100%; display: flex; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px;">
-      <div style="max-width: 640px; text-align: left;">
-        <h1 style="font-size: 2.6rem; font-weight: 800; color: #111827; line-height: 1.2; margin: 0 0 16px; letter-spacing: -0.5px; text-shadow: 0 1px 4px rgba(255,255,255,0.9);">
-          Residential and Commercial Renovation Specialist in Singapore
-        </h1>
-        <!--<p style="font-size: 1.1rem; color: #1F2937; line-height: 1.6; margin: 0 0 26px; font-weight: 600; text-shadow: 0 1px 3px rgba(255,255,255,0.85);">
-          Professional interior design and renovation services in Singapore. Build your dream space with ReHoVa Interiors.
-        </p>-->
-        <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
-          <a href="contact.html" style="background-color: #D91A1E; color: #ffffff; padding: 14px 28px; border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; box-shadow: 0 4px 14px rgba(217, 26, 30, 0.35);">
-            Get Free Consultation
-          </a>
-          <!--<a href="tel:+6587877161" style="background-color: rgba(255,255,255,0.95); color: #111827; border: 1px solid #D1D5DB; padding: 14px 26px; border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-block; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
-            Call +65 8787 7161
-          </a>-->
-        </div>
-      </div>
-    </div>
-
-  </header>
-  <main>
-  <!-- Value Pillars -->
-<div style="max-width: 960px; margin: 20px auto 30px; padding: 0 20px;">
-  
-  <!-- "Our Core Values" Label (Top Right above Reliable) -->
-  <div style="display: flex; justify-content: flex-start; margin-bottom: 12px;">
-    <span style="font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #991B1B; background-color: #FEE2E2;; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(217, 26, 30, 0.2);">
-      Our Core Values
-    </span>
   </div>
+</section>
 
-  <!-- 3 Compact Fitted Cards -->
-  <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; text-align: center;">
-    
-    <!-- Card 1: Reliable -->
-    <div class="value-card" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center;">
-      <h2 style="font-size: 1.3rem; margin: 0; letter-spacing: 0.5px;">
-        <span style="color: #D91A1E; font-weight: 800;">Re</span><span style="color: #111827; font-weight: 800;">liable</span>
-      </h2>
+<section class="sec" style="background:var(--w)">
+  <div class="wrap">
+    <h2 class="h2">From first visit to handover</h2>
+    <div class="steps">
+      <div class="step"><b>1</b><h3>Visit or consult</h3><p>Bring your floor plan and meet our interior specialists.</p></div>
+      <div class="step"><b>2</b><h3>Get a clear quote</h3><p>A transparent quotation tailored to your timeline and budget.</p></div>
+      <div class="step"><b>3</b><h3>We build and hand over</h3><p>In-house carpentry and open communication at every stage.</p></div>
     </div>
-
-    <!-- Card 2: Honest -->
-    <div class="value-card" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center;">
-      <h2 style="font-size: 1.3rem; margin: 0; letter-spacing: 0.5px;">
-        <span style="color: #D91A1E; font-weight: 800;">Ho</span><span style="color: #111827; font-weight: 800;">nest</span>
-      </h2>
-    </div>
-
-    <!-- Card 3: Value for Money -->
-    <div class="value-card" style="background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; justify-content: center;">
-      <h2 style="font-size: 1.3rem; margin: 0; letter-spacing: 0.5px;">
-        <span style="color: #D91A1E; font-weight: 800;">Va</span><span style="color: #111827; font-weight: 800;">lue for Money</span>
-      </h2>
-    </div>
-
   </div>
-</div>
- 
+</section>
 
-  <!-- 3D Showroom Sensory Experience Section -->
-  <section class="section" id="showroom-experience" style="background: #FAFAFA; padding: 60px 0 80px;">
-    <div class="rehova-container">
-      
-      <!-- Sensory Header Narrative -->
-      <div style="text-align: center; max-width: 820px; margin: 0 auto 46px;">
-        <span style="font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #991B1B; background: #FEE2E2; padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(217, 26, 30, 0.2); display: inline-block; margin-bottom: 14px;">
-          Live Experience Shworoom &bull; Singapore
-        </span>
-        <h3 style="font-size: 2.2rem; font-weight: 800; color: #111827; margin-bottom: 16px; line-height: 1.25;">
-          Touch, Feel &amp; Sense the Workmanship
-        </h3>
-        <p style="font-size: 1.05rem; color: #4B5563; line-height: 1.7; margin: 0;">
-         3D drawings only show looks. Visit our showroom to feel our carpentry, test smooth BOXX Hardwares, compare real AROVA laminates and stone tops, and see our workmanship for yourself before you decide.
-        </p>
-      </div>
+<section class="sec tm" id="testimonials">
+  <div class="wrap"><h2 class="h2">What our customers say</h2></div>
+  <div class="marq" aria-label="Customer testimonials"><div class="track" id="track">
+    <div class="q">Workmanship on our custom carpentry was neat and solid. The handover was delivered exactly on schedule without any unexpected cost additions.</div>
+    <div class="q">Practical advice on selecting durable materials within our fit-out budget. An honest and straightforward contractor to deal with for commercial space.</div>
+    <div class="q">ReHoVa coordinated the renovation milestones smoothly and kept communication open through every stage. Dependable supervision throughout.</div>
+    <div class="q">Direct in-house carpentry makes a big difference in cost and alignment. The fabrication quality on our feature wall and wardrobes was excellent.</div>
+  </div></div>
+</section>
 
-      <!-- 9-Card 3D Interactive Gallery Grid -->
-      <div class="showroom-perspective-grid">
-        
-        <!-- 1. Lounge & Fluted Wall -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.1.png" alt="Lounge Feature Wall and Accent Lighting">
-          <div class="showroom-card-caption">
-            <div>
-              <!--<span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 01</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Feature Wall </h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Living Room Carpentry</span>-->
-          </div>
-        </div>
-
-        <!-- 2. Reception & Brand Wall -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.2.png" alt="Reception Signage Wall and Curved Joinery">
-          <div class="showroom-card-caption">
-            <div>
-             <!-- <span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 02</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Custom Carpentry Interior Showroom</h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;"></span>-->
-          </div>
-        </div>
-
-        <!-- 3. Entertainment Island -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.3.png" alt="Custom Bar Counter and Billiards Lounge">
-          <div class="showroom-card-caption">
-            <div>
-             <!-- <span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 03</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Work table</h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Solid Countertops</span>-->
-          </div>
-        </div>
-
-        <!-- 4. Architectural Joinery -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.4.png" alt="Curved Display Unit and Warm Illumination">
-          <div class="showroom-card-caption">
-            <div>
-             <!-- <span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 04</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Curved Display Cabinet Carpentry</h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Seamless Radius</span>-->
-          </div>
-        </div>
-
-        <!-- 5. Material Library -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.5.jpeg" alt="Material Sample Board and Swatch Library">
-          <div class="showroom-card-caption">
-            <div>
-              <!--<span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 05</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Sample Room</h4>
-            </div>
-           <!-- <span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Material Library</span>-->
-          </div>
-        </div>
-
-        <!-- 6. Master Suite & Wardrobes -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.6.jpeg" alt="Master Suite and Open Wardrobe System">
-          <div class="showroom-card-caption">
-            <div>
-             <!-- <span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 06</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Built-In Wardrobe Bedroom Design</h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Integrated Lighting</span>-->
-          </div>
-        </div>
-
-        <!-- 7. Consultation Suite -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.7.jpeg" alt="Client Consultation Room and Laminate Displays">
-          <div class="showroom-card-caption">
-            <div>
-              <!--<span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 07</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Interior Design Consultation Space</h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Singapore Showroom</span>-->
-          </div>
-        </div>
-
-        <!-- 8. Living Media Wall -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.8.jpeg" alt="Full-Height Media Console and Marble Texture Wall">
-          <div class="showroom-card-caption">
-            <div>
-              <!--<span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 08</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">TV Console Feature Wall Design</h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Living Room Design</span>-->
-          </div>
-        </div>
-
-        <!-- 9. Modern Kitchen Living Area -->
-        <div class="showroom-card-3d">
-          <img src="Showroom.9.jpeg" alt="Open Concept Kitchen and Modern Dining Experience">
-          <div class="showroom-card-caption">
-            <div>
-              <!--<span style="font-size: 0.75rem; text-transform: uppercase; color: #D91A1E; font-weight: 700; letter-spacing: 0.5px;">Zone 09</span>-->
-              <h4 style="font-size: 1rem; font-weight: 700; margin: 2px 0 0; color: #ffffff;">Open Concept Kitchen Renovation</h4>
-            </div>
-            <!--<span style="font-size: 0.75rem; background: rgba(255,255,255,0.15); padding: 3px 8px; border-radius: 4px;">Direct Workshop</span>-->
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Call to Action Banner -->
-      <div class="showroom-cta-box">
-        <span style="color: #D91A1E; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 8px;">
-          Direct Carpentry &bull; Transparent Quotations
-        </span>
-        <h3 style="color: #ffffff; font-size: 1.8rem; font-weight: 800; margin: 0 0 12px; line-height: 1.3;">
-          Ready to Experience Our Craftsmanship in Person?
-        </h3>
-        <p style="color: #9CA3AF; font-size: 1rem; max-width: 640px; margin: 0 auto 28px; line-height: 1.6;">
-         Bring your floor plan and meet directly with our interior specialists to get a clear, transparent quotation tailored to your timeline and budget.
-        </p>
-        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <a href="contact.html" style="background-color: #D91A1E; color: #ffffff; padding: 15px 34px; border-radius: 6px; font-weight: 700; font-size: 1rem; text-decoration: none; box-shadow: 0 4px 15px rgba(217, 26, 30, 0.4); transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
-            Book an Appointment for Showroom Visit
-          </a>
-        </div>
-      </div>
-
+<section class="final">
+  <div class="wrap">
+    <h2>Planning a renovation? Let's talk.</h2>
+    <div class="btns">
+      <a href="contact.html" class="btn btn-red">Get Free Consultation</a>
+      <a href="faq.html" class="btn btn-line">Read Renovation FAQ</a>
     </div>
-  </section>
-  <!-- About Section -->
-  <!--<section class="section" id="about">
-    <div class="rehova-container">
-      <h2 class="section-title" style="color: var(--primary-red);">About ReHoVa Interiors Pte Ltd</h2>
-      <p class="section-subtitle">A heritage of engineering precision, industrial-scale infrastructure, and transparent craftsmanship.</p>
-      
-      <div class="about-box">
-        <p><strong>ReHoVa Interiors Pte Ltd (Rehova.sg)</strong> is built on three core pillars: <em>Reliable execution, Honest pricing, and true Value for money</em>. While many interior firms in Singapore operate solely as sales agencies, ReHoVa is grounded in real build capabilities.</p>
-        <p>We don't operate as a sales agency that subcontracts everything out and marks up the bill — our team plans, sources, and builds every project ourselves, so what you're quoted is what you pay.</p>
-        <p>From a single room refresh to a full home or commercial fit-out, every project runs on the same principles: a fixed, itemised quote before any work begins, one dedicated project lead who's accountable from first visit to handover, and a firm completion date we build the schedule around — not the other way round.  </p>
-        <p>For Singapore homeowners and commercial operators, this backing guarantees financial stability, reliable material sourcing, strict project management, and verified build quality on every handover.</p>
+  </div>
+</section>
+
+<a class="wa" href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation%20quote." aria-label="Chat with ReHoVa Interiors on WhatsApp" target="_blank" rel="noopener">
+  <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16c0 2.68.75 5.2 2.06 7.35L2.5 29.5l6.35-1.53A13.91 13.91 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm8.17 19.92c-.34.96-1.7 1.76-2.77 1.99-.73.16-1.68.29-4.88-1.04-4.1-1.7-6.73-5.88-6.94-6.15-.2-.28-1.68-2.24-1.68-4.27s1.06-3.03 1.44-3.44c.38-.41.83-.51 1.1-.51.28 0 .55.01.79.02.26.01.6-.1 1 .84.34.82 1.16 2.83 1.26 3.04.1.2.17.44.03.71-.13.27-.2.44-.4.67-.2.24-.43.53-.61.71-.2.2-.42.42-.18.83.24.41 1.07 1.76 2.3 2.85 1.58 1.41 2.92 1.85 3.33 2.05.41.2.66.17.9-.1.25-.28 1.06-1.24 1.34-1.67.28-.43.56-.36.94-.22.38.14 2.42 1.14 2.83 1.35.41.2.68.3.78.47.1.17.1.99-.24 1.95z" fill="#fff"/></svg>
+</a>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <h3>ReHoVa Interiors Pte Ltd</h3>
+        <p>Reliable, Honest, Value For Money</p>
+        <p style="margin-bottom:10px">Interior Architecture &amp; Construction.</p>
+        <p>215, 217, 219 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810</p>
       </div>
-    </div>-->
-    <!--<div class="about-box">
-        <p>
-          <strong style="color: #D91A1E;">ReHoVa Interiors Pte Ltd</strong> (UEN: 201711139N) aspires to help you realise your vision of building a functionally and aesthetically pleasing environment and space.
-        </p>
-
-        <p>
-          ReHoVa Interiors Pte Ltd is an <strong>experienced renovation contractor</strong> that specialises in Residential and Commercial full renovation and fitting out works. We are well-equipped with a <strong>dedicated and dynamic team</strong> of experienced project managers, supervisors, designers, carpenters, and construction workers to provide <strong>quality workmanship</strong> and <strong>value-for-money</strong> solutions for your renovation needs.
-        </p>
-
-        <p>
-          We have an <strong>in-house carpentry workshop</strong> in Singapore to complement our renovation works to achieve a shorter project turnaround time at lower cost to benefit our clients. We believe in using <strong>good quality building materials</strong> for our renovation works so that our clients enjoy minimum future maintenance costs. With our solid track record of <strong>successful projects</strong> and <strong>satisfied long term clients</strong>, we have the confidence and ability to deliver all your renovation needs to your satisfaction.
-        </p>
-
-        <p>
-          Our designers have many years of experience and are knowledgeable in understanding your ideas and ideals. They will do the necessary research, conceptualise, and incorporate your goals into the design for our renovation team to build your dream space.
-        </p>
-
-        <p>
-          The name, <strong style="color: #D91A1E;">ReHoVa</strong>, carries our commitment to proudly proclaim that our brand stands for <strong style="color: #D91A1E;">Re</strong> = Reliable, <strong style="color: #D91A1E;">Ho</strong> = Honest, and <strong style="color: #D91A1E;">Va</strong> = Value for Money — which together serves to remind our renovation team to stay <strong>Reliable</strong>, <strong>Honest</strong>, and to provide <strong>Value for Money</strong> for our clients.
-        </p>
-      </div>-->
-  </section>
-
-  <!-- Recent Projects Section -->
-  <!-- Projects Gallery Section (16 Items) -->
-  <!-- Projects Gallery Section (SEO-Optimized Singapore Portfolio) -->
- <!-- <section class="section" id="projects" style="background: var(--white);">
-    <div class="rehova-container">
-     <h2 class="section-title">Our Project Portfolio</h2>
-      <h2 class="section-title" style="color: var(--primary-red);">Our Project Portfolio</h2>
-      <p class="section-subtitle">Delivering bespoke residential transformations and licensed commercial healthcare fit-outs across Singapore.</p>-->
-
-      <!-- <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
-        
-         Item 1: Japandi Living 
-        <div class="project-card">
-          <img src="project-1.jpg" alt="Japandi Living Room Renovation Singapore HDB BTO" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Japandi Living Suite</h4>
-            <p>Warm minimalist living hall with suspended TV ledge, sheer drapery, and cove lighting.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 2: Bedside Joinery 
-        <div class="project-card">
-          <img src="project-2.jpg" alt="Custom Bedside Joinery and Fluted Headboard Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Bespoke Bedside Joinery</h4>
-            <p>Floating timber side table and pendant drop fixture for a streamlined master bedroom.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 3: Master Bedroom Suite 
-        <div class="project-card">
-          <img src="project-3.jpg" alt="Modern Master Bedroom Interior Design Singapore BTO" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Modern Master Suite</h4>
-            <p>Spacious bedroom layout paired with full-height vanity desk, wood-grain flooring, and ambient lighting.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 4: Residential Dining / Living 
-        <div class="project-card">
-          <img src="project-4.jpeg" alt="Condo Interior Renovation Singapore Open Concept" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Open-Concept Living &amp; Dining</h4>
-            <p>Seamless transition flooring with architectural downlights for modern condominium living.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 5: Custom Built-in Aquarium 
-        <div class="project-card">
-          <img src="project-5.jpg" alt="Built-in Aquarium Cabinetry Carpentry Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Integrated Aquarium Feature Wall</h4>
-            <p>Custom structural cabinetry with heavy-duty load-bearing support and stone-texture laminates.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 6: Bedroom Pendant Detail 
-        <div class="project-card">
-          <img src="project-6.jpg" alt="Minimalist Bedroom Nightstand Lighting Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Minimalist Bedroom Styling</h4>
-            <p>Warm ambient paper-lantern pendant lighting paired with textured wall paneling.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 7: Paediatric Clinic 
-        <div class="project-card">
-          <img src="project-7.jpg" alt="Paediatric Dental Clinic Fit-Out Singapore MOH Compliant" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Paediatric Treatment Room</h4>
-            <p>Custom clinic cabinetry, medical-grade washable surfaces, and child-friendly wall graphics.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 8: Clinic Reception (Smile Works) 
-        <div class="project-card">
-          <img src="project-8.jpg" alt="Healthcare Reception Counter Design Singapore Commercial" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Healthcare Reception Lounge</h4>
-            <p>Curved solid-surface reception desk with illuminated signage and durable vinyl flooring.</p>
-          </div>
-        </div> -->
-
-        <!-- Item 9: Surgical Suite Reception 
-        <div class="project-card">
-          <img src="project-9.jpg" alt="Surgical Suite Commercial Interior Fit-Out Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Surgical Suite Lobby</h4>
-            <p>Commercial entrance with acoustic ceiling baffles and direct patient consultation counters.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 10: Royce Dental Waiting Lounge 
-        <div class="project-card">
-          <img src="project-10.jpg" alt="Dental Clinic Waiting Area Renovation Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Dental Clinic Waiting Lounge</h4>
-            <p>Full-glass commercial frontage with frosted privacy film and integrated patient registration.</p>
-          </div>
-        </div> -->
-
-        <!-- Item 11: Aquarium Corner Detail 
-        <div class="project-card">
-          <img src="project-11.jpg" alt="Aquascape Built-in Tank Carpentry Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Custom Aquascape Joinery</h4>
-            <p>Flush-finish structural concealment for filtration units with waterproof internal linings.</p>
-          </div>
-        </div> -->
-
-        <!-- Item 12: Royce Dental Curved Reception 
-        <div class="project-card">
-          <img src="project-12.jpg" alt="Curved Commercial Reception Counter Renovation Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Curved Reception Counter</h4>
-            <p>Seamless micro-cement finish desk with warm LED under-counter strip illumination.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 13: Organic Arched Clinic Corridor 
-        <div class="project-card">
-          <img src="project-13.jpg" alt="Curved Corridor Wall Treatment Commercial Fit-Out Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Organic Arched Corridor</h4>
-            <p>Curved partition carpentry with recessed cove ceiling channels and concealed consultation doors.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 14: Commercial Glass Frontage 
-        <div class="project-card">
-          <img src="project-14.jpg" alt="Mall Commercial Storefront Glass Partition Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Commercial Mall Storefront</h4>
-            <p>Frameless tempered glass facade with custom timber portal framing and integrated digital signage.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 15: Clinic Corridor & Consultation Suites 
-        <div class="project-card">
-          <img src="project-15.jpg" alt="MOH Compliant Clinic Hallway Fit-Out Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Clinical Passage &amp; Operatories</h4>
-            <p>Commercial-grade acoustic sliding doors, fire-rated partitions, and statutory exit compliance.</p>
-          </div>
-        </div>-->
-
-        <!-- Item 16: Commercial Executive / Treatment Suite 
-        <div class="project-card">
-          <img src="project-16.jpg" alt="Commercial Medical Consultation Room Singapore" style="width: 100%; height: 210px; object-fit: cover; display: block;">
-          <div class="project-body">
-            <h4>Consultation &amp; Operatory Suite</h4>
-            <p>Integrated services trunking, medical-grade hygiene joinery, and anti-bacterial surfaces.</p>
-          </div>
-        </div>
-
-      </div>
+      <div><h3>Quick Links</h3><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="faq.html">Renovation FAQ</a></li>
+        <li><a href="contact.html">Contact &amp; Showroom</a></li></ul></div>
+      <div><h3>Direct Contact</h3><ul>
+        <li>Email: <a href="mailto:sales@rehova.sg">sales@rehova.sg</a></li>
+        <li>Phone: <a href="tel:+6582075085">+65 8207 5085</a></li>
+        <li>Web: <a href="index.html">Rehova.sg</a></li></ul></div>
     </div>
-  </section>-->
+    <div class="copy">&copy; 2026 ReHoVa Interiors Pte Ltd (Rehova.sg). All rights reserved.</div>
+  </div>
+</footer>
 
+<dialog id="lb"><img id="lbi" alt=""><button aria-label="Close">&times;</button></dialog>
 
-  <!-- Customer Testimonials Section -->
-  <style>
-    .testimonials-marquee-wrapper {
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-      padding: 24px 0;
-      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    }
-    .testimonials-track {
-      display: flex;
-      width: max-content;
-      gap: 24px;
-      animation: scrollTestimonials 30s linear infinite;
-    }
-    .testimonials-track:hover {
-      animation-play-state: paused;
-    }
-    @keyframes scrollTestimonials {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .testimonial-card-landscape {
-      width: 360px;
-      flex-shrink: 0;
-      background: #ffffff;
-      border: 1px solid #E5E7EB;
-      border-left: 5px solid #D91A1E;
-      border-radius: 10px;
-      padding: 24px 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      text-align: left;
-    }
-    .testimonial-card-landscape p {
-      color: #374151;
-      font-size: 0.93rem;
-      line-height: 1.6;
-      margin-bottom: 14px;
-      font-style: italic;
-    }
-    .testimonial-client {
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: #D91A1E;
-      letter-spacing: 0.3px;
-    }
-  </style>
-
-  <section class="section" id="testimonials" style="background: #ffffff; padding: 60px 0;">
-    <div class="rehova-container" style="text-align: center;">
-      <h2 class="section-title" style="color: #D91A1E; font-size: 1.8rem; font-weight: 800; margin-bottom: 10px;">Customer Testimonials</h2>
-      <p class="section-subtitle" style="color: #6B7280; font-size: 0.98rem; max-width: 650px; margin: 0 auto 30px;">Real feedback from Singapore homeowners and commercial business operators.</p>
-    </div>
-
-    <div class="testimonials-marquee-wrapper">
-      <div class="testimonials-track">
-        
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card-landscape">
-          <p>"Workmanship on our custom carpentry was neat and solid. The handover was delivered exactly on schedule without any unexpected cost additions."</p>
-          <!--<span class="testimonial-client">— Residential Homeowner, Tampines</span>-->
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card-landscape">
-          <p>"Practical advice on selecting durable materials within our fit-out budget. An honest and straightforward contractor to deal with for commercial space."</p>
-          <!--<span class="testimonial-client">— Commercial Clinic Owner, Novena</span> -->
-        
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card-landscape">
-          <p>"ReHoVa coordinated the renovation milestones smoothly and kept communication open through every stage. Dependable supervision throughout."</p>
-          <!--<span class="testimonial-client">— Condo Owner, Pasir Ris</span>-->
-        </div>
-
-        <!-- Testimonial 4 -->
-        <div class="testimonial-card-landscape">
-          <p>"Direct in-house carpentry makes a big difference in cost and alignment. The fabrication quality on our feature wall and wardrobes was excellent."</p>
-          <!--<span class="testimonial-client">— 4-Room BTO Owner, Punggol</span>-->
-        </div>
-
-        <!-- Duplicate Set for Seamless Continuous Loop -->
-        <div class="testimonial-card-landscape">
-          <p>"Workmanship on our custom carpentry was neat and solid. The handover was delivered exactly on schedule without any unexpected cost additions."</p>
-         <!-- <span class="testimonial-client">— Residential Homeowner, Tampines</span>-->
-        </div>
-
-        <div class="testimonial-card-landscape">
-          <p>"Practical advice on selecting durable materials within our fit-out budget. An honest and straightforward contractor to deal with for commercial space."</p>
-          <!--<span class="testimonial-client">— Commercial Clinic Owner, Novena</span>-->
-        </div>
-
-        <div class="testimonial-card-landscape">
-          <p>"ReHoVa coordinated the renovation milestones smoothly and kept communication open through every stage. Dependable supervision throughout."</p>
-          <!--<span class="testimonial-client">— Condo Owner, Pasir Ris</span>-->
-        </div>
-
-        <div class="testimonial-card-landscape">
-          <p>"Direct in-house carpentry makes a big difference in cost and alignment. The fabrication quality on our feature wall and wardrobes was excellent."</p>
-          <!--<span class="testimonial-client">— 4-Room BTO Owner, Punggol</span>-->
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SEO Blog / Guides -->
-  <!--<section class="section" id="blogs">
-    <div class="rehova-container">
-     <h2 class="section-title">Singapore Renovation Guides</h2>
-      <h2 class="section-title" style="color: var(--primary-red);">Singapore Renovation Guidelines</h2>
-      <p class="section-subtitle">Practical guides on costs, statutory permits, and storage planning.</p>
-
-      <div class="blog-grid">
-        <div class="blog-card">
-          <div>
-            <span class="blog-badge">HDB Renovation Guide</span>
-            <h4>HDB Renovation Guidelines &amp; Permit Rules for Singapore Owners</h4>
-            <p>Everything you need to know about structural hacking approvals, town council noise curfews, and window replacement regulations.</p>
-          </div>
-          <a href="#contact">Read Complete Guide →</a>
-        </div>
-
-        <div class="blog-card">
-          <div>
-            <span class="blog-badge">Cost Breakdown</span>
-            <h4>HDB 4-Room &amp; 5-Room Renovation Budget Estimates</h4>
-            <p>A transparent breakdown of masonry, carpentry, electrical rewiring, and plumbing costs for BTO vs. resale flats.</p>
-          </div>
-          <a href="#contact">Read Complete Guide →</a>
-        </div>
-
-        <div class="blog-card">
-          <div>
-            <span class="blog-badge">Storage Planning</span>
-            <h4>Maximising Compact Living: Smart Carpentry &amp; Storage Layouts</h4>
-            <p>Learn how industrial-grade space planning systems can double usable storage in modern Singapore apartments.</p>
-          </div>
-          <a href="#contact">Read Complete Guide →</a>
-        </div>
-      </div>
-    </div>
-  </section>-->
-
-  <!-- Group Companies Section 
-  <section class="group-section" id="group">
-    <div class="rehova-container">
-      <h2 class="section-title" style="font-size: 1.4rem;">Our Group of Companies &amp; Affiliates</h2>
-      <p class="section-subtitle" style="margin-bottom: 28px;">Powered by decades of industrial engineering, fabrication, and manufacturing expertise across Singapore.</p>-->
-      
-      <!--<div class="group-grid">-->
-        <!-- Teck Leong -->
-        <!--<a href="https://teckleong.com.sg" target="_blank" rel="noopener noreferrer" class="group-item-light group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="teckleong.png" alt="Teck Leong Industries Pte Ltd" style="max-height: 52px; max-width: 85%; object-fit: contain;">
-        </a> -->
-
-        <!-- Ban Soon Cheong -->
-        <!-- <a href="https://copper.sg/" target="_blank" rel="noopener noreferrer" class="group-item-light group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="logo.png" alt="Ban Soon Cheong Pte Ltd" style="max-height: 56px; max-width: 85%; object-fit: contain;">
-        </a>-->
-
-        <!-- Radiation Control -->
-        <!-- <a href="https://radiationcontrol.sg/" target="_blank" rel="noopener noreferrer" class="group-item-dark group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="radiation.png" alt="Radiation Control (Asia Pacific) Pte Ltd" style="max-height: 42px; max-width: 85%; object-fit: contain;">
-        </a>-->
-
-        <!-- Advance Storage -->
-        <!--<a href="https://advancestorage.sg/" target="_blank" rel="noopener noreferrer" class="group-item-light group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="advancestorage.png" alt="Advance Storage Pte Ltd" style="max-height: 52px; max-width: 85%; object-fit: contain;">
-        </a>-->
-        
-        <!-- Eurometalli -->
-        <!--<a href="https://lead.asia/" target="_blank" rel="noopener noreferrer" class="group-item-grey group-item" style="text-decoration: none; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;">
-          <img src="eurometalli.png" alt="Eurometalli (Far East) Pte Ltd" style="max-height: 42px; max-width: 85%; object-fit: contain;">
-        </a>
-      </div>
-    </div>
-  </section>-->
-
-  <!-- Contact Section -->
- <!-- <section class="section" id="contact" style="background: var(--light-gray);">
-    <div class="rehova-container">
-      <div class="contact-card">
-        <div class="contact-grid">
-          <div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 10px;">Contact ReHoVa Interiors</h3>
-            <p style="margin-bottom: 20px; font-size: 0.95rem;">Send us your digital floorplan or visit our Ubi showroom for a transparent, itemised quote.</p>
-            
-            <div class="info-item">
-              <label>Office &amp; Showroom</label>
-              <span>215, 217, 219 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810</span>
-            </div>
-
-            <div class="info-item">
-              <label>Phone / WhatsApp</label>
-              <a href="tel:+6582075085">+65 8207 5085</a>
-            </div>
-
-            <div class="info-item">
-              <label>Official Email</label>
-              <a href="mailto:sales@rehova.sg">sales@rehova.sg</a>
-            </div>
-          </div>
-
-          <!-- Contact Form -->
-          <!--<form onsubmit="event.preventDefault(); alert('Floorplan enquiry received! The ReHoVa team will contact you shortly.');">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" required placeholder="e.g. Kenneth Tan">
-            </div>
-            <div class="form-group">
-              <label for="phone">Contact Number</label>
-              <input type="tel" id="phone" required placeholder="+65 8207 5085">
-            </div>
-            <div class="form-group">
-              <label for="type">Property Type</label>
-              <select id="type">
-                <option>HDB BTO Flat</option>
-                <option>HDB Resale Flat</option>
-                <option>Private Condominium</option>
-                <option>Landed Property</option>
-                <option>Commercial / Office Fit-Out</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-red" style="width: 100%;">Get Free Itemised Quote</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>-->
-
-  <!-- WhatsApp Floating Button -->
-   <!-- WhatsApp Floating Icon Button -->
-  <a href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation%20quote." 
-     aria-label="Chat with ReHoVa Interiors on WhatsApp"
-     target="_blank" 
-     rel="noopener"
-     style="position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background-color: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 14px rgba(0,0,0,0.28); z-index: 999; text-decoration: none; transition: transform 0.2s ease;"
-     onmouseover="this.style.transform='scale(1.08)'" 
-     onmouseout="this.style.transform='scale(1)'">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16c0 2.68.75 5.2 2.06 7.35L2.5 29.5l6.35-1.53A13.91 13.91 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm8.17 19.92c-.34.96-1.7 1.76-2.77 1.99-.73.16-1.68.29-4.88-1.04-4.1-1.7-6.73-5.88-6.94-6.15-.2-.28-1.68-2.24-1.68-4.27s1.06-3.03 1.44-3.44c.38-.41.83-.51 1.1-.51.28 0 .55.01.79.02.26.01.6-.1 1 .84.34.82 1.16 2.83 1.26 3.04.1.2.17.44.03.71-.13.27-.2.44-.4.67-.2.24-.43.53-.61.71-.2.2-.42.42-.18.83.24.41 1.07 1.76 2.3 2.85 1.58 1.41 2.92 1.85 3.33 2.05.41.2.66.17.9-.1.25-.28 1.06-1.24 1.34-1.67.28-.43.56-.36.94-.22.38.14 2.42 1.14 2.83 1.35.41.2.68.3.78.47.1.17.1.99-.24 1.95z" fill="#ffffff"/>
-    </svg>
-  </a>
-  </main>
-  <!--<a href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20would%20like%20to%20enquire%20about%20a%20renovation%20quote." class="whatsapp-float" target="_blank" rel="noopener">
-    💬 WhatsApp 
-  </a>-->
-
-  <!-- Footer -->
-  <!-- <footer class="rehova-footer">
-    <div class="rehova-container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h5>ReHoVa Interiors Pte Ltd</h5>
-          <p>Reliable, Honest, Value For Money Interior Architecture &amp; Construction.</p>
-          <p style="margin-top: 6px;">217 Ubi Avenue 4, Intrepid Warehouse Complex, Singapore 408810</p>
-        </div>
-       <div class="footer-col">
-          <h5>Affiliated Group</h5>
-          <ul>
-            <li>Teck Leong Industries Pte Ltd</li>
-            <li>Ban Soon Cheong Pte Ltd</li>
-            <li>Radiation Control (Asia Pacific)</li>
-            <li>Advance Storage Solutions</li>
-            <li>Eurometalli (Far East) Pte Ltd</li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Direct Contact</h5>
-          <ul>
-            <li>Email: <a href="mailto:sales@rehova.sg">sales@rehova.sg</a></li>
-            <li>Phone: <a href="tel:+6582075085">+65 8207 5085</a></li>
-            <li>Web: Rehova.sg</li>
-          </ul>
-        </div>
-      </div>-->
-      <!-- Footer -->
-  <footer class="rehova-footer">
-    <div class="rehova-container">
-      <div class="footer-grid">
-        
-        <!-- Column 1: Company Info & Address (Kept) -->
-        <div class="footer-col">
-          <h3>ReHoVa Interiors Pte Ltd</h3>
-          <p style="font-size: 0.9rem; margin-bottom: 6px; color: #9CA3AF;">Reliable, Honest, Value For Money</p>
-          <p style="font-size: 0.9rem; margin-bottom: 12px; color: #9CA3AF;">Interior Architecture & Construction.</p>
-          <p style="margin-top: 6px;">215, 217, 219 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810</p>
-        </div>
-
-        <!-- Column 2: Quick Links for SEO (Replaces Affiliated Group) -->
-        <div class="footer-col">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="faq.html">Renovation FAQ</a></li>
-            <li><a href="contact.html">Contact &amp; Showroom</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Direct Contact (Kept Exactly As Is) -->
-        <div class="footer-col">
-          <h3>Direct Contact</h3>
-          <ul>
-            <li>Email: <a href="mailto:sales@rehova.sg">sales@rehova.sg</a></li>
-            <li>Phone: <a href="tel:+6582075085">+65 8207 5085</a></li>
-            <li>Web: <a href="index.html">Rehova.sg</a></li>
-          </ul>
-        </div>
-
-      </div>
-      <div class="copyright">
-        &copy; 2026 ReHoVa Interiors Pte Ltd (Rehova.sg). All rights reserved.
-      </div>
-    </div>
-  </footer>
 <script>
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-
-    // Hero Slider Auto-Run
-    (function initHeroSlider() {
-      const slides = document.querySelectorAll('.hero-slide');
-      if (!slides.length) return;
-      let currentIndex = 0;
-
-      setInterval(() => {
-        slides[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % slides.length;
-        slides[currentIndex].classList.add('active');
-      }, 3500);
-    })();
-  </script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// Menu + sticky nav
+$('#burger').onclick=()=>$('#links').classList.toggle('open');
+const nav=$('#nav');addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+// Hero slider with dots
+const sl=$$('.slide'),dots=$('#dots');let i=0,t;
+sl.forEach((_,n)=>{const b=document.createElement('button');b.setAttribute('aria-label','Slide '+(n+1));b.onclick=()=>{go(n);start()};dots.appendChild(b)});
+function go(n){sl[i].classList.remove('on');dots.children[i].classList.remove('on');i=n;sl[i].classList.add('on');dots.children[i].classList.add('on')}
+function start(){clearInterval(t);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)t=setInterval(()=>go((i+1)%sl.length),5000)}
+dots.children[0].classList.add('on');start();
+// Testimonial loop
+const tr=$('#track');[...tr.children].forEach(c=>{const d=c.cloneNode(true);d.setAttribute('aria-hidden','true');tr.appendChild(d)});
+// Lightbox
+const lb=$('#lb');
+$$('#mosaic button').forEach(b=>b.onclick=()=>{$('#lbi').src=b.querySelector('img').src;lb.showModal()});
+lb.onclick=e=>{if(e.target!==$('#lbi'))lb.close()};
+</script>
 </body>
 </html>
