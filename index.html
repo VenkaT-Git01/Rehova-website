@@ -6,7 +6,7 @@
 <title>Residential and Commercial Renovation Specialist in Singapore | ReHoVa Interiors</title>
 <meta name="description" content="ReHoVa Interiors delivers transparent, reliable, and compliant residential and commercial renovation in Singapore. Backed by Teck Leong Industries & Ban Soon Cheong.">
 <link rel="canonical" href="https://rehova.sg/">
-<link rel="preload" as="image" href="Showroom.2.png" fetchpriority="high">
+<link rel="preload" as="image" href="project-1.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 @keyframes kb{to{transform:scale(1.12)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,30,36,.55) 0%,rgba(27,30,36,.15) 35%,rgba(27,30,36,.88) 100%)}
 .hero-in{position:absolute;z-index:5;left:0;right:0;bottom:0;padding-bottom:64px}
-.hero h1{font-size:clamp(2.3rem,7.2vw,5.4rem);font-weight:800;max-width:15ch;margin-bottom:28px}
+.hero h1{font-size:clamp(1.55rem,4vw,2.6rem);font-weight:800;max-width:none;margin-bottom:28px}
 .hero h1 span{display:block;overflow:hidden}
 .hero h1 em{display:block;font-style:normal;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1 span:nth-child(2) em{animation-delay:.12s}.hero h1 span:nth-child(3) em{animation-delay:.24s}
@@ -82,7 +82,8 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 .mosaic button:hover img{transform:scale(1.07);opacity:.85}
 .m1{grid-column:span 2;grid-row:span 2}.m4{grid-row:span 2}.m7{grid-row:span 2}.m5,.m9{grid-column:span 2}
 .m9{grid-column:2/4}
-@media(max-width:800px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.mosaic button{grid-column:auto!important;grid-row:auto!important}.mosaic .m1{grid-column:span 2!important;grid-row:span 2!important}}
+.m3{grid-row:span 2}
+@media(max-width:800px){.mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}.mosaic button{grid-column:auto!important;grid-row:auto!important}.mosaic .m1{grid-column:span 2!important;grid-row:span 2!important}.mosaic .m9{grid-column:span 2!important}} 
 .more{margin-top:28px}
 
 /* Showroom split */
@@ -175,12 +176,12 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
 </nav>
 
 <header class="hero" id="hero">
-  <div class="slide on" style="background-image:url('Showroom.2.png')"></div>
+  <!--<div class="slide on" style="background-image:url('Showroom.2.png')"></div>-->
   <div class="slide" style="background-image:url('project-1.jpg')"></div>
   <div class="slide" style="background-image:url('project-2.jpg')"></div>
   <div class="slide" style="background-image:url('project-3.jpg')"></div>
   <div class="slide" style="background-image:url('project-4.jpg')"></div>
-  <div class="slide" style="background-image:url('project-5.jpg')"></div>
+  <div class="slide" style="background-image:url('project-6.jpg')"></div>
   <div class="dots" id="dots" role="tablist" aria-label="Hero slides"></div>
   <div class="hero-in">
     <div class="wrap">
@@ -207,7 +208,7 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
     <p class="lead">Tap any photo to see it larger.</p>
     <div class="mosaic" id="mosaic">
       <button class="m1"><img loading="lazy" src="Showroom.1.png" alt="ReHoVa showroom photo 1"></button>
-      <button class="m2"><img loading="lazy" src="Showroom.2.png" alt="ReHoVa showroom photo 2"></button>
+      <!--<button class="m2"><img loading="lazy" src="Showroom.2.png" alt="ReHoVa showroom photo 2"></button>-->
       <button class="m4"><img loading="lazy" src="Showroom.4.png" alt="ReHoVa showroom photo 4"></button>
       <button class="m3"><img loading="lazy" src="Showroom.3.png" alt="ReHoVa showroom photo 3"></button>
       <button class="m5"><img loading="lazy" src="Showroom.5.jpeg" alt="ReHoVa showroom photo 5"></button>
