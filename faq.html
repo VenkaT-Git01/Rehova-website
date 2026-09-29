@@ -1,325 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frequently Asked Questions | ReHoVa Interiors Singapore</title>
-  <meta name="description" content="Singapore renovation FAQs: HDB BTO renovation costs, carpentry price per foot run (pfr), direct workshop vs ID, permit timelines, and visiting our Ubi showroom.">
-  <link rel="canonical" href="https://rehova.sg/faq">
-  <style>
-    :root {
-      --primary-red: #D91A1E;
-      --charcoal: #1F2937;
-      --dark-slate: #111827;
-      --light-gray: #F9FAFB;
-      --border-gray: #E5E7EB;
-      --white: #FFFFFF;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frequently Asked Questions | ReHoVa Interiors Singapore</title>
+<meta name="description" content="Singapore renovation FAQs: HDB BTO renovation costs, carpentry price per foot run (pfr), direct workshop vs ID, permit timelines, and visiting our Ubi showroom.">
+<link rel="canonical" href="https://rehova.sg/faq">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#D91A1E;--ink:#1B1E24;--stone:#F6F4F1;--line:#E3DFD9;--mute:#5F6570;--w:#fff;
+--head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"DM Sans",-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--stone);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.02em}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-    body { background: #F9FAFB; color: #111827; line-height: 1.5; }
-    
-    /* Navigation Bar */
-    .navbar { background: #FFFFFF; box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
-    .rehova-container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; position: relative; }
-    .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-box img { height: 48px; width: auto; object-fit: contain; }
-    .brand-name { font-size: 1.25rem; font-weight: 800; color: #D91A1E; line-height: 1.1; }
-    .brand-tagline { font-size: 0.72rem; color: #1F2937; font-weight: 600; display: block; }
-    .nav-links { display: none; gap: 24px; list-style: none; }
-    @media (min-width: 768px) { .nav-links { display: flex; align-items: center; } }
-    .nav-links a { text-decoration: none; color: #1F2937; font-weight: 600; font-size: 0.95rem; }
-    .nav-links a:hover, .nav-links a.active { color: #D91A1E; }
+/* Nav */
+.nav{position:sticky;top:0;z-index:20;padding:12px 0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);box-shadow:0 2px 14px rgba(0,0,0,.08)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;position:relative}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{height:46px;width:auto}
+.brand b{font:800 1.08rem var(--head);color:var(--red);display:block;line-height:1.1}
+.brand small{font-size:.7rem;font-weight:500}
+.links{display:none;list-style:none;gap:24px;align-items:center}
+.links a{text-decoration:none;font-weight:500;font-size:.93rem}
+.links a:hover,.links a.on{color:var(--red)}
+.links .cta{background:var(--red);color:#fff!important;padding:9px 18px;border-radius:6px;font-weight:700}
+.burger{background:none;border:0;width:28px;height:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer}
+.burger i{height:3px;background:var(--ink);border-radius:2px}
+@media(min-width:800px){.links{display:flex}.burger{display:none}}
+@media(max-width:799px){.links.open{display:flex;flex-direction:column;align-items:flex-start;position:absolute;top:calc(100% + 12px);left:0;right:0;background:#fff;padding:20px 22px;gap:14px;border-bottom:3px solid var(--red);box-shadow:0 14px 24px rgba(0,0,0,.15)}}
 
-    /* Mobile Hamburger Button */
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 26px;
-      height: 19px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      z-index: 102;
-    }
-    .menu-toggle span {
-      display: block;
-      height: 3px;
-      width: 100%;
-      background-color: #1F2937;
-      border-radius: 2px;
-    }
-    @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-    }
+/* Banner */
+.banner{position:relative;color:#fff;background:var(--ink) url('project-7.jpg') center/cover;padding:clamp(60px,10vw,110px) 0}
+.banner::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,30,36,.72),rgba(27,30,36,.5))}
+.banner .wrap{position:relative}
+.banner h1{font-size:clamp(1.7rem,4vw,2.8rem);font-weight:800;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.banner p{margin-top:12px;font-size:1.02rem;color:#EDEDED;max-width:56ch}
 
-    /* Mobile Dropdown Menu */
-    @media (max-width: 767px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        padding: 18px 24px;
-        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-        border-bottom: 2px solid #D91A1E;
-        gap: 14px;
-        z-index: 999;
-      }
-      .nav-links.mobile-open {
-        display: flex !important;
-      }
-    }
+/* FAQ */
+.sec{padding:clamp(50px,8vw,90px) 0}
+.faq{max-width:860px;margin:0 auto}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 4px;font:800 clamp(1.05rem,2vw,1.3rem) var(--head);letter-spacing:-.01em;transition:color .2s}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--red)}
+.pm{position:relative;flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--w);border:1px solid var(--line);transition:background .25s,border-color .25s}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;background:var(--red);transform:translate(-50%,-50%);transition:transform .3s,background .25s}
+.pm::after{transform:translate(-50%,-50%) rotate(90deg)}
+details[open] summary{color:var(--red)}
+details[open] .pm{background:var(--red);border-color:var(--red)}
+details[open] .pm::before,details[open] .pm::after{background:#fff}
+details[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.ans{padding:0 56px 26px 4px;color:#3F4550;font-size:1.02rem;max-width:72ch;animation:open .35s ease}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}}
+.ans a{color:var(--red);font-weight:700}
 
-    /* Layout */
-    .container { max-width: 840px; margin: 48px auto 80px; padding: 0 20px; }
-    .intro { text-align: center; margin-bottom: 40px; }
-    .badge {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #991B1B;
-      background-color: #FEE2E2;
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
-    h1 { font-size: 2.2rem; font-weight: 800; color: #111827; margin-bottom: 12px; line-height: 1.2; }
-    .intro p { font-size: 1.05rem; color: #4B5563; }
+/* CTA */
+.btn{display:inline-block;padding:15px 28px;border-radius:6px;font-weight:700;text-decoration:none;font-size:1rem;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 6px 20px rgba(217,26,30,.4)}
+.btn-line{border:2px solid rgba(255,255,255,.9);color:#fff}
+.btn-line:hover{background:#fff;color:var(--ink)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.final{position:relative;color:#fff;background:var(--ink) url('project-8.jpg') center/cover;padding:clamp(70px,10vw,120px) 0}
+.final::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,30,36,.72),rgba(27,30,36,.4))}
+.final .wrap{position:relative;text-align:center}
+.final h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;margin-bottom:12px;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.final p{max-width:56ch;margin:0 auto 24px;color:#EDEDED}
 
-    /* FAQ List */
-    .faq-list { display: flex; flex-direction: column; gap: 14px; }
-    details { background: #ffffff; border: 1px solid #E5E7EB; border-radius: 8px; padding: 18px 22px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.03); transition: border-color 0.2s ease; }
-    details[open] { border-color: #D91A1E; }
-    summary { font-size: 1.05rem; font-weight: 700; color: #111827; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    summary::-webkit-details-marker { display: none; }
-    .plus-icon { color: #D91A1E; font-size: 1.3rem; font-weight: 700; line-height: 1; flex-shrink: 0; }
-    details[open] .plus-icon { transform: rotate(45deg); }
-    .faq-ans { margin-top: 14px; color: #4B5563; font-size: 0.95rem; line-height: 1.65; border-top: 1px solid #F3F4F6; padding-top: 12px; }
+/* Footer */
+.foot{background:#14161A;color:#A3A8B1;padding:48px 0 20px;font-size:.9rem}
+.fg{display:grid;gap:30px;margin-bottom:28px}
+@media(min-width:800px){.fg{grid-template-columns:1.4fr 1fr 1fr}}
+.foot img{max-height:52px;width:auto;margin-bottom:12px;display:block;background:#fff;border-radius:8px;padding:4px}
+.foot h3{color:#fff;font-size:1rem;margin-bottom:12px}
+.foot ul{list-style:none}.foot li{margin-bottom:8px}
+.foot a{text-decoration:none}.foot a:hover{color:#fff}
+.foot .ci{margin-bottom:10px}
+.copy{border-top:1px solid #2A2D34;padding-top:16px;text-align:center;font-size:.8rem}
 
-    /* CTA Box */
-    .cta-banner { background: #111827; color: #ffffff; padding: 40px 24px; border-radius: 12px; text-align: center; margin-top: 50px; }
-    .cta-banner h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
-    .cta-banner p { color: #9CA3AF; margin-bottom: 24px; font-size: 0.95rem; }
-    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-red { background: #D91A1E; color: #ffffff; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; }
-    .btn-white { background: #ffffff; color: #111827; padding: 12px 24px; border-radius: 6px; font-weight: 700; text-decoration: none; }
-  </style>
+.wa{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.35);z-index:40;transition:transform .2s}
+.wa:hover{transform:scale(1.08)}
+@media(max-width:600px){.ans{padding-right:4px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ans{animation:none}.btn,.wa,.pm,.pm::before,.pm::after{transition:none}}
+</style>
 
-  <!-- Google FAQPage JSON-LD Schema for Rich Results -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "HomeAndConstructionBusiness",
-        "@id": "https://venkat-git01.github.io/Rehova-website/#business",
-        "name": "ReHoVa Interiors",
-        "telephone": "+6582075085",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "215, 217, 219 Ubi Ave 4, Intrepid Warehouse Complex",
-          "addressLocality": "Singapore",
-          "postalCode": "408810",
-          "addressCountry": "SG"
-        },
-        "url": "https://venkat-git01.github.io/Rehova-website/"
+<!-- Google FAQPage JSON-LD Schema for Rich Results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "https://venkat-git01.github.io/Rehova-website/#business",
+      "name": "ReHoVa Interiors",
+      "telephone": "+6582075085",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "215, 217, 219 Ubi Ave 4, Intrepid Warehouse Complex",
+        "addressLocality": "Singapore",
+        "postalCode": "408810",
+        "addressCountry": "SG"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://venkat-git01.github.io/Rehova-website/faq.html#faq",
-        "isPartOf": {
-          "@id": "https://venkat-git01.github.io/Rehova-website/"
-        },
-        "about": {
-          "@id": "https://venkat-git01.github.io/Rehova-website/#business"
-        },
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How much does an HDB BTO renovation cost in Singapore?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "When it comes to renovation costs in Singapore, there is no one-size-fits-all number. Because every home is unique, the final investment amount depends entirely on your specific requirements, the exact scope of works, and your preferred design direction & budgets."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between a direct carpentry contractor and an interior designer?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Interior design (ID) firms focus primarily on 3D drawings, concept styling, and sub-contract the fabrication with markups. Direct carpentry contractors own their workshop and build cabinets in-house. ReHoVa combines design consultation with direct workshop fabrication, giving you complete design support without middleman markups."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How is custom carpentry priced in Singapore (pfr)?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Carpentry is priced per foot run (pfr). In Singapore, standard full-height wardrobes average $280 to $380 pfr, kitchen base cabinets average $150 to $200 pfr, and top cabinets average $130 to $180 pfr. Table tops to be priced separately. Pricing varies depending on selection of laminate, internal carcasses, and hardware fittings."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does a renovation take from key collection to handover?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A standard HDB BTO renovation takes 6 to 8 weeks after permit approval. Resale flats or private condos requiring hacking, wet works, and rewiring take 8 to 12 weeks. We map out an exact week-by-week timeline before work starts on site."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you handle HDB and condo MCST renovation permits?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. All hacking, electrical, and plumbing works require formal submissions. We handle the HDB renovation permits, BCA compliance, and condo MCST renovation permits on your behalf before commencing work."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I walk in to see material samples at your Ubi showroom?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Our showroom is located at 215, 217 & 219 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810. You can review laminate samples, stone countertops, and test working hardware in person. Booking an appointment ensures a designer is available to review your floor plan without waiting."
-            }
+      "url": "https://venkat-git01.github.io/Rehova-website/"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://venkat-git01.github.io/Rehova-website/faq.html#faq",
+      "isPartOf": {
+        "@id": "https://venkat-git01.github.io/Rehova-website/"
+      },
+      "about": {
+        "@id": "https://venkat-git01.github.io/Rehova-website/#business"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does an HDB BTO renovation cost in Singapore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When it comes to renovation costs in Singapore, there is no one-size-fits-all number. Because every home is unique, the final investment amount depends entirely on your specific requirements, the exact scope of works, and your preferred design direction & budgets."
           }
-        ]
-      }
-    ]
-  }
-  </script>
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a direct carpentry contractor and an interior designer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Interior design (ID) firms focus primarily on 3D drawings, concept styling, and sub-contract the fabrication with markups. Direct carpentry contractors own their workshop and build cabinets in-house. ReHoVa combines design consultation with direct workshop fabrication, giving you complete design support without middleman markups."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is custom carpentry priced in Singapore (pfr)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Carpentry is priced per foot run (pfr). In Singapore, standard full-height wardrobes average $280 to $380 pfr, kitchen base cabinets average $150 to $200 pfr, and top cabinets average $130 to $180 pfr. Table tops to be priced separately. Pricing varies depending on selection of laminate, internal carcasses, and hardware fittings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a renovation take from key collection to handover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A standard HDB BTO renovation takes 6 to 8 weeks after permit approval. Resale flats or private condos requiring hacking, wet works, and rewiring take 8 to 12 weeks. We map out an exact week-by-week timeline before work starts on site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you handle HDB and condo MCST renovation permits?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All hacking, electrical, and plumbing works require formal submissions. We handle the HDB renovation permits, BCA compliance, and condo MCST renovation permits on your behalf before commencing work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I walk in to see material samples at your Ubi showroom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our showroom is located at 215, 217 & 219 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810. You can review laminate samples, stone countertops, and test working hardware in person. Booking an appointment ensures a designer is available to review your floor plan without waiting."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="rehova-container">
-      <a href="index.html" class="logo-box">
-        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="48" height="48">
-        <div>
-          <span class="brand-name">ReHoVa Interiors Pte Ltd</span>
-          <span class="brand-tagline"><span style="color: #D91A1E; font-weight: 700;">Re</span>liable, <span style="color: #D91A1E; font-weight: 700;">Ho</span>nest, <span style="color: #D91A1E; font-weight: 700;">Va</span>lue For Money</span>
-        </div>
-      </a>
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd Logo" width="46" height="46">
+      <span><b>ReHoVa Interiors Pte Ltd</b><small>Reliable, Honest, Value For Money</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open Navigation Menu"><i></i><i></i><i></i></button>
+    <ul class="links" id="links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="faq.html" class="on">FAQ</a></li>
+      <li><a href="contact.html" class="cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-      <!-- Hamburger Button -->
-      <button class="menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<header class="banner">
+  <div class="wrap">
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about renovation costs, permits, and timelines in Singapore.</p>
+  </div>
+</header>
 
-      <ul class="nav-links" id="navLinksList">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="faq.html" class="active">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+<main class="sec">
+  <div class="wrap faq">
+    <details>
+      <summary>How much does an HDB BTO renovation cost in Singapore?<span class="pm"></span></summary>
+      <p class="ans">When it comes to renovation costs in Singapore, there is no one-size-fits-all number. Because every home is unique, the final investment amount depends entirely on your specific requirements, the exact scope of works, and your preferred design direction &amp; budgets.</p>
+    </details>
+    <details>
+      <summary>What is the difference between a direct carpentry contractor and an interior designer?<span class="pm"></span></summary>
+      <p class="ans">Interior design (ID) firms focus primarily on 3D drawings, concept styling, and sub-contract the fabrication with markups. Direct carpentry contractors own their workshop and build cabinets in-house. ReHoVa combines design consultation with direct workshop fabrication, giving you complete design support without middleman markups.</p>
+    </details>
+    <details>
+      <summary>How is custom carpentry priced in Singapore (pfr)?<span class="pm"></span></summary>
+      <p class="ans">Carpentry is priced per foot run (pfr). In Singapore, standard full-height wardrobes average $280 to $380 pfr, kitchen base cabinets average $150 to $200 pfr, and top cabinets average $130 to $180 pfr. Table tops to be priced separately. Pricing varies depending on selection of laminate, internal carcasses, and hardware fittings.</p>
+    </details>
+    <details>
+      <summary>How long does a renovation take from key collection to handover?<span class="pm"></span></summary>
+      <p class="ans">A standard HDB BTO renovation takes 6 to 8 weeks after permit approval. Resale flats or private condos requiring hacking, wet works, and rewiring take 8 to 12 weeks. We map out an exact week-by-week timeline before work starts on site.</p>
+    </details>
+    <details>
+      <summary>Do you handle HDB and condo MCST renovation permits?<span class="pm"></span></summary>
+      <p class="ans">Yes. All hacking, electrical, and plumbing works require formal submissions. We handle the HDB renovation permits, BCA compliance, and condo MCST renovation permits on your behalf before commencing work.</p>
+    </details>
+    <details>
+      <summary>Can I walk in to see material samples at your Ubi showroom?<span class="pm"></span></summary>
+      <p class="ans">Yes. Our showroom is located at 215, 217 &amp; 219 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810. You can review laminate samples, stone countertops, and test working hardware in person. Booking an appointment ensures a designer is available to review your floor plan without waiting.</p>
+    </details>
+  </div>
+</main>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Have a specific floor plan to discuss?</h2>
+    <p>Visit our Ubi showroom to inspect real material samples and get a transparent quotation.</p>
+    <div class="btns">
+      <a href="contact.html" class="btn btn-red">Book Showroom Visit</a>
+      <a href="gallery.html" class="btn btn-line">View Gallery</a>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <main class="container">
-    <div class="intro">
-      <span class="badge">Singapore Renovation FAQ</span>
-      <h1>Frequently Asked Questions</h1>
-      <p>Everything you need to know about renovation costs, permits, and timelines in Singapore.</p>
-    </div>
-
-    <div class="faq-list">
-      <!-- FAQ 1 -->
-      <details>
-        <summary>
-          <span>How much does an HDB BTO renovation cost in Singapore?</span>
-          <span class="plus-icon">+</span>
-        </summary>
-        <p class="faq-ans">
-          When it comes to renovation costs in Singapore, there is no one-size-fits-all number. Because every home is unique, the final investment amount depends entirely on your specific requirements, the exact scope of works, and your preferred design direction & budgets.
-        </p>
-      </details>
-
-      <!-- FAQ 2 -->
-      <details>
-        <summary>
-          <span>What is the difference between a direct carpentry contractor and an interior designer?</span>
-          <span class="plus-icon">+</span>
-        </summary>
-        <p class="faq-ans">
-          Interior design (ID) firms focus primarily on 3D drawings, concept styling, and sub-contract the fabrication with markups. Direct carpentry contractors own their workshop and build cabinets in-house. ReHoVa combines design consultation with direct workshop fabrication, giving you complete design support without middleman markups.
-        </p>
-      </details>
-
-      <!-- FAQ 3 -->
-      <details>
-        <summary>
-          <span>How is custom carpentry priced in Singapore (pfr)?</span>
-          <span class="plus-icon">+</span>
-        </summary>
-        <p class="faq-ans">
-          Carpentry is priced per foot run (pfr). In Singapore, standard full-height wardrobes average $280 to $380 pfr, kitchen base cabinets average $150 to $200 pfr, and top cabinets average $130 to $180 pfr. Table tops to be priced separately. Pricing varies depending on selection of laminate, internal carcasses, and hardware fittings.
-        </p>
-      </details>
-
-      <!-- FAQ 4 -->
-      <details>
-        <summary>
-          <span>How long does a renovation take from key collection to handover?</span>
-          <span class="plus-icon">+</span>
-        </summary>
-        <p class="faq-ans">
-          A standard HDB BTO renovation takes 6 to 8 weeks after permit approval. Resale flats or private condos requiring hacking, wet works, and rewiring take 8 to 12 weeks. We map out an exact week-by-week timeline before work starts on site.
-        </p>
-      </details>
-
-      <!-- FAQ 5 -->
-      <details>
-        <summary>
-          <span>Do you handle HDB and condo MCST renovation permits?</span>
-          <span class="plus-icon">+</span>
-        </summary>
-        <p class="faq-ans">
-          Yes. All hacking, electrical, and plumbing works require formal submissions. We handle the HDB renovation permits, BCA compliance, and condo MCST renovation permits on your behalf before commencing work.
-        </p>
-      </details>
-
-      <!-- FAQ 6 -->
-      <details>
-        <summary>
-          <span>Can I walk in to see material samples at your Ubi showroom?</span>
-          <span class="plus-icon">+</span>
-        </summary>
-        <p class="faq-ans">
-          Yes. Our showroom is located at 215, 217 & 219 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810. You can review laminate samples, stone countertops, and test working hardware in person. Booking an appointment ensures a designer is available to review your floor plan without waiting.
-        </p>
-      </details>
-    </div>
-
-    <!-- CTA Section -->
-    <div class="cta-banner">
-      <h2>Have a specific floor plan to discuss?</h2>
-      <p>Visit our Ubi showroom to inspect real material samples and get a transparent quotation.</p>
-      <div class="cta-buttons">
-        <a href="contact.html" class="btn-red">Book Showroom Visit</a>
+<footer class="foot">
+  <div class="wrap">
+    <div class="fg">
+      <div>
+        <img src="rehova.png" alt="ReHoVa Interiors Pte Ltd">
+        <p style="color:#fff;font-weight:500">ReHoVa Interiors Pte Ltd</p>
+        <p style="margin:4px 0 12px">UEN: 201711139N</p>
+        <p>Reliable. Honest. Value for Money.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="ci"><a href="tel:+6587877161">+65 8787 7161</a><br><a href="tel:+6582075085">+65 8207 5085</a></div>
+        <div class="ci"><a href="mailto:sales@rehova.sg">sales@rehova.sg</a></div>
+        <div class="ci">217 Ubi Ave 4, Singapore 408810</div>
       </div>
     </div>
-  </main>
+    <div class="copy">&copy; 2026 ReHoVa Interiors Pte Ltd. All rights reserved.</div>
+  </div>
+</footer>
 
-  <script>
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinksList');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-open');
-      });
-    }
-  </script>
+<a class="wa" href="https://wa.me/6582075085?text=Hi%20ReHoVa%20Interiors,%20I%20have%20a%20question%20about%20renovation." aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16c0 2.68.75 5.2 2.06 7.35L2.5 29.5l6.35-1.53A13.91 13.91 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm8.17 19.92c-.34.96-1.7 1.76-2.77 1.99-.73.16-1.68.29-4.88-1.04-4.1-1.7-6.73-5.88-6.94-6.15-.2-.28-1.68-2.24-1.68-4.27s1.06-3.03 1.44-3.44c.38-.41.83-.51 1.1-.51.28 0 .55.01.79.02.26.01.6-.1 1 .84.34.82 1.16 2.83 1.26 3.04.1.2.17.44.03.71-.13.27-.2.44-.4.67-.2.24-.43.53-.61.71-.2.2-.42.42-.18.83.24.41 1.07 1.76 2.3 2.85 1.58 1.41 2.92 1.85 3.33 2.05.41.2.66.17.9-.1.25-.28 1.06-1.24 1.34-1.67.28-.43.56-.36.94-.22.38.14 2.42 1.14 2.83 1.35.41.2.68.3.78.47.1.17.1.99-.24 1.95z" fill="#fff"/></svg>
+</a>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('links').classList.toggle('open');
+</script>
 </body>
 </html>
