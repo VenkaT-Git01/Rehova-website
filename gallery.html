@@ -21,7 +21,7 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body { background-color: var(--light-gray); color: var(--charcoal); line-height: 1.6; }
-    .rehova-container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+    .rehova-container { width: 100%; max-width: 1560px; margin: 0 auto; padding: 0 40px; }
 
     /* Navigation */
     .navbar { background: var(--white); box-shadow: 0 2px 8px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
@@ -171,7 +171,7 @@
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      content-visibility: auto; /* Optimizes rendering performance */
+      content-visibility: auto;
     }
 
     .gallery-item:hover {
@@ -240,7 +240,7 @@
       <h1>Our Completed Projects</h1>
       <p>Explore our workmanship across commercial spaces, medical suites, residential apartments, and custom structural builds.</p>
       
-      <!-- Filter Tabs matching exact folder keys -->
+      <!-- Filter Tabs -->
       <div class="filter-bar">
         <button class="filter-btn active" onclick="filterGallery('all', this)">All Projects</button>
         <button class="filter-btn" onclick="filterGallery('commercial', this)">Commercial Fit-Out</button>
@@ -316,7 +316,7 @@
     </svg>
   </a>
 
-  <!-- High-Performance Asynchronous Gallery Script -->
+  <!-- Explicit Filename Gallery Script -->
   <script>
     const menuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinksList');
@@ -328,54 +328,69 @@
 
     const galleryContainer = document.getElementById('galleryContainer');
 
-    // Exact folder configurations matching your folder counts
-    const categories = [
-      { key: 'commercial', folder: 'Commercial', prefix: 'Commercial.', count: 12, label: 'Commercial Fit-Out' },
-      { key: 'medical', folder: 'Medical & Dental', prefix: 'Medical.', count: 7, label: 'Medical & Dental Clinic' },
-      { key: 'residential', folder: 'Residential', prefix: 'Residential.', count: 11, label: 'Residential Carpentry' },
-      { key: 'aquarium', folder: 'Aquarium', prefix: 'Aquarium.', count: 9, label: 'Aquarium Cabinetry' }
+    // Mapped precisely to your exact folder files and custom names
+    const galleryItems = [
+      // Residential
+      { category: 'residential', file: 'Residential/Bathroom', label: 'Bathroom' },
+      { category: 'residential', file: 'Residential/Bedroom', label: 'Bedroom' },
+      { category: 'residential', file: 'Residential/Dining Room', label: 'Dining Room' },
+      { category: 'residential', file: 'Residential/In house Work station', label: 'In-House Workstation' },
+      { category: 'residential', file: 'Residential/Living Room', label: 'Living Room' },
+      { category: 'residential', file: 'Residential/Pantry Room', label: 'Pantry Room' },
+      { category: 'residential', file: 'Residential/Residential.5', label: 'Residential Interior' },
+      { category: 'residential', file: 'Residential/Tv unit', label: 'TV Unit Carpentry' },
+
+      // Commercial (from Commercial & Medical folders based on your layout)
+      { category: 'commercial', file: 'Commercial/Curved reception counter', label: 'Curved Reception Counter' },
+      { category: 'commercial', file: 'Commercial/Dental Reception', label: 'Dental Reception' },
+      { category: 'commercial', file: 'Commercial/Dental shopfront', label: 'Dental Shopfront' },
+      { category: 'commercial', file: 'Commercial/Dental waiting Lobby', label: 'Dental Waiting Lobby' },
+      { category: 'commercial', file: 'Commercial/Medical Reception', label: 'Medical Reception' },
+      { category: 'commercial', file: 'Commercial/Reception come waiting area', label: 'Reception & Waiting Area' },
+      { category: 'commercial', file: 'Commercial/Reception', label: 'Corporate Reception' },
+
+      // Medical & Dental
+      { category: 'medical', file: 'Medical & Dental/Dental Consultation room', label: 'Dental Consultation Room' },
+      { category: 'medical', file: 'Medical & Dental/Dental Pantry', label: 'Dental Clinic Pantry' },
+      { category: 'medical', file: 'Medical & Dental/Dental X-ray room', label: 'Dental X-Ray Room' },
+
+      // Aquarium
+      { category: 'aquarium', file: 'Aquarium/Aquarium.1', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.2', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.3', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.4', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.5', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.6', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.7', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.8', label: 'Aquarium Cabinetry' },
+      { category: 'aquarium', file: 'Aquarium/Aquarium.9', label: 'Aquarium Cabinetry' }
     ];
 
-    let allItems = [];
-    categories.forEach(cat => {
-      for (let i = 1; i <= cat.count; i++) {
-        allItems.push({
-          category: cat.key,
-          folder: cat.folder,
-          prefix: cat.prefix,
-          index: i,
-          alt: `${cat.label} Singapore Project`,
-          label: cat.label // Clean label without numbers
-        });
-      }
-    });
-
     let currentFilter = 'all';
-    let visibleLimit = 8; // Faster initial batch load
+    let visibleLimit = 8;
 
     function renderGallery(filter = 'all', resetLimit = true) {
       currentFilter = filter;
       if (resetLimit) visibleLimit = 8;
 
-      const list = filter === 'all' ? allItems : allItems.filter(item => item.category === filter);
+      const list = filter === 'all' ? galleryItems : galleryItems.filter(item => item.category === filter);
       const itemsToDisplay = list.slice(0, visibleLimit);
 
-      // Use DocumentFragment for blazing-fast batch DOM insertion
       const fragment = document.createDocumentFragment();
 
       itemsToDisplay.forEach(item => {
         const card = document.createElement('div');
         card.className = 'gallery-item';
-        const defaultSrc = `${item.folder}/${item.prefix}${item.index}.webp`;
+        const defaultSrc = `${item.file}.webp`;
 
         card.innerHTML = `
           <img src="${defaultSrc}" 
-               alt="${item.alt}" 
+               alt="${item.label} - ReHoVa Interiors Singapore" 
                width="400"
                height="230"
                loading="lazy"
                decoding="async"
-               onerror="handleImageFallback(this, '${item.folder}/${item.prefix}${item.index}')">
+               onerror="handleImageFallback(this, '${item.file}')">
           <div class="gallery-label">${item.label}</div>
         `;
         fragment.appendChild(card);
