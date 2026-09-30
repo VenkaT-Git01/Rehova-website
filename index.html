@@ -47,7 +47,7 @@ h1,h2,h3{font-family:var(--head);line-height:1.08;letter-spacing:-.02em}
 .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.02);transition:opacity 1.4s ease}
 .slide.on{opacity:1;animation:kb 9s ease-out forwards}
 @keyframes kb{to{transform:scale(1.12)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,30,36,.55) 0%,rgba(27,30,36,.15) 35%,rgba(27,30,36,.88) 100%)}
+.hero h1{font-size:clamp(1.35rem,3.6vw,2.2rem);font-weight:600;letter-spacing:-.01em;max-width:none;margin-bottom:24px}
 .hero-in{position:absolute;z-index:5;left:0;right:0;bottom:0;padding-bottom:64px}
 .hero h1{font-size:clamp(1.55rem,4vw,2.6rem);font-weight:800;max-width:none;margin-bottom:28px}
 .hero h1 span{display:block;overflow:hidden}
