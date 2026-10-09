@@ -169,7 +169,14 @@ dialog button{position:absolute;top:-6px;right:-6px;width:38px;height:38px;borde
 .social a:hover{background:var(--red);border-color:var(--red);color:#fff}
 .social svg{width:20px;height:20px}
 
-
+/* Hero: headline lower, button smaller and softer */
+.hero::after{background:linear-gradient(180deg,rgba(27,30,36,.10) 0%,rgba(27,30,36,.05) 40%,rgba(27,30,36,.90) 100%)}
+.hero-in{padding-bottom:56px}
+.hero h1{font-size:clamp(1.15rem,3vw,1.8rem);font-weight:500;line-height:1.25;max-width:none;margin-bottom:16px;text-shadow:0 2px 12px rgba(0,0,0,.65)}
+.hero .btns .btn{flex:0 0 auto;padding:10px 22px;font-size:.92rem;border-radius:4px}
+.hero .btn-red{background:#A3171B;box-shadow:none}
+.hero .btn-red:hover{background:#8A1317}
+@media(max-width:700px){.hero-in{padding-bottom:64px}.hero h1{font-size:1.15rem}}
 </style>
 
 
